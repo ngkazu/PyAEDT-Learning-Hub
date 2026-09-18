@@ -33,6 +33,12 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [0.easy/common_3d/ex1_basic_operations/](0.easy/common_3d/ex1_basic_operations/) | AEDTの基本操作（起動→変数→形状→保存→終了） | 30分 |
 | [0.easy/common_3d/ex2_boolean_subtract/](0.easy/common_3d/ex2_boolean_subtract/) | ブーリアン演算（Subtract）で中空の箱を作る | 30分 |
 | [0.easy/common_3d/ex3_setup_basics/](0.easy/common_3d/ex3_setup_basics/) | セットアップ（解析条件）を作ってみる | 30分 |
+| [0.easy/common_3d/ex4_sheets/](0.easy/common_3d/ex4_sheets/) | シート形状（矩形・円）を作る | 30分 |
+| [0.easy/common_3d/ex5_unite/](0.easy/common_3d/ex5_unite/) | ブーリアン演算（Unite）で2つの箱を結合する | 30分 |
+| [0.easy/common_3d/ex6_move_rotate/](0.easy/common_3d/ex6_move_rotate/) | 形状の移動（Move）と回転（Rotate） | 30分 |
+| [0.easy/common_3d/ex7_plane/](0.easy/common_3d/ex7_plane/) | Planeを作る | 30分 |
+| [0.easy/common_3d/ex8_cad_import/](0.easy/common_3d/ex8_cad_import/) | CADのインポート（エクスポート→インポートの往復） | 30分 |
+| [0.easy/common_3d/ex9_variables/](0.easy/common_3d/ex9_variables/) | プロジェクト変数とデザイン変数を作る・変更する | 30分 |
 | [1.normal/hfss/ex1_dipole_antenna/](1.normal/hfss/ex1_dipole_antenna/) | 半波長ダイポールアンテナ（モデル作成〜解析実行） | 60分 |
 | [1.normal/hfss/ex2_iris_filter/](1.normal/hfss/ex2_iris_filter/) | 導波管インダクティブアイリスフィルタ（モデル作成〜解析実行） | 60分 |
 | [2.hard/hfss/ex1_dipole_farfield/](2.hard/hfss/ex1_dipole_farfield/) | 半波長ダイポールアンテナ（S11・遠方界のポスト処理） | 90分 |
