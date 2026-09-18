@@ -24,3 +24,5 @@ exercise/**/E_Field_XZ*.png
 exercise/**/array_factor_theory.png
 exercise/**/array_farfield_3d.png
 exercise/**/results_array_factor.csv
+exercise/**/patch_farfield_3d.png
+exercise/**/results_patch_dimensions.csv

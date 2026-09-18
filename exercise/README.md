@@ -42,6 +42,9 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [1.normal/hfss/ex3_antenna_array/](1.normal/hfss/ex3_antenna_array/) | ダイポールアレイアンテナ（モデル作成〜解析実行） | 60分 |
 | [2.hard/hfss/ex3_antenna_array_farfield/](2.hard/hfss/ex3_antenna_array_farfield/) | ダイポールアレイアンテナ（S/遠方界のポスト処理） | 90分 |
 | [3.expert/hfss/ex3_antenna_array_beamsteering/](3.expert/hfss/ex3_antenna_array_beamsteering/) | ダイポールアレイアンテナ ビームステアリングのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+| [1.normal/hfss/ex4_patch_antenna/](1.normal/hfss/ex4_patch_antenna/) | プローブ給電パッチアンテナ（モデル作成〜解析実行） | 60分 |
+| [2.hard/hfss/ex4_patch_antenna_farfield/](2.hard/hfss/ex4_patch_antenna_farfield/) | プローブ給電パッチアンテナ（S11・遠方界のポスト処理） | 90分 |
+| [3.expert/hfss/ex4_patch_antenna_design/](3.expert/hfss/ex4_patch_antenna_design/) | プローブ給電パッチアンテナの設計計算とPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
 他のアプリケーション（Maxwell 3D, Icepak, Q3D Extractor など）や、HFSSの追加シリーズ（パッチアンテナ、
 チョークコイル、フレキシブルケーブルなど）の課題は、
