@@ -39,9 +39,12 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [2.hard/hfss/ex2_iris_filter/](2.hard/hfss/ex2_iris_filter/) | 導波管インダクティブアイリスフィルタ（高度なポスト処理） | 90分 |
 | [3.expert/hfss/ex1_dipole_s11_postprocessing/](3.expert/hfss/ex1_dipole_s11_postprocessing/) | ダイポールアンテナ S11・遠方界データのPython後処理（VSWR・帯域幅算出・CSV入出力） | 90分以上 |
 | [3.expert/hfss/ex2_iris_filter_postprocessing/](3.expert/hfss/ex2_iris_filter_postprocessing/) | 導波管インダクティブアイリスフィルタ S/フィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+| [1.normal/hfss/ex3_antenna_array/](1.normal/hfss/ex3_antenna_array/) | ダイポールアレイアンテナ（モデル作成〜解析実行） | 60分 |
+| [2.hard/hfss/ex3_antenna_array_farfield/](2.hard/hfss/ex3_antenna_array_farfield/) | ダイポールアレイアンテナ（S/遠方界のポスト処理） | 90分 |
+| [3.expert/hfss/ex3_antenna_array_beamsteering/](3.expert/hfss/ex3_antenna_array_beamsteering/) | ダイポールアレイアンテナ ビームステアリングのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
-他のアプリケーション（Maxwell 3D, Icepak, Q3D Extractor など）や、HFSSの追加シリーズ（アンテナアレイ、
-パッチアンテナ、チョークコイル、フレキシブルケーブルなど）の課題は、
+他のアプリケーション（Maxwell 3D, Icepak, Q3D Extractor など）や、HFSSの追加シリーズ（パッチアンテナ、
+チョークコイル、フレキシブルケーブルなど）の課題は、
 [docs/roadmap/coverage.md](../docs/roadmap/coverage.md) の進捗表に沿って順次追加されます。
 
 ## 進め方

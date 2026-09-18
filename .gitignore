@@ -13,6 +13,7 @@ memo/
 *.aedt.lock
 *.aedtresults/
 *.lock
+batch.log
 
 # 演習実行時に生成される画像・結果CSV（入力用CSVは対象外）
 exercise/**/dipole_s11_vswr.png
@@ -20,3 +21,6 @@ exercise/**/dipole_farfield_3d.png
 exercise/**/results_s11_vswr.csv
 exercise/**/results_s_parameters.csv
 exercise/**/E_Field_XZ*.png
+exercise/**/array_factor_theory.png
+exercise/**/array_farfield_3d.png
+exercise/**/results_array_factor.csv
