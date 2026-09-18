@@ -55,9 +55,15 @@ exercise/{0.easy|1.normal|2.hard|3.expert}/<app_slug>/exNN_<slug>/
 難易度は **Pythonの難しさではなく、AEDT/PyAEDTドメインの複雑さ** で決める（時間目安は多少の逸脱を許容）。
 
 - **easy（目安30分）**: AEDTの基本操作（起動→何かする→保存→終了）。アプリ非依存でよい。
-- **normal（目安60分）**: アプリ別。連成解析は対象外。モデル作成→Setup作成→解析実行の自動化基本。
-- **hard（目安90分）**: 高度なポスト処理。複数アプリの連成はここでのみ任意採用可。
-- **expert（目安90分以上）**: 複数アプリ利用よりも matplotlib 等を使ったPython後処理・データ解析を重視。
+- **normal（目安60分）**: アプリ別。モデル作成→Setup作成→解析実行まで（ポスト処理は行わない）。
+- **hard（目安90分）**: normalと同じモデルにAEDT内部のポスト処理（Report/Field Plot）を追加する。
+  複数アプリの連成はここでのみ任意採用可。
+- **expert（目安90分以上）**: hardの内容にPyVista可視化・CSV入出力を追加する。matplotlib等を使った
+  Python側のカスタムデータ処理を重視する。
+
+normal/hard/expert は「シリーズ」構成（同じ `exNN_<slug>` が同一モデルを段階的に拡張する）を基本とする。
+詳細は `docs/difficulty-criteria.md` の「難易度のシリーズ設計」節と `docs/exercise-template.md` の
+「シリーズ番号（exNN）の付け方」を参照。
 
 ## 題材の作り方
 

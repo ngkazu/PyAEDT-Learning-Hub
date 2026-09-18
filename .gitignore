@@ -2,6 +2,9 @@
 __pycache__/
 *.pyc
 
+# エディタの個人設定（マシン依存のため非公開）
+.vscode/
+
 # 課題作成者向け内部メモ（課題実施者には非公開）
 memo/
 
@@ -10,3 +13,10 @@ memo/
 *.aedt.lock
 *.aedtresults/
 *.lock
+
+# 演習実行時に生成される画像・結果CSV（入力用CSVは対象外）
+exercise/**/dipole_s11_vswr.png
+exercise/**/dipole_farfield_3d.png
+exercise/**/results_s11_vswr.csv
+exercise/**/results_s_parameters.csv
+exercise/**/E_Field_XZ*.png

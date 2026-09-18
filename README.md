@@ -26,9 +26,9 @@ memo/       課題作成者向けの内部メモ（学習者は見る必要な�
 詳細は [docs/difficulty-criteria.md](docs/difficulty-criteria.md) を参照してください。
 
 - **easy（目安30分）**: AEDTの基本操作（起動→何かする→保存→終了）。アプリ非依存の`common_3d`/`common_2d`/`common_circuit`から選べる。
-- **normal（目安60分）**: アプリ別の自動化基本（モデル作成→Setup作成→解析実行）。
-- **hard（目安90分）**: 高度なポスト処理。複数アプリの連成解析はここでのみ任意で扱う。
-- **expert（目安90分以上）**: matplotlib等を使ったPythonデータ処理・後解析を重視。
+- **normal（目安60分）**: アプリ別の自動化基本（モデル作成→Setup作成→解析実行まで。ポスト処理は行わない）。
+- **hard（目安90分）**: normalと同じモデルにAEDT内部ポスト処理（Report/Field Plot）を追加。複数アプリの連成解析はここでのみ任意で扱う。
+- **expert（目安90分以上）**: hardの内容にPyVista可視化・CSV入出力を追加。matplotlib等を使ったPythonデータ処理を重視。
 
 ## 前提知識
 

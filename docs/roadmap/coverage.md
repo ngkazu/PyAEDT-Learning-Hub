@@ -4,10 +4,10 @@
 
 | アプリ | easy | normal | hard | expert |
 |---|---|---|---|---|
-| common_3d（HFSS/Maxwell 3D/Icepak/Q3D Extractor/IcepakFEA共通） | 変数化/形状作成・変更/物性作成・変更（起動→保存→終了）<br>**状態: 未着手** | — | — | — |
+| common_3d（HFSS/Maxwell 3D/Icepak/Q3D Extractor/IcepakFEA共通） | 変数化/形状作成・変更/物性作成・変更（起動→保存→終了）<br>**状態: 完了**（`ex1_basic_operations`。AEDTでの実行検証済み）／ブーリアン演算(Subtract)<br>**状態: 完了**（`ex2_boolean_subtract`。要実行検証）／セットアップ作成基礎<br>**状態: 完了**（`ex3_setup_basics`。要実行検証） | — | — | — |
 | common_2d（Maxwell 2D/2D Extractor共通） | 同上（2D断面形状）<br>**状態: 未着手** | — | — | — |
 | common_circuit（Circuit/EMIT/Twin Builder共通） | 回路要素の配置・接続（起動→保存→終了）<br>**状態: 未着手** | — | — | — |
-| HFSS（`hfss`） | （common_3dで代替可） | ダイポールアンテナ（Setup作成→解析→S11）<br>**状態: 未着手** | 導波管アイリスフィルタ＋高度後処理／MRI・電子レンジ電熱連成（任意の連成）<br>**状態: 未着手** | スパイラルインダクタ結果のPython後処理（matplotlib）<br>**状態: 未着手** |
+| HFSS（`hfss`） | （common_3dで代替可） | ダイポールアンテナ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex1_dipole_antenna`。AEDTでの実行検証済み）／導波管インダクティブアイリスフィルタ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex2_iris_filter`。AEDTでの実行検証済み） | ダイポールアンテナ＋S11・遠方界レポート<br>**状態: 完了**（`ex1_dipole_farfield`。要実行検証）／導波管インダクティブアイリスフィルタ＋高度後処理<br>**状態: 完了**（`ex2_iris_filter`。AEDTでの実行検証済み） | ダイポールアンテナS11・遠方界データのPython後処理（VSWR・帯域幅算出・PyVista・CSV入出力）<br>**状態: 完了**（`ex1_dipole_s11_postprocessing`。要実行検証：CSV入出力・PyVista部分は追加検証が必要）／導波管インダクティブアイリスフィルタのS/フィールドデータ後処理（CSV入出力・PyVista可視化）<br>**状態: 完了**（`ex2_iris_filter_postprocessing`。要実行検証） |
 | Maxwell 3D（`maxwell_3d`） | （common_3dで代替可） | DC解析(質量中心)/チョーク setup+解析<br>**状態: 未着手** | TEAM3浴槽板/TEAM7非対称導体＋高度後処理／Maxwell-Icepak連成（任意）<br>**状態: 未着手** | 磁石セグメンテーション結果のPython後処理<br>**状態: 未着手** |
 | Icepak（`icepak`） | （common_3dで代替可） | グラフィックカード熱解析／CSVブロック定義（外部CSV→境界条件割当て）<br>**状態: 未着手** | 3DコンポーネントIDF/EDBインポート＋高度後処理／HFSS-Icepak連成（任意）<br>**状態: 未着手** | IDF/EDBインポート結果の温度データをPythonで可視化<br>**状態: 未着手** |
 | Q3D Extractor（`q3d`） | （common_3dで代替可） | ブスバー解析<br>**状態: 未着手** | ケーブルパラメータ抽出＋高度後処理／EDBからのPCB DCIR/AC連成（任意）<br>**状態: 未着手** | 抽出結果の周波数特性をPythonでプロット<br>**状態: 未着手** |
@@ -34,3 +34,9 @@
   （expert は Python 後処理を重視するため）。連成課題を採用する場合は主導アプリ側のフォルダに1つだけ置き、
   関連アプリ側に重複配置しない。
 - IcepakFEA（`mechanical`）の normal/hard/expert の具体的な題材は Phase B での検証結果を踏まえて決定する。
+- normal/hard/expert は「シリーズ」構成（同じ `exNN_*` のモデルを段階的に拡張する）。詳細は
+  [difficulty-criteria.md](../difficulty-criteria.md) の「難易度のシリーズ設計」を参照。
+- HFSSの追加シリーズとして、アンテナアレイ・パッチアンテナ（Stackup3D）・チョークコイル（EMC）・
+  フレキシブルケーブル/CPWGの4トピックを予定（Phase B内で段階的に追加）。各シリーズはnormal/hard/expertの
+  3ファイル×3階層で構成される。
+
