@@ -38,7 +38,7 @@ def create_iris(z_position_expr: str, name: str):
 # TODO: 5. wave_port() で2つの開口部シートに Port1, Port2 を割り当てる
 
 # TODO: 6. セットアップ "MySetup" を作成する（Frequency="10GHz", MaximumPasses=8）
-#          周波数掃引 "Sweep1"（Interpolating, 8GHz-12GHz, SaveFields=True）を追加する
+#          周波数スイープ "Sweep1"（Interpolating, 8GHz-12GHz, SaveFields=True）を追加する
 
 # TODO: 7. 解析を実行する
 

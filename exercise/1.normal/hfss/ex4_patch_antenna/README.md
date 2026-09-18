@@ -36,7 +36,7 @@
 6. `patch.create_probe_port(ground, rel_x_offset=0.485)` で、パッチに同軸プローブ給電ポートを割り当てる。
 7. セットアップ `"MySetup"`（`setup_type="HFSSDriven"`, `Frequency="10GHz"`）を作成し、
    `setup.create_frequency_sweep(unit="GHz", name="Sweep1", start_frequency=8, stop_frequency=12,
-   sweep_type="Interpolating")` で周波数掃引を追加する。
+   sweep_type="Interpolating")` で周波数スイープを追加する。
 8. `setup.analyze()` で解析を実行する。
 9. プロジェクトを保存し、`hfss.release_desktop()` でAEDTを終了する（**レポート作成などのポスト処理は
    行わない**。ポスト処理はhard以降で追加する）。
@@ -57,7 +57,7 @@
 - [ ] AEDTがTerminalソリューションで起動し、地板・誘電体・信号層・パッチが作成されている
 - [ ] Airboxと輻射境界が作成されている
 - [ ] プローブ給電ポートが割り当てられている
-- [ ] セットアップと周波数掃引が作成されている
+- [ ] セットアップと周波数スイープが作成されている
 - [ ] 解析がエラーなく完走し、プロジェクト（`.aedt`）が保存されている
 
 ## 発展課題（任意）

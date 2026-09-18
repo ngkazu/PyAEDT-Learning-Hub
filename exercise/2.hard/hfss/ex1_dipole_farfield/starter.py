@@ -20,7 +20,7 @@ hfss = None
 # TODO: 5. セットアップ "MySetup" を作成する
 #          （MultipleAdaptiveFreqsSetup=["1GHz", "2GHz"], MaximumPasses=2 を create_setup の引数として渡す）
 
-# TODO: 6. 周波数掃引を2つ追加する
+# TODO: 6. 周波数スイープを2つ追加する
 #          - "DiscreteSweep"（Discrete, 1GHz-2GHz, RangeStep="0.5GHz", SaveFields=True）
 #          - "InterpolatingSweep"（Interpolating, 1GHz-2GHz, SaveFields=False）
 

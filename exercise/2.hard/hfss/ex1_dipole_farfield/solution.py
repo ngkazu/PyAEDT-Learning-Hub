@@ -40,9 +40,9 @@ setup = hfss.create_setup(
     MaximumPasses=2,
 )
 
-# 6. 周波数掃引を追加する
-# 遠方界（フィールド）データを使うレポートには、フィールドを保存するDiscrete掃引が必要。
-# S11のような広帯域応答の確認には、高速なInterpolating掃引を別途追加する。
+# 6. 周波数スイープを追加する
+# 遠方界（フィールド）データを使うレポートには、フィールドを保存するDiscreteスイープが必要。
+# S11のような広帯域応答の確認には、高速なInterpolatingスイープを別途追加する。
 disc_sweep = setup.add_sweep(
     name="DiscreteSweep",
     sweep_type="Discrete",
@@ -66,7 +66,7 @@ setup.analyze()
 hfss.create_scattering(plot="Return Loss", sweep=interp_sweep.name)
 
 # 9. Elevation面のゲインパターン（遠方界）レポートを作成する
-# variationsでFreq/Theta/Phiを明示することで、中心周波数における角度掃引のレポートになる。
+# variationsでFreq/Theta/Phiを明示することで、中心周波数における角度スイープのレポートになる。
 variations = hfss.available_variations.nominal_values
 variations["Freq"] = [center_freq]
 variations["Theta"] = ["All"]

@@ -39,7 +39,7 @@ hfss = None
 # TODO: 7. hfss.validate_full_design() でモデルを検証する
 
 # TODO: 8. セットアップ "Setup1"（Frequency="10GHz", MaxDeltaS=0.02, MaximumPasses=6）を作成し、
-#          hfss.create_linear_count_sweep(setup="Setup1", ...) で周波数掃引を追加する
+#          hfss.create_linear_count_sweep(setup="Setup1", ...) で周波数スイープを追加する
 #          （create_linear_count_sweep は setup オブジェクトではなく hfss 側のメソッドである点に注意）
 
 # TODO: 9. 解析を実行する

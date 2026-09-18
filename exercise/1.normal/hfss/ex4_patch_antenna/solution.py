@@ -38,7 +38,7 @@ hfss.assign_radiation_boundary_to_objects(region)
 # rel_x_offset はパッチ中心からの相対位置（0=中心、1=端）。インピーダンス整合のための給電点探索は本演習の対象外。
 patch.create_probe_port(ground, rel_x_offset=0.485)
 
-# 7. セットアップと周波数掃引を作成する
+# 7. セットアップと周波数スイープを作成する
 setup = hfss.create_setup(name="MySetup", setup_type="HFSSDriven", Frequency="10GHz")
 setup.create_frequency_sweep(
     unit="GHz",

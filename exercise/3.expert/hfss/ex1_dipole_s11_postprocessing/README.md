@@ -33,12 +33,12 @@
 1. 同じフォルダにある `conditions.csv`（`l_dipole`, `center_freq` の列を持つ1行のCSV）を
    `csv.DictReader` で読み込み、`l_dipole` / `center_freq` の値を取得する。
 2. `1.normal/hfss/ex1_dipole_antenna/solution.py` と同じ手順で、ダイポールアンテナを作成・解析する
-   （変数、3Dコンポーネント挿入、Open Region、セットアップ、周波数掃引、解析実行まで。長さと中心周波数は
+   （変数、3Dコンポーネント挿入、Open Region、セットアップ、周波数スイープ、解析実行まで。長さと中心周波数は
    手順1でCSVから読み込んだ値を使う）。
 3. `hfss.post.get_solution_data(expressions=..., setup_sweep_name=hfss.nominal_sweep, report_category="Modal Solution Data")`
    で S11の解析結果（`SolutionData`）を取得する。ポート名は `"Dipole1_1"` のように決め打ちせず、
    `hfss.excitation_names[0]` で実際の励振名を取得して式を組み立てる。
-   （`hfss.post.get_solution_data()` の掃引指定引数名は `setup_sweep_name` であり、`Setup` オブジェクト自体の
+   （`hfss.post.get_solution_data()` のスイープ指定引数名は `setup_sweep_name` であり、`Setup` オブジェクト自体の
    `get_solution_data()`（引数名 `sweep`）とは別のメソッドなので混同しないよう注意）。
 4. `get_expression_data()` を使って、周波数（x軸）と S11 の dB値（`formula="db20"`）を NumPy配列として取り出す。
 5. dB値から線形の反射係数の絶対値 `|Γ| = 10 ** (S11_dB / 20)` を計算し、

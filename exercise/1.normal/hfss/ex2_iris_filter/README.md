@@ -44,7 +44,7 @@
    「At least one material assignment should have solve inside set!」で失敗する）。
 6. 手順3,4で保持した2つの開口部シートに対し、`hfss.wave_port()` でそれぞれ Wave Port（`Port1`, `Port2`）を
    割り当てる。
-7. セットアップを作成し（中心周波数 `10GHz` 付近）、`SaveFields=True` の周波数掃引を追加する。
+7. セットアップを作成し（中心周波数 `10GHz` 付近）、`SaveFields=True` の周波数スイープを追加する。
    - `hfss.create_setup(name="MySetup", Frequency="10GHz", MaximumPasses=8)`
    - `setup.add_sweep(name="Sweep1", sweep_type="Interpolating", RangeStart="8GHz", RangeEnd="12GHz", SaveFields=True)`
 8. `setup.analyze()` で解析を実行する。
@@ -65,7 +65,7 @@
 - [ ] AEDTが起動し、導波管とアイリスが作成されている
 - [ ] AirRegion（空気ボリューム）がアイリスとの重複なく作成されている
 - [ ] Wave Port（Port1, Port2）が割り当てられている
-- [ ] セットアップと周波数掃引が作成されている
+- [ ] セットアップと周波数スイープが作成されている
 - [ ] 解析がエラーなく完走し、プロジェクト（`.aedt`）が保存されている
 
 ## 発展課題（任意）

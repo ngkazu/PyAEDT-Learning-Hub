@@ -39,7 +39,7 @@ expert レベルに相当）。
    同じ手順でパッチアンテナを作成する。ただし `patch_width`/`patch_length` には固定値ではなく、
    手順2で計算した `width_mm`/`length_mm` を使う。
 5. セットアップ `"MySetup"`（`Frequency=f"{design_freq_ghz}GHz"`）と、設計周波数の±20%の範囲の
-   周波数掃引（Interpolating）を作成する。
+   周波数スイープ（Interpolating）を作成する。
 6. `setup.analyze()` で解析を実行する。
 7. `hfss.get_antenna_data()` で遠方界データ（`FfdSolutionDataExporter`）を取得し、
    `ffdata.farfield_data.plot_3d(quantity="RealizedGain", output_file=..., show=False)` で

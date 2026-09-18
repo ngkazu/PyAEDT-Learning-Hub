@@ -29,7 +29,7 @@ hfss = None
 
 # TODO: 7. セットアップ "MySetup"（setup_type="HFSSDriven", Frequency="10GHz"）を作成し、
 #          setup.create_frequency_sweep(unit="GHz", name="Sweep1", start_frequency=8, stop_frequency=12,
-#          sweep_type="Interpolating") で周波数掃引を追加する
+#          sweep_type="Interpolating") で周波数スイープを追加する
 
 # TODO: 8. 解析を実行する
 

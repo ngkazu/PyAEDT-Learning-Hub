@@ -44,7 +44,7 @@
    「At least one material assignment should have solve inside set!」で失敗する）。
 6. 手順3,4で保持した2つの開口部シートに対し、`hfss.wave_port()` でそれぞれ Wave Port（`Port1`, `Port2`）を
    割り当てる。
-7. セットアップを作成し（中心周波数 `10GHz` 付近）、`SaveFields=True` の周波数掃引を追加する
+7. セットアップを作成し（中心周波数 `10GHz` 付近）、`SaveFields=True` の周波数スイープを追加する
    （フィールドプロットにはフィールドデータの保存が必要）。
 8. 解析を実行する。
 9. `hfss.create_scattering()` で S11・S21 のレポートを作成する。
@@ -66,9 +66,9 @@
   平面（基準点＋法線ベクトル）を指す概念であり、シートオブジェクト（`create_rectangle` 等）は指定できない**。
   自作の面（シート）へのプロットには別の `post.create_fieldplot_surface()` を使う必要がある。
 - フィールドプロットの `intrinsics` には解析済みの周波数（例: `{"Freq": "10GHz"}`）を指定する。
-- フィールドデータは **Interpolating掃引の各周波数では保存されない**。`SaveFields=True` で保存されるのは
+- フィールドデータは **Interpolatingスイープの各周波数では保存されない**。`SaveFields=True` で保存されるのは
   アダプティブメッシュの周波数（今回は10GHz）のみなので、`create_fieldplot_cutplane` の `setup` には
-  `f"{setup.name} : LastAdaptive"` を指定する（掃引名を指定するとデータが見つからずプロットが作成されない）。
+  `f"{setup.name} : LastAdaptive"` を指定する（スイープ名を指定するとデータが見つからずプロットが作成されない）。
 
 ## 評価基準
 

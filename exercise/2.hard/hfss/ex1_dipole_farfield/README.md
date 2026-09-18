@@ -14,8 +14,8 @@
 
 ## 学習目標
 
-- normalと同じモデル（組み込み3Dコンポーネントのダイポール）に対して、目的別に周波数掃引を使い分ける
-  （S11用のInterpolating掃引、遠方界用のフィールド保存Discrete掃引）
+- normalと同じモデル（組み込み3Dコンポーネントのダイポール）に対して、目的別に周波数スイープを使い分ける
+  （S11用のInterpolatingスイープ、遠方界用のフィールド保存Discreteスイープ）
 - S11（リターンロス）のレポートを作成する
 - 遠方界（Far Field）のゲインパターンをElevation面でレポート作成する
 
@@ -28,7 +28,7 @@
 3. 組み込み3Dコンポーネント `"Dipole_Antenna_DM"` を挿入する（`dipole_length` パラメータを `l_dipole` に紐づける）。
 4. `create_open_region(frequency=center_freq)` で解析領域を作成する。
 5. セットアップ `"MySetup"` を作成する（`MultipleAdaptiveFreqsSetup=["1GHz", "2GHz"]`, `MaximumPasses=2`）。
-6. 周波数掃引を2つ追加する。
+6. 周波数スイープを2つ追加する。
    - `"DiscreteSweep"`（`sweep_type="Discrete"`, `RangeStart="1GHz"`, `RangeEnd="2GHz"`, `RangeStep="0.5GHz"`,
      `SaveFields=True`）: 遠方界レポートに使うフィールドデータを各周波数点で保存する。
    - `"InterpolatingSweep"`（`sweep_type="Interpolating"`, `RangeStart="1GHz"`, `RangeEnd="2GHz"`,
@@ -43,8 +43,8 @@
 
 ## ヒント
 
-- 遠方界のレポートは、フィールドを保存した Discrete 掃引（`SaveFields=True`）を参照する必要がある。
-  Interpolating掃引はSパラメータの高速計算用で、フィールドは保存されない。
+- 遠方界のレポートは、フィールドを保存した Discrete スイープ（`SaveFields=True`）を参照する必要がある。
+  InterpolatingスイープはSパラメータの高速計算用で、フィールドは保存されない。
 - `hfss.available_variations.nominal_values` は、現在のモデルのノミナル変数値（Freq/Theta/Phiなど）を
   辞書として返す。この辞書のキーを書き換えてから `create_report` の `variations` 引数に渡す。
 - `context="Elevation"` は、HFSSが既定で用意しているカットプレーン名（球面座標のΦ=0/90面）。
@@ -52,7 +52,7 @@
 ## 評価基準
 
 - [ ] AEDTが起動し、`Dipole_Antenna_DM` コンポーネントが挿入されている
-- [ ] Discrete/Interpolating の2つの周波数掃引が作成されている
+- [ ] Discrete/Interpolating の2つの周波数スイープが作成されている
 - [ ] 解析がエラーなく完走している
 - [ ] S11（Return Loss）のレポートが作成され、1.5GHz付近で十分に低い値（目安: -10dB以下）になっている
 - [ ] Elevation面のゲインパターン（Radiation Pattern）レポートが作成されている

@@ -36,8 +36,8 @@ hfss.assign_radiation_boundary_to_objects(region)
 # 6. プローブ給電ポートを割り当てる
 patch.create_probe_port(ground, rel_x_offset=0.485)
 
-# 7. セットアップと周波数掃引を作成する
-# 遠方界レポートにはフィールドを保存するDiscrete掃引、S11には高速なInterpolating掃引を使う。
+# 7. セットアップと周波数スイープを作成する
+# 遠方界レポートにはフィールドを保存するDiscreteスイープ、S11には高速なInterpolatingスイープを使う。
 setup = hfss.create_setup(name="MySetup", setup_type="HFSSDriven", Frequency="10GHz")
 disc_sweep = setup.create_frequency_sweep(
     unit="GHz",

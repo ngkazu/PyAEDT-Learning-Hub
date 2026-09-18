@@ -95,7 +95,7 @@ _, passed = hfss.validate_full_design()
 if not passed:
     hfss.logger.warning("Design validation reported issues. Check the AEDT message manager.")
 
-# 8. セットアップと周波数掃引を作成する
+# 8. セットアップと周波数スイープを作成する
 setup = hfss.create_setup(name="Setup1", Frequency="10GHz", MaxDeltaS=0.02, MaximumPasses=6)
 # create_linear_count_sweep は setup オブジェクトではなく hfss（アプリ）側のメソッド。
 hfss.create_linear_count_sweep(

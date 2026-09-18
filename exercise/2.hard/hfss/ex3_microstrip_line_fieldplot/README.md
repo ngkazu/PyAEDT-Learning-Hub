@@ -38,9 +38,9 @@
 
 ## ヒント
 
-- `create_fieldplot_surface()` の `setup` には `"Setup1 : LastAdaptive"` を指定する。Interpolating掃引は
+- `create_fieldplot_surface()` の `setup` には `"Setup1 : LastAdaptive"` を指定する。Interpolatingスイープは
   既定で `SaveFields=True` になっていても、各周波数点でフィールドを保存するわけではないため、
-  掃引名を指定するとデータが見つからずプロットが作成されない。
+  スイープ名を指定するとデータが見つからずプロットが作成されない。
 - `field_plot.folder_settings` は、プロジェクトを保存した後の `.aedt` ファイルからプロット設定を
   読み込む。作成直後・未保存の状態では `None` が返ることがあるため、フィールドプロット作成後に
   一度 `hfss.save_project()` を呼んでから `folder_settings` にアクセスする。

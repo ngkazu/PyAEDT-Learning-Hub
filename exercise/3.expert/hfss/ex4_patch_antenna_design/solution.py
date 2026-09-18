@@ -80,7 +80,7 @@ hfss.assign_radiation_boundary_to_objects(region)
 
 patch.create_probe_port(ground, rel_x_offset=0.485)
 
-# 5. セットアップと周波数掃引を作成する
+# 5. セットアップと周波数スイープを作成する
 setup = hfss.create_setup(name="MySetup", setup_type="HFSSDriven", Frequency=f"{design_freq_ghz}GHz")
 setup.create_frequency_sweep(
     unit="GHz",

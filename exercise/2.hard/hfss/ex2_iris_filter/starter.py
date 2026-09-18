@@ -22,7 +22,7 @@ hfss = None
 #          （create_waveguideが作った空気領域はすでに消えているため、このステップが必須）
 # TODO: 5. 開口部シートに Port1, Port2 の Wave Port を割り当てる
 
-# TODO: 6. セットアップと SaveFields=True の周波数掃引を作成する
+# TODO: 6. セットアップと SaveFields=True の周波数スイープを作成する
 #          （Frequency, MaximumPasses は create_setup の引数として直接渡す）
 
 # TODO: 7. 解析を実行する
@@ -33,6 +33,6 @@ hfss = None
 # TODO: 9. カットプレーン用の Plane を modeler.create_plane() で作成し、
 #          post.create_fieldplot_cutplane() で電界のフィールドプロットを作成する
 #          （CutPlaneは座標系上の平面を指す概念であり、シートオブジェクトでは代用できない）
-#          setupは f"{setup.name} : LastAdaptive" を指定する（Interpolating掃引は各周波数でフィールドを保存しないため）
+#          setupは f"{setup.name} : LastAdaptive" を指定する（Interpolatingスイープは各周波数でフィールドを保存しないため）
 
 # TODO: 10. 保存して終了する

@@ -14,8 +14,8 @@
 
 ## 学習目標
 
-- normalと同じパッチアンテナモデルに対して、目的別に周波数掃引を使い分ける
-  （S11用のInterpolating掃引、遠方界用のフィールド保存Discrete掃引）
+- normalと同じパッチアンテナモデルに対して、目的別に周波数スイープを使い分ける
+  （S11用のInterpolatingスイープ、遠方界用のフィールド保存Discreteスイープ）
 - S11（リターンロス）のレポートを作成する
 - 遠方界（Far Field）のゲインパターンをElevation面でレポート作成する
 
@@ -27,7 +27,7 @@
 2. `1.normal/hfss/ex4_patch_antenna/solution.py` と同じ手順で、`Stackup3D`・パッチ・プローブ給電ポートまでを
    作成する。
 3. セットアップ `"MySetup"`（`setup_type="HFSSDriven"`, `Frequency="10GHz"`）を作成する。
-4. 周波数掃引を2つ追加する。
+4. 周波数スイープを2つ追加する。
    - `"DiscreteSweep"`（`sweep_type="Discrete"`, `start_frequency=8`, `stop_frequency=12`,
      `num_of_freq_points=9`, `save_fields=True`）: 遠方界レポートに使うフィールドデータを保存する。
    - `"InterpolatingSweep"`（`sweep_type="Interpolating"`, `start_frequency=8`, `stop_frequency=12`,
@@ -49,8 +49,8 @@
 
 - `create_frequency_sweep()` はSetupHFSSクラスのメソッドで、`add_sweep()` と似ているが引数名が異なる
   （`unit`/`start_frequency`/`stop_frequency`/`num_of_freq_points` など）。戻り値の `.name` 属性で
-  掃引名を取得できる点は `add_sweep()` と同じ。
-- 遠方界のレポートは、フィールドを保存した Discrete 掃引（`save_fields=True`）を参照する必要がある。
+  スイープ名を取得できる点は `add_sweep()` と同じ。
+- 遠方界のレポートは、フィールドを保存した Discrete スイープ（`save_fields=True`）を参照する必要がある。
 - `create_report()` の `context` 引数は、遠方界レポートの場合「無限球面の名前」を指定する仕様（APIドキュメントに明記）。
   `insert_infinite_sphere()` の戻り値（`sphere`）の `.name` をそのまま渡せばよい。
 - **無限球面（Infinite Sphere）が存在しないと、遠方界レポートは正しく作成されず、
@@ -62,7 +62,7 @@
 ## 評価基準
 
 - [ ] AEDTがTerminalソリューションで起動し、パッチアンテナモデルが作成されている
-- [ ] Discrete/Interpolating の2つの周波数掃引が作成されている
+- [ ] Discrete/Interpolating の2つの周波数スイープが作成されている
 - [ ] 解析がエラーなく完走している
 - [ ] S11（Return Loss）のレポートが作成され、10GHz付近で十分に低い値（目安: -10dB以下）になっている
 - [ ] Elevation面のゲインパターン（Radiation Pattern）レポートが作成されている

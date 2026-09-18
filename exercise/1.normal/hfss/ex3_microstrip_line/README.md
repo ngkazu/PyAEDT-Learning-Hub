@@ -18,7 +18,7 @@ AEDT 2026.1 / PyAEDT 1.3.0 で動作検証済みの例）を着想元に、こ�
   `assign_finite_conductivity()` を明示的に割り当てる必要があることを理解する
 - Wave Port・輻射境界など、複数の境界条件が同じ形状に重複しないよう、面単位で割り当てを制御する
 - `hfss.validate_full_design()` でモデルの妥当性を確認する習慣を身につける
-- `hfss.create_linear_count_sweep()`（`hfss`側のメソッド。`setup`のメソッドではない）で周波数掃引を追加する
+- `hfss.create_linear_count_sweep()`（`hfss`側のメソッド。`setup`のメソッドではない）で周波数スイープを追加する
 
 ## 課題
 
@@ -40,7 +40,7 @@ AEDT 2026.1 / PyAEDT 1.3.0 で動作検証済みの例）を着想元に、こ�
 7. `hfss.validate_full_design()` でモデルを検証する。
 8. セットアップ `"Setup1"`（`Frequency="10GHz"`, `MaxDeltaS=0.02`, `MaximumPasses=6`）を作成し、
    `hfss.create_linear_count_sweep(setup="Setup1", unit="GHz", start_frequency=0.1, stop_frequency=10,
-   num_of_freq_points=201, name="Sweep", sweep_type="Interpolating")` で周波数掃引を追加する。
+   num_of_freq_points=201, name="Sweep", sweep_type="Interpolating")` で周波数スイープを追加する。
 9. `setup.analyze()` で解析を実行する。
 10. プロジェクトを保存し、`hfss.release_desktop()` でAEDTを終了する（**レポート作成などのポスト処理は
     行わない**。ポスト処理はhard以降で追加する）。
@@ -64,7 +64,7 @@ AEDT 2026.1 / PyAEDT 1.3.0 で動作検証済みの例）を着想元に、こ�
 - [ ] GND・信号線に `assign_finite_conductivity()` が割り当てられている
 - [ ] Wave Portが両端に作成され、輻射境界がエアボックスの上面・側面のみに割り当てられている
 - [ ] `validate_full_design()` でエラー・警告がない（あった場合は原因を修正している）
-- [ ] セットアップと周波数掃引が作成されている
+- [ ] セットアップと周波数スイープが作成されている
 - [ ] 解析がエラーなく完走し、プロジェクト（`.aedt`）が保存されている
 
 ## 発展課題（任意）

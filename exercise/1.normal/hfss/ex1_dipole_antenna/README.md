@@ -18,7 +18,7 @@
 
 - 組み込み3Dコンポーネントを挿入し、コンポーネント側のパラメータを設計変数に紐づける
 - `create_open_region()` で解析領域（Airbox + 輻射境界）を一括作成する
-- Setupと周波数掃引を作成し、解析を実行する
+- Setupと周波数スイープを作成し、解析を実行する
 
 ## 課題
 
@@ -33,7 +33,7 @@
 4. 中心周波数 `1.5GHz` で `create_open_region()` を実行し、Airboxと輻射境界を作成する。
 5. セットアップ `"MySetup"` を作成する。`MultipleAdaptiveFreqsSetup=["1GHz", "2GHz"]`（帯域の両端でアダプティブ
    メッシュを行う）、`MaximumPasses=2` とする。
-6. 上記セットアップに、周波数掃引 `"Sweep1"`（`sweep_type="Interpolating"`, `RangeStart="1GHz"`,
+6. 上記セットアップに、周波数スイープ `"Sweep1"`（`sweep_type="Interpolating"`, `RangeStart="1GHz"`,
    `RangeEnd="2GHz"`）を追加する。
 7. `setup.analyze()` で解析を実行する。
 8. プロジェクトを保存し、`hfss.release_desktop()` でAEDTを終了する（**レポート作成などのポスト処理は
@@ -50,13 +50,13 @@
   のように、`create_setup` の `**kwargs` にネイティブAPIのプロパティ名をそのまま渡す方法を使う
   （作成後に `setup.props[...] = ...` としてから `setup.update()` する方法もあるが、プロパティの組み合わせに
   よっては期待通りに反映されないことがあるため、作成時にまとめて指定する方が確実）。
-- 周波数掃引は `setup.add_sweep(name=..., sweep_type=..., RangeStart=..., RangeEnd=...)` で追加する。
+- 周波数スイープは `setup.add_sweep(name=..., sweep_type=..., RangeStart=..., RangeEnd=...)` で追加する。
 
 ## 評価基準
 
 - [ ] AEDTが起動し、`Dipole_Antenna_DM` コンポーネントが挿入されている
 - [ ] Airboxと輻射境界（Open Region）が作成されている
-- [ ] セットアップと周波数掃引が作成されている
+- [ ] セットアップと周波数スイープが作成されている
 - [ ] 解析がエラーなく完走し、プロジェクト（`.aedt`）が保存されている
 
 ## 発展課題（任意）

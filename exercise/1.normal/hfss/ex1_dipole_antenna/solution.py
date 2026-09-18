@@ -34,7 +34,7 @@ hfss.create_open_region(frequency="1.5GHz")
 
 # 5. セットアップを作成する
 # MultipleAdaptiveFreqsSetup で帯域の両端(1GHz/2GHz)にアダプティブメッシュを行うことで、
-# 掃引全体（特に共振点1.5GHz付近）でのメッシュ精度を安定させる。
+# スイープ全体（特に共振点1.5GHz付近）でのメッシュ精度を安定させる。
 # props経由での事後変更ではなく、create_setup の引数として直接渡す（native APIのプロパティ名）。
 setup = hfss.create_setup(
     name="MySetup",
@@ -42,7 +42,7 @@ setup = hfss.create_setup(
     MaximumPasses=2,
 )
 
-# 6. 周波数掃引を追加する
+# 6. 周波数スイープを追加する
 setup.add_sweep(
     name="Sweep1",
     sweep_type="Interpolating",

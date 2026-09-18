@@ -16,7 +16,7 @@ hfss = None
 
 # TODO: 3. セットアップ "MySetup"（setup_type="HFSSDriven", Frequency="10GHz"）を作成する
 
-# TODO: 4. 周波数掃引を2つ追加する
+# TODO: 4. 周波数スイープを2つ追加する
 #          - "DiscreteSweep"（sweep_type="Discrete", 8-12GHz, num_of_freq_points=9, save_fields=True）
 #          - "InterpolatingSweep"（sweep_type="Interpolating", 8-12GHz, save_fields=False）
 

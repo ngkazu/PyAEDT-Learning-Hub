@@ -72,7 +72,7 @@ hfss.modeler.subtract(air_region, [iris1, iris2], keep_originals=True)
 hfss.wave_port(assignment=port1_sheet.name, name="Port1")
 hfss.wave_port(assignment=port2_sheet.name, name="Port2")
 
-# 6. セットアップと周波数掃引を作成する
+# 6. セットアップと周波数スイープを作成する
 # props経由での事後変更ではなく、create_setup の引数として直接渡す（native APIのプロパティ名）。
 setup = hfss.create_setup(name="MySetup", Frequency="10GHz", MaximumPasses=8)
 

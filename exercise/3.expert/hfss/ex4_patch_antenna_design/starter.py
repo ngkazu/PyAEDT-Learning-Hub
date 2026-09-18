@@ -32,7 +32,7 @@ length_mm = None
 hfss = None
 
 # TODO: 5. セットアップ "MySetup"（setup_type="HFSSDriven", Frequency=f"{design_freq_ghz}GHz"）を作成し、
-#          周波数掃引（Interpolating, design_freq_ghz の±20%）を追加する
+#          周波数スイープ（Interpolating, design_freq_ghz の±20%）を追加する
 
 # TODO: 6. 解析を実行する
 
