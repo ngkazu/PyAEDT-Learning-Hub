@@ -26,3 +26,5 @@ exercise/**/array_farfield_3d.png
 exercise/**/results_array_factor.csv
 exercise/**/patch_farfield_3d.png
 exercise/**/results_patch_dimensions.csv
+exercise/**/MagE_Surface*.jpg
+exercise/**/MagE_Surface*.png

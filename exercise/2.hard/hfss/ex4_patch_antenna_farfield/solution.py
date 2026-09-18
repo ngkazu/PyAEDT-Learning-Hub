@@ -63,7 +63,17 @@ setup.analyze()
 # 9. S11（リターンロス）のレポートを作成する
 hfss.create_scattering(plot="Return Loss", sweep=interp_sweep.name)
 
-# 10. 中心周波数(10GHz)におけるElevation面のゲインパターン（遠方界）レポートを作成する
+# 10. 無限球面（遠方界の基準となる球面）を作成する
+# dipole/arrayで使ったcreate_open_region()は輻射境界と同時に既定の無限球面も作成するが、
+# パッチアンテナで使ったcreate_region()+assign_radiation_boundary_to_objects()は境界のみで
+# 無限球面を作らないため、遠方界レポート作成前に明示的に追加する必要がある。
+sphere = hfss.insert_infinite_sphere(
+    theta_start=-180, theta_stop=180, theta_step=5, phi_start=0, phi_stop=180, phi_step=5
+)
+
+# 11. 中心周波数(10GHz)におけるElevation面のゲインパターン（遠方界）レポートを作成する
+# create_report()のcontext引数は、遠方界レポートでは「無限球面の名前」を指定する仕様のため、
+# 手順10で作成した無限球面オブジェクトの名前（sphere.name）を明示的に渡す。
 variations = hfss.available_variations.nominal_values
 variations["Freq"] = ["10GHz"]
 variations["Theta"] = ["All"]
@@ -73,7 +83,7 @@ elevation_plot = hfss.post.create_report(
     setup_sweep_name=disc_sweep.name,
     variations=variations,
     primary_sweep_variable="Theta",
-    context="Elevation",
+    context=sphere.name,
     report_category="Far Fields",
     plot_type="Radiation Pattern",
     plot_name="Elevation Gain (dB)",
@@ -81,6 +91,6 @@ elevation_plot = hfss.post.create_report(
 elevation_plot.children["Legend"].properties["Show Trace Name"] = False
 elevation_plot.children["Legend"].properties["Show Solution Name"] = False
 
-# 11. 保存して終了する
+# 12. 保存して終了する
 hfss.save_project()
 hfss.release_desktop(close_projects=True, close_desktop=True)

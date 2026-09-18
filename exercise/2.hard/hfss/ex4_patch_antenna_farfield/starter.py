@@ -24,10 +24,17 @@ hfss = None
 
 # TODO: 6. create_scattering(plot="Return Loss", sweep=interp_sweep.name) でS11レポートを作成する
 
-# TODO: 7. hfss.available_variations.nominal_values を取得し、Freq/Theta/Phiを書き換えてから
+# TODO: 7. hfss.insert_infinite_sphere(theta_start=-180, theta_stop=180, theta_step=5,
+#          phi_start=0, phi_stop=180, phi_step=5) で無限球面を作成する（戻り値を sphere 変数に保持する）
+#          （create_open_regionと違い、create_region+assign_radiation_boundary_to_objectsだけでは
+#          無限球面が作られないため、遠方界レポートの前に明示的に追加する必要がある）
+
+# TODO: 8. hfss.available_variations.nominal_values を取得し、Freq/Theta/Phiを書き換えてから
 #          hfss.post.create_report(expressions="db(GainTheta)", setup_sweep_name=disc_sweep.name,
-#          variations=variations, primary_sweep_variable="Theta", context="Elevation",
+#          variations=variations, primary_sweep_variable="Theta", context=sphere.name,
 #          report_category="Far Fields", plot_type="Radiation Pattern", plot_name=...) で
 #          Elevation面のゲインパターンをレポート作成する
+#          （contextには手順7で作った無限球面の名前(sphere.name)を渡す。遠方界レポートのcontextは
+#          「無限球面の名前」を指定する仕様のため）
 
-# TODO: 8. 保存して終了する
+# TODO: 9. 保存して終了する

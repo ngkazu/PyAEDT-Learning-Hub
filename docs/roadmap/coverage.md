@@ -7,7 +7,7 @@
 | common_3d（HFSS/Maxwell 3D/Icepak/Q3D Extractor/IcepakFEA共通） | 変数化/形状作成・変更/物性作成・変更（起動→保存→終了）<br>**状態: 完了**（`ex1_basic_operations`。AEDTでの実行検証済み）／ブーリアン演算(Subtract)<br>**状態: 完了**（`ex2_boolean_subtract`。要実行検証）／セットアップ作成基礎<br>**状態: 完了**（`ex3_setup_basics`。要実行検証） | — | — | — |
 | common_2d（Maxwell 2D/2D Extractor共通） | 同上（2D断面形状）<br>**状態: 未着手** | — | — | — |
 | common_circuit（Circuit/EMIT/Twin Builder共通） | 回路要素の配置・接続（起動→保存→終了）<br>**状態: 未着手** | — | — | — |
-| HFSS（`hfss`） | （common_3dで代替可） | ダイポールアンテナ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex1_dipole_antenna`。AEDTでの実行検証済み）／導波管インダクティブアイリスフィルタ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex2_iris_filter`。AEDTでの実行検証済み）／ダイポールアレイアンテナ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex3_antenna_array`。AEDTでの実行検証済み）／プローブ給電パッチアンテナ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex4_patch_antenna`。要実行検証） | ダイポールアンテナ＋S11・遠方界レポート<br>**状態: 完了**（`ex1_dipole_farfield`。要実行検証）／導波管インダクティブアイリスフィルタ＋高度後処理<br>**状態: 完了**（`ex2_iris_filter`。AEDTでの実行検証済み）／ダイポールアレイアンテナ＋S/遠方界レポート<br>**状態: 完了**（`ex3_antenna_array_farfield`。AEDTでの実行検証済み）／プローブ給電パッチアンテナ＋S11・遠方界レポート<br>**状態: 完了**（`ex4_patch_antenna_farfield`。要実行検証） | ダイポールアンテナS11・遠方界データのPython後処理（VSWR・帯域幅算出・PyVista・CSV入出力）<br>**状態: 完了**（`ex1_dipole_s11_postprocessing`。要実行検証：CSV入出力・PyVista部分は追加検証が必要）／導波管インダクティブアイリスフィルタのS/フィールドデータ後処理（CSV入出力・PyVista可視化）<br>**状態: 完了**（`ex2_iris_filter_postprocessing`。要実行検証）／ダイポールアレイアンテナのビームステアリングPython後処理（`edit_sources`・理論アレイファクタ・PyVista可視化）<br>**状態: 完了**（`ex3_antenna_array_beamsteering`。AEDTでの実行検証済み）／パッチアンテナの設計計算Python後処理（伝送線路モデル・CSV入出力・PyVista可視化）<br>**状態: 完了**（`ex4_patch_antenna_design`。要実行検証） |
+| HFSS（`hfss`） | （common_3dで代替可） | ダイポールアンテナ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex1_dipole_antenna`。AEDTでの実行検証済み）／導波管インダクティブアイリスフィルタ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex2_iris_filter`。AEDTでの実行検証済み）／マイクロストリップ線路（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex3_microstrip_line`。要実行検証）／プローブ給電パッチアンテナ（Setup作成→解析実行のみ）<br>**状態: 完了**（`ex4_patch_antenna`。要実行検証） | ダイポールアンテナ＋S11・遠方界レポート<br>**状態: 完了**（`ex1_dipole_farfield`。要実行検証）／導波管インダクティブアイリスフィルタ＋高度後処理<br>**状態: 完了**（`ex2_iris_filter`。AEDTでの実行検証済み）／マイクロストリップ線路＋S/フィールドプロット<br>**状態: 完了**（`ex3_microstrip_line_fieldplot`。要実行検証）／プローブ給電パッチアンテナ＋S11・遠方界レポート<br>**状態: 完了**（`ex4_patch_antenna_farfield`。要実行検証） | ダイポールアンテナS11・遠方界データのPython後処理（VSWR・帯域幅算出・PyVista・CSV入出力）<br>**状態: 完了**（`ex1_dipole_s11_postprocessing`。要実行検証：CSV入出力・PyVista部分は追加検証が必要）／導波管インダクティブアイリスフィルタのS/フィールドデータ後処理（CSV入出力・PyVista可視化）<br>**状態: 完了**（`ex2_iris_filter_postprocessing`。要実行検証）／マイクロストリップ線路のS/フィールドデータ後処理（CSV入出力・PyVista可視化）<br>**状態: 完了**（`ex3_microstrip_line_postprocessing`。要実行検証）／パッチアンテナの設計計算Python後処理（伝送線路モデル・CSV入出力・PyVista可視化）<br>**状態: 完了**（`ex4_patch_antenna_design`。要実行検証） |
 | Maxwell 3D（`maxwell_3d`） | （common_3dで代替可） | DC解析(質量中心)/チョーク setup+解析<br>**状態: 未着手** | TEAM3浴槽板/TEAM7非対称導体＋高度後処理／Maxwell-Icepak連成（任意）<br>**状態: 未着手** | 磁石セグメンテーション結果のPython後処理<br>**状態: 未着手** |
 | Icepak（`icepak`） | （common_3dで代替可） | グラフィックカード熱解析／CSVブロック定義（外部CSV→境界条件割当て）<br>**状態: 未着手** | 3DコンポーネントIDF/EDBインポート＋高度後処理／HFSS-Icepak連成（任意）<br>**状態: 未着手** | IDF/EDBインポート結果の温度データをPythonで可視化<br>**状態: 未着手** |
 | Q3D Extractor（`q3d`） | （common_3dで代替可） | ブスバー解析<br>**状態: 未着手** | ケーブルパラメータ抽出＋高度後処理／EDBからのPCB DCIR/AC連成（任意）<br>**状態: 未着手** | 抽出結果の周波数特性をPythonでプロット<br>**状態: 未着手** |
@@ -36,7 +36,10 @@
 - IcepakFEA（`mechanical`）の normal/hard/expert の具体的な題材は Phase B での検証結果を踏まえて決定する。
 - normal/hard/expert は「シリーズ」構成（同じ `exNN_*` のモデルを段階的に拡張する）。詳細は
   [difficulty-criteria.md](../difficulty-criteria.md) の「難易度のシリーズ設計」を参照。
-- HFSSの追加シリーズとして、アンテナアレイ・パッチアンテナ（完了）に続き、チョークコイル（EMC）・
-  フレキシブルケーブル/CPWGの2トピックを予定（Phase B内で段階的に追加）。各シリーズはnormal/hard/expertの
-  3ファイル×3階層で構成される。
+- HFSSの追加シリーズとして、マイクロストリップ線路・パッチアンテナ（完了）に続き、RCS（モノスタティック
+  レーダー断面積、SBR+ソルバー）を予定（Phase B内で追加。他シリーズと物理・ワークフローが大きく異なるため
+  参考実装を精査してから着手する）。各シリーズはnormal/hard/expertの3ファイル×3階層で構成される。
+  ※ 当初予定していたアンテナアレイ・チョークコイル・フレキシブルケーブル/CPWGは、マイクロストリップ線路・
+  RCSに差し替え済み（アンテナアレイは実装済みだったが、ユーザー判断によりex3をマイクロストリップ線路に
+  置き換えた）。
 
