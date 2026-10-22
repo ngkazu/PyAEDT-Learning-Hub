@@ -42,6 +42,11 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [0.easy/common_3d/ex10_choke_geometry/](0.easy/common_3d/ex10_choke_geometry/) | チョークのジオメトリを作る（check_choke_values→create_choke） | 30分 |
 | [0.easy/common_3d/ex11_get_faces/](0.easy/common_3d/ex11_get_faces/) | 面（Face）を取得する（get_object_faces→get_face_center/get_face_area） | 30分 |
 | [0.easy/common_3d/ex12_export_import_config/](0.easy/common_3d/ex12_export_import_config/) | デザイン設定のJSON入出力（configurations.export_config→import_config） | 30分 |
+| [0.easy/common_3d/ex13_custom_material/](0.easy/common_3d/ex13_custom_material/) | カスタム材料を作る（add_material→conductivity/permeability設定） | 30分 |
+| [0.easy/common_3d/ex14_section_terminal/](0.easy/common_3d/ex14_section_terminal/) | 断面を切ってターミナル面を作る（section→separate_bodies→delete） | 30分 |
+| [0.easy/common_3d/ex15_polyline_duplicate/](0.easy/common_3d/ex15_polyline_duplicate/) | ポリラインの回転複製で環状形状を作る（create_polyline→duplicate_around_axis→unite） | 30分 |
+| [0.easy/common_3d/ex16_local_coordinate_system/](0.easy/common_3d/ex16_local_coordinate_system/) | ローカル座標系を作る（create_coordinate_system→set_working_coordinate_system） | 30分 |
+| [0.easy/common_3d/ex17_non_model/](0.easy/common_3d/ex17_non_model/) | 非モデル（non_model）形状を作る | 30分 |
 | [1.normal/hfss/ex01_dipole_antenna/](1.normal/hfss/ex01_dipole_antenna/) | 半波長ダイポールアンテナ（モデル作成〜解析実行） | 60分 |
 | [1.normal/hfss/ex02_iris_filter/](1.normal/hfss/ex02_iris_filter/) | 導波管インダクティブアイリスフィルタ（モデル作成〜解析実行） | 60分 |
 | [2.hard/hfss/ex01_dipole_farfield/](2.hard/hfss/ex01_dipole_farfield/) | 半波長ダイポールアンテナ（S11・遠方界のポスト処理） | 90分 |
@@ -66,6 +71,12 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [1.normal/maxwell_3d/ex01_choke/](1.normal/maxwell_3d/ex01_choke/) | コモンモードチョーク（モデル作成〜解析実行） | 60分 |
 | [2.hard/maxwell_3d/ex01_choke_lossreport/](2.hard/maxwell_3d/ex01_choke_lossreport/) | コモンモードチョーク（巻線損失・コア損失レポート、Bフィールドプロット） | 90分 |
 | [3.expert/maxwell_3d/ex01_choke_postprocessing/](3.expert/maxwell_3d/ex01_choke_postprocessing/) | コモンモードチョーク 損失・BフィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+| [1.normal/maxwell_3d/ex02_asymmetric_conductor/](1.normal/maxwell_3d/ex02_asymmetric_conductor/) | TEAM7非対称導体（モデル作成〜解析実行） | 60分 |
+| [1.normal/maxwell_3d/ex03_coil_core/](1.normal/maxwell_3d/ex03_coil_core/) | コイル・コア電磁石（モデル作成〜解析実行） | 60分 |
+| [2.hard/maxwell_3d/ex02_asymmetric_conductor_bzreport/](2.hard/maxwell_3d/ex02_asymmetric_conductor_bzreport/) | TEAM7非対称導体（$B_z$ラインレポート） | 90分 |
+| [2.hard/maxwell_3d/ex03_coil_core_fieldplot/](2.hard/maxwell_3d/ex03_coil_core_fieldplot/) | コイル・コア電磁石（インダクタンスレポート、Bフィールドプロット） | 90分 |
+| [3.expert/maxwell_3d/ex02_asymmetric_conductor_benchmark/](3.expert/maxwell_3d/ex02_asymmetric_conductor_benchmark/) | TEAM7非対称導体 実測データとの比較（CSV入出力・PyVista可視化） | 90分以上 |
+| [3.expert/maxwell_3d/ex03_coil_core_postprocessing/](3.expert/maxwell_3d/ex03_coil_core_postprocessing/) | コイル・コア電磁石 インダクタンスデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
 ## 進め方
 
