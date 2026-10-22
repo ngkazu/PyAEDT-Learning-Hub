@@ -77,7 +77,13 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [2.hard/maxwell_3d/ex03_coil_core_fieldplot/](2.hard/maxwell_3d/ex03_coil_core_fieldplot/) | コイル・コア電磁石（インダクタンスレポート、Bフィールドプロット） | 90分 |
 | [3.expert/maxwell_3d/ex02_asymmetric_conductor_benchmark/](3.expert/maxwell_3d/ex02_asymmetric_conductor_benchmark/) | TEAM7非対称導体 実測データとの比較（CSV入出力・PyVista可視化） | 90分以上 |
 | [3.expert/maxwell_3d/ex03_coil_core_postprocessing/](3.expert/maxwell_3d/ex03_coil_core_postprocessing/) | コイル・コア電磁石 インダクタンスデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+## 現在の演習一覧（Phase C: Q3D Extractor）
 
+| フォルダ | タイトル | 目安時間 |
+|---|---|---|
+| [1.normal/q3d/ex01_busbar/](1.normal/q3d/ex01_busbar/) | ブスバー解析（モデル作成〜解析実行） | 60分 |
+| [2.hard/q3d/ex01_busbar_matrixreport/](2.hard/q3d/ex01_busbar_matrixreport/) | ブスバー解析（縮退行列・キャパシタンス/インダクタンスレポート） | 90分 |
+| [3.expert/q3d/ex01_busbar_postprocessing/](3.expert/q3d/ex01_busbar_postprocessing/) | ブスバー解析 容量・インダクタンスデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 ## 進め方
 
 1. 各課題フォルダの `README.md` を読み、課題内容・学習目標・評価基準を確認する。

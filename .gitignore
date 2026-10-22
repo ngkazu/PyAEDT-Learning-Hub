@@ -35,6 +35,11 @@ exercise/**/results_inductance.csv
 exercise/**/results_benchmark_comparison.csv
 exercise/**/PlateMagB*.png
 exercise/**/PlateMagB*.jpg
+exercise/**/results_q3d_busbar.csv
+exercise/**/results_q3d_busbar.png
+exercise/**/busbar_model.png
+exercise/**/BusbarCurrentDensity*.png
+exercise/**/BusbarCurrentDensity*.jpg
 
 # AEDTデスクトップ起動時に紛れ込むログ（プロジェクト外のログがcwdに出力される場合がある）
 /debug.log
