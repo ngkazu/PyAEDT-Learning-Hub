@@ -27,8 +27,19 @@
 
 1. 同じフォルダにある `conditions.csv`（`wg_length`, `iris_thickness`, `iris_aperture` の列を持つ1行のCSV）を
    `csv.DictReader` で読み込み、各値を取得する。
-2. `2.hard/hfss/ex02_iris_filter/solution.py` と同じ手順で、導波管・アイリス・Wave Port・セットアップ・
-   周波数スイープ・解析実行までを行う（寸法はCSVから読み込んだ値を使う）。
+2. `2.hard/hfss/ex02_iris_filter/` と同じ手順で、次を順に行う（寸法はCSVから読み込んだ
+   `wg_length`/`iris_thickness`/`iris_aperture` の値を使う）。
+   - `hfss.modeler.create_waveguide(wgmodel="WG16", wg_direction_axis=2, wg_length="wg_length",
+     create_sheets_on_openings=True)` でWR-90導波管（内寸22.86mm×10.16mm）を作成する。
+   - 内寸全体を覆う銅板を導波管長の1/3・2/3の位置に作成し、幅`iris_aperture`の穴を`subtract`で
+     くり抜いてインダクティブアイリスを2枚作る。
+   - 導波管内寸と同じサイズの空気ボリューム（`material="vacuum"`）を作成し、2枚のアイリスを
+     `subtract(keep_originals=True)`でくり抜く。
+   - 2つの開口部シートに `hfss.wave_port()` でWave Port（`Port1`, `Port2`）を割り当てる。
+   - `hfss.create_setup(name="MySetup", Frequency="10GHz", MaximumPasses=8)` でセットアップを作成する。
+   - `setup.add_sweep(name="Sweep1", sweep_type="Interpolating", RangeStart="8GHz", RangeEnd="12GHz",
+     SaveFields=True)` で周波数スイープを追加する。
+   - `setup.analyze()` で解析を実行する。
 3. `hfss.excitation_names` から実際の励振名を取得し、S11・S21の2つの式について
    `hfss.post.get_solution_data(expressions=[...], setup_sweep_name=hfss.nominal_sweep,
    report_category="Modal Solution Data")` で `SolutionData` を取得する。

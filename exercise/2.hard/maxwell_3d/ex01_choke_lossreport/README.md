@@ -23,8 +23,16 @@ AEDT内部のポスト処理（損失レポート・フィールドプロット�
 （モデル作成〜解析実行までは [1.normal/maxwell_3d/ex01_choke/](../../../1.normal/maxwell_3d/ex01_choke/)
 と同じ内容です）。
 
-1. normalと同じ手順で、チョークのモデル作成・解析領域（Region）作成・電流励振の割り当て・セットアップ作成・解析実行を行う
+1. [1.normal/maxwell_3d/ex01_choke/](../../../1.normal/maxwell_3d/ex01_choke/) と同じ手順で、次を順に行う
    （Regionがないと解析が失敗する点に注意）。
+   - `choke_descriptor` 辞書（コア・巻線2本、単層、差動モード）を定義し、`modeler.check_choke_values()` で
+     検証後、`modeler.create_choke(input_file=choke_fn)` でチョークを作成する。
+   - `modeler.create_air_region(x_pos=100, y_pos=100, z_pos=100, x_neg=100, y_neg=100, z_neg=0)` で
+     解析領域を作成する。
+   - `modeler.get_object_faces()` で各巻線の両端面を取得し、`assign_current()` で振幅1000A・
+     位相0deg/180degの電流励振を割り当てる。
+   - セットアップ `"MySetup"` を作成し、`setup.props["Frequency"] = "150kHz"` を設定する。
+   - `setup.analyze()` で解析を実行する。
 2. `post.create_report(expressions=["SolidLoss"], report_category="Fields", plot_type="Data Table",
    plot_name="WindingLoss")` で、巻線のオーミック損失をデータテーブルレポートとして作成する。
 3. `post.create_report(expressions=["CoreLoss"], report_category="Fields", plot_type="Data Table",

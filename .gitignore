@@ -31,6 +31,10 @@ exercise/**/MagE_Surface*.png
 exercise/**/CoreMagB*.png
 exercise/**/CoreMagB*.jpg
 exercise/**/results_losses.csv
+exercise/**/results_inductance.csv
+exercise/**/results_benchmark_comparison.csv
+exercise/**/PlateMagB*.png
+exercise/**/PlateMagB*.jpg
 
 # AEDTデスクトップ起動時に紛れ込むログ（プロジェクト外のログがcwdに出力される場合がある）
 /debug.log

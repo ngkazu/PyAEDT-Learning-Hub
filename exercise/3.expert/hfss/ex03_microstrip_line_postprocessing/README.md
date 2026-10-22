@@ -26,9 +26,18 @@
 
 1. 同じフォルダにある `conditions.csv`（`line_w_mm`, `line_l_mm` の列を持つ1行のCSV）を
    `csv.DictReader` で読み込み、各値を取得する。
-2. `1.normal/hfss/ex03_microstrip_line/solution.py` と同じ手順で、基板・GND・信号線・エアボックス・
-   Wave Port・輻射境界の作成、モデル検証、セットアップ作成・解析実行までを行う
-   （導体幅・長さはCSVから読み込んだ値を使う）。
+2. `1.normal/hfss/ex03_microstrip_line/` と同じ手順で、次を順に行う（導体幅・長さはCSVから読み込んだ
+   `line_w_mm`/`line_l_mm` の値を使う。それ以外は固定値 `SUB_W=6.0mm`, `SUB_H=1.0mm`, `AIR_H=3.0mm`）。
+   - 基板（3Dソリッド）を `origin=[0, -SUB_W/2, 0]`, `sizes=[line_l_mm, SUB_W, SUB_H]`,
+     `material="alumina_96pct"` で作成する。
+   - GND・信号線を `modeler.create_rectangle()` で2Dシートとして作成し、それぞれに
+     `hfss.assign_finite_conductivity(material="copper")` を割り当てる（信号線幅は `line_w_mm`）。
+   - 基板上面からエアボックス（`sizes=[line_l_mm, SUB_W, AIR_H]`, `material="vacuum"`）を作成する。
+   - エアボックスの両端面に `hfss.wave_port(modes=1, renormalize=True, impedance=50)` でWave Portを作成する。
+   - エアボックスの下面・両端面を除く面に `hfss.assign_radiation_boundary_to_faces()` で輻射境界を割り当てる。
+   - `hfss.validate_full_design()` でモデルを検証する。
+   - セットアップ `"Setup1"`（`Frequency="10GHz"`, `MaxDeltaS=0.02`, `MaximumPasses=6`）を作成し、
+     `hfss.create_linear_count_sweep(...)` で周波数スイープを追加後、`setup.analyze()` で解析する。
 3. `sorted(hfss.excitation_names)` からポート名を取得し、S11・S21の2つの式について
    `hfss.post.get_solution_data(expressions=[...], setup_sweep_name=hfss.nominal_sweep,
    report_category="Terminal Solution Data")` で `SolutionData` を取得する。

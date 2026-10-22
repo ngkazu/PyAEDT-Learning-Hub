@@ -31,8 +31,17 @@ Setup・材料設定などを整理して構成。円柱のみで構成された
    non_graphical=False)` で起動し、`m3d.modeler.model_units = "mm"` を設定する。
 2. 磁性材料 `"core_steel"` を追加し、`conductivity = 2000000`、`permeability.value = 1000`
    （比透磁率1000の線形材料として簡略化）を設定する。
-3. 寸法をデザイン変数として定義する（`core_r`, `core_h`, `coil_ri`, `coil_ro`, `coil_h`,
-   `amp_turns`）。`coil_ri`を`core_r`より大きくすることで、コイルとコアが非干渉になる。
+3. 寸法をデザイン変数として定義する。値は下表の通りでよい（`coil_ri`を`core_r`より大きくすることで、
+   コイルとコアが非干渉になる）。
+
+   | 変数 | 値 | 意味 |
+   |---|---|---|
+   | `core_r` | `10mm` | コア半径 |
+   | `core_h` | `40mm` | コア高さ |
+   | `coil_ri` | `15mm` | コイル内半径 |
+   | `coil_ro` | `25mm` | コイル外半径 |
+   | `coil_h` | `20mm` | コイル高さ |
+   | `amp_turns` | `1000A` | 起磁力（アンペアターン） |
 4. `create_cylinder()`でコア（Z軸中心の円柱）を作成する。
 5. `create_cylinder()`で外円柱・内円柱を作り、`subtract()`で円環コイルを作成する。
 6. `modeler.create_region()`で解析領域（Region）を作成する。

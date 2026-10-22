@@ -24,7 +24,20 @@
 `starter.py` の `# TODO` を埋めて、次の仕様を満たす解析・ポスト処理を完成させてください
 （モデル作成部分はnormalと同じ内容です）。
 
-1. normalと同じ手順でモデルを作成する。
+1. [1.normal/maxwell_3d/ex03_coil_core/](../../../1.normal/maxwell_3d/ex03_coil_core/) と同じ手順で、
+   次を順に行う。
+   - 磁性材料 `"core_steel"`（`permeability.value = 1000`）を追加する。
+   - デザイン変数（`core_r=10mm`, `core_h=40mm`, `coil_ri=15mm`, `coil_ro=25mm`, `coil_h=20mm`,
+     `amp_turns=1000A`）を定義する。
+   - `create_cylinder()` でコア（円柱）を作成する。
+   - `create_cylinder()` で外円柱・内円柱を作り、`subtract()` で円環コイルを作成する。
+   - `modeler.create_region(pad_value=[100, 100, 100, 100, 100, 100], pad_type="Percentage Offset")` で
+     解析領域を作成する。
+   - `modeler.section(plane="ZX")` → `separate_bodies()` → `delete()` でコイル断面を作る。
+   - `assign_coil()` でコイルターミナルを割り当て、`assign_winding(is_solid=True, current="amp_turns")` →
+     `add_winding_coils()` でWindingを作成する。
+   - セットアップ `"MySetup"`（`MaximumPasses=6`, `MinimumPasses=2`, `MinimumConvergedPasses=1`,
+     `PercentError=1`, `PercentRefinement=30`）を作成し、`setup.analyze()` で解析を実行する。
 2. `SourceMagnetostatic(name="Winding1")` を `signal_sources` とした
    `MatrixMagnetostatic(signal_sources=sources, group_sources=[], matrix_name="Matrix1")` を作り、
    `assign_matrix()` でWindingに割り当てる。

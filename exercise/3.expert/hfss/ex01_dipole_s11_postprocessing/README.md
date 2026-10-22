@@ -32,9 +32,19 @@
 
 1. 同じフォルダにある `conditions.csv`（`l_dipole`, `center_freq` の列を持つ1行のCSV）を
    `csv.DictReader` で読み込み、`l_dipole` / `center_freq` の値を取得する。
-2. `1.normal/hfss/ex01_dipole_antenna/solution.py` と同じ手順で、ダイポールアンテナを作成・解析する
-   （変数、3Dコンポーネント挿入、Open Region、セットアップ、周波数スイープ、解析実行まで。長さと中心周波数は
-   手順1でCSVから読み込んだ値を使う）。
+2. `1.normal/hfss/ex01_dipole_antenna/` と同じ手順で、次を順に行う（長さ・中心周波数は手順1でCSVから
+   読み込んだ `l_dipole`/`center_freq` の値を使う）。
+   - `Hfss(solution_type="Modal", version=AEDT_VERSION, new_desktop=True, non_graphical=False)` で起動する。
+   - 設計変数 `hfss["l_dipole"] = l_dipole` を定義する。
+   - `hfss.components3d["Dipole_Antenna_DM"]` でコンポーネントのパスを取得し、
+     `hfss.get_component_variables("Dipole_Antenna_DM")` の `dipole_length` を `"l_dipole"` に書き換えてから
+     `hfss.modeler.insert_3d_component(input_file=..., geometry_parameters=..., name="Dipole1")` で挿入する。
+   - `hfss.create_open_region(frequency=center_freq)` で解析領域を作成する。
+   - `hfss.create_setup(name="MySetup", MultipleAdaptiveFreqsSetup=["1GHz", "2GHz"], MaximumPasses=2)` で
+     セットアップを作成する。
+   - `setup.add_sweep(name="Sweep1", sweep_type="Interpolating", RangeStart="1GHz", RangeEnd="2GHz")` で
+     周波数スイープを追加する。
+   - `setup.analyze()` で解析を実行する。
 3. `hfss.post.get_solution_data(expressions=..., setup_sweep_name=hfss.nominal_sweep, report_category="Modal Solution Data")`
    で S11の解析結果（`SolutionData`）を取得する。ポート名は `"Dipole1_1"` のように決め打ちせず、
    `hfss.excitation_names[0]` で実際の励振名を取得して式を組み立てる。

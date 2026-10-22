@@ -27,7 +27,13 @@ CSV入出力・PyVista可視化を追加する。TEAM7問題の公開実測デ�
 
 1. `team7_measured_bz.csv`（`distance_mm`, `bz_a1b1_gauss`, `bz_a2b2_gauss` の3列）を読み込む。
 2. [2.hard/maxwell_3d/ex02_asymmetric_conductor_bzreport/](../../../2.hard/maxwell_3d/ex02_asymmetric_conductor_bzreport/)
-   と同じ手順でモデルを作成し、Setup作成・解析・$B_z$計算式・評価ラインの定義を行う。
+   と同じ手順で、次を順に行う。
+   - normalと同じ手順でコイル・アルミ板・Region・渦電流設定を作成し、セットアップ `"Setup1"`
+     （200Hz＋`add_eddy_current_sweep()`で50Hzを追加）を作成する。
+   - `setup.analyze()` で解析を実行する。
+   - $B_z$（Gauss換算）のFields Calculator式を `post.fields_calculator.add_expression(bz, None)` で登録する。
+   - 評価用ライン `"Line_A1_B1"`（`[0,72,34]mm`→`[288,72,34]mm`）・`"Line_A2_B2"`
+     （`[0,144,34]mm`→`[288,144,34]mm`）を `create_polyline(..., non_model=True)` で作成する。
 3. 200Hz・位相0度における、各ラインに沿った$|B_z|$のSolutionDataを
    `post.get_solution_data(expressions="mag(Bz)", variations={"Distance": ["All"], "Freq": ["200Hz"],
    "Phase": ["0deg"]}, primary_sweep_variable="Distance", report_category="Fields",

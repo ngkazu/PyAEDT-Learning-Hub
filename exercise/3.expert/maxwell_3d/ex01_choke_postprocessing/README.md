@@ -25,9 +25,17 @@
 `starter.py` の `# TODO` を埋めて、次の仕様を満たすスクリプトを完成させてください。
 
 1. `conditions.csv`（`turns`, `frequency_khz` の2列）を読み込む。
-2. [1.normal/maxwell_3d/ex01_choke/](../../../1.normal/maxwell_3d/ex01_choke/) と同じ手順でチョークを作成し、
-   Region作成・電流励振の割り当て・Setup作成・解析を行う。ただし `"Outer Winding"` の `"Turns"` と
-   `setup.props["Frequency"]` は、CSVから読み込んだ `turns`/`frequency_khz` の値を使う。
+2. [1.normal/maxwell_3d/ex01_choke/](../../../1.normal/maxwell_3d/ex01_choke/) と同じ手順で、次を順に行う
+   （`"Outer Winding"` の `"Turns"` と `setup.props["Frequency"]` は、CSVから読み込んだ
+   `turns`/`frequency_khz` の値を使う）。
+   - `choke_descriptor` 辞書を定義し、`modeler.check_choke_values()` で検証後、
+     `modeler.create_choke(input_file=choke_fn)` でチョークを作成する。
+   - `modeler.create_air_region(x_pos=100, y_pos=100, z_pos=100, x_neg=100, y_neg=100, z_neg=0)` で
+     解析領域を作成する。
+   - `modeler.get_object_faces()` で各巻線の両端面を取得し、`assign_current()` で振幅1000A・
+     位相0deg/180degの電流励振を割り当てる。
+   - セットアップ `"MySetup"` を作成し、`setup.props["Frequency"] = f"{frequency_khz}kHz"` を設定する。
+   - `setup.analyze()` で解析を実行する。
 3. `m3d.post.get_solution_data(expressions=["SolidLoss", "CoreLoss"], setup_sweep_name=m3d.nominal_sweep,
    report_category="Fields")` で、巻線のオーミック損失・コア損失のSolutionDataを取得する。
 4. `solution_data.get_expression_data(expression="SolidLoss", formula="real")` と

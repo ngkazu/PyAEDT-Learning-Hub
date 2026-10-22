@@ -35,9 +35,16 @@ expert レベルに相当）。
    （`c` は光速 `3e8 m/s`、`f0` は設計周波数[Hz]、`h` は基板厚[m]。単位に注意して計算すること）
 3. 計算結果（設計条件と `eps_reff`, `patch_width_mm`, `patch_length_mm`）をCSVファイル
    （`results_patch_dimensions.csv`）に出力する。
-4. `Hfss(solution_type="Terminal", ...)` で起動し、`1.normal/hfss/ex04_patch_antenna/solution.py` と
-   同じ手順でパッチアンテナを作成する。ただし `patch_width`/`patch_length` には固定値ではなく、
-   手順2で計算した `width_mm`/`length_mm` を使う。
+4. `Hfss(solution_type="Terminal", version=AEDT_VERSION, new_desktop=True, non_graphical=False)` で起動し、
+   `1.normal/hfss/ex04_patch_antenna/` と同じ手順で次を行う（`patch_width`/`patch_length` には固定値ではなく、
+   手順2で計算した `width_mm`/`length_mm` を使う）。
+   - `Stackup3D(hfss)` で `add_ground_layer()` → `add_dielectric_layer()` → `add_signal_layer()` の順に積層する。
+   - `signal.add_patch(patch_length=length_mm, patch_width=width_mm, frequency=design_freq_ghz*1e9)` で
+     パッチを作成する。
+   - `stackup.resize_around_element(patch)` で誘電体・地板をリサイズする。
+   - `hfss.modeler.create_region(pad_value=[3, 3, 3, 3, 3, 3], pad_type="Absolute Offset")` ＋
+     `hfss.assign_radiation_boundary_to_objects(region)` でAirbox・輻射境界を作成する。
+   - `patch.create_probe_port(ground, rel_x_offset=0.485)` でプローブ給電ポートを割り当てる。
 5. セットアップ `"MySetup"`（`Frequency=f"{design_freq_ghz}GHz"`）と、設計周波数の±20%の範囲の
    周波数スイープ（Interpolating）を作成する。
 6. `setup.analyze()` で解析を実行する。

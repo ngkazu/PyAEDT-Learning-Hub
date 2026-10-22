@@ -39,12 +39,24 @@
 3. `modeler.create_coordinate_system()` でコイル用のローカル座標系を作り、`create_polyline()` で
    4分の1コイル形状を描画、`set_crosssection_properties()` で断面（矩形）を設定する。
    `duplicate_around_axis()` で90度ずつ回転複製（4つ）し、`unite()` で結合して全体のコイルを作る。
+   寸法はTEAM7公式図面に基づく以下の固定値を使う。
+
+   | 変数 | 値 | 意味 |
+   |---|---|---|
+   | `coil_internal` | `150mm` | コイル内径相当の寸法 |
+   | `coil_external` | `200mm`（`150+25+25`） | コイル外径相当の寸法 |
+   | `coil_r1` | `25mm` | 断面の内側半径 |
+   | `coil_r2` | `50mm` | 断面の外側半径（`coil_thk = coil_r2 - coil_r1 = 25mm`） |
+   | `coil_height` | `100mm` | 断面の高さ（Z方向） |
+   | `coil_centre`（ローカル座標系原点） | `[194mm, 100mm, 99mm]` | `[294-25-150/2, 25+150/2, 19+30+100/2]` で算出 |
 4. コイルに銅材料を割り当て（`assign_material()`）、`solve_inside()` で内部の電磁界解を有効にする。
 5. `modeler.section()`/`separate_bodies()`/`delete()` で、コイルの断面を切って電流励振用のターミナル面を作る。
 6. デザイン変数 `Coil_Excitation = "2742A"` を定義し、`assign_current(solid=False)` でターミナル面に
    電流励振を割り当てる。
 7. アルミ板用の専用材料（`team7_aluminium`、導電率 `3.526e7`）を追加する。
 8. 中央に矩形の穴が開いたアルミ板を、2つの箱の `subtract()` で作成する。
+   板本体は `origin=[0, 0, 0]`, `sizes=[294mm, 294mm, 19mm]`、穴は `origin=[18mm, 18mm, 0]`,
+   `sizes=[108mm, 108mm, 19mm]`（この2つの箱を`subtract()`する）。
 9. `modeler.create_air_region()` で解析領域（Region）を作成する。
 10. `eddy_effects_on()` で、コイル側は渦電流を無効、板側は変位電流を無効にする。
 11. `setup.analyze()` で解析を実行する。

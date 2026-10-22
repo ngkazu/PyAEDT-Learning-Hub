@@ -24,8 +24,12 @@ PyVista可視化を追加する。
 
 1. `conditions.csv`（`amp_turns`, `core_r_mm` の2列）を読み込む。
 2. [2.hard/maxwell_3d/ex03_coil_core_fieldplot/](../../../2.hard/maxwell_3d/ex03_coil_core_fieldplot/)
-   と同じ手順でモデルを作成し、Matrix割り当て・Setup作成・解析を行う。ただし`"amp_turns"`と
-   `"core_r"`はCSVから読み込んだ値を使う。
+   と同じ手順で、次を順に行う（`"amp_turns"` と `"core_r"` はCSVから読み込んだ値を使う）。
+   - 磁性材料 `"core_steel"`、コア・コイルの円柱形状、Region、コイル断面・Winding割り当てまでを
+     normalと同じ手順で作成する。
+   - `SourceMagnetostatic(name="Winding1")` を `signal_sources` とした `MatrixMagnetostatic(...)` を作り、
+     `assign_matrix()` でWindingに割り当てる。
+   - セットアップ `"MySetup"` を作成し、`setup.analyze()` で解析を実行する。
 3. `post.get_solution_data(expressions=["Matrix1.L(Winding1,Winding1)"])` で自己インダクタンスの
    SolutionDataを取得し、`get_expression_data(formula="real")` で値を取得する。
 4. `amp_turns`・`core_r_mm`・インダクタンスの値を `results_inductance.csv` に出力する。

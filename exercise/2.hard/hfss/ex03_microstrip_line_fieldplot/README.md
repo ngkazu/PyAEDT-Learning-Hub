@@ -23,8 +23,20 @@
 `starter.py` の `# TODO` を埋めて、次の仕様を満たす解析を完成させてください。
 
 1. `Hfss(solution_type="Terminal", version=AEDT_VERSION, new_desktop=True, non_graphical=False)` で起動する。
-2. `1.normal/hfss/ex03_microstrip_line/solution.py` と同じ手順で、基板・GND・信号線・エアボックス・
-   Wave Port・輻射境界の作成、モデル検証、セットアップ作成、解析実行までを行う。
+2. `1.normal/hfss/ex03_microstrip_line/` と同じ手順で、次を順に行う
+   （`SUB_W=6.0mm`, `SUB_H=1.0mm`, `LINE_W=1.5mm`, `LINE_L=10.0mm`, `AIR_H=3.0mm`）。
+   - 基板（3Dソリッド）を `origin=[0, -SUB_W/2, 0]`, `sizes=[LINE_L, SUB_W, SUB_H]`,
+     `material="alumina_96pct"` で作成する。
+   - GND・信号線を `modeler.create_rectangle()` で2Dシートとして作成し、それぞれに
+     `hfss.assign_finite_conductivity(material="copper")` を割り当てる。
+   - 基板上面からエアボックス（`sizes=[LINE_L, SUB_W, AIR_H]`, `material="vacuum"`）を作成する。
+   - エアボックスの両端面に `hfss.wave_port(modes=1, renormalize=True, impedance=50)` でWave Portを作成する。
+   - エアボックスの下面・両端面を除く面に `hfss.assign_radiation_boundary_to_faces()` で輻射境界を割り当てる。
+   - `hfss.validate_full_design()` でモデルを検証する。
+   - セットアップ `"Setup1"`（`Frequency="10GHz"`, `MaxDeltaS=0.02`, `MaximumPasses=6`）を作成し、
+     `hfss.create_linear_count_sweep(unit="GHz", start_frequency=0.1, stop_frequency=10,
+     num_of_freq_points=201, sweep_type="Interpolating")` で周波数スイープを追加する。
+   - `setup.analyze()` で解析を実行する。
 3. `hfss.create_scattering(plot="S Parameters")` でS11・S21のレポートを作成する。
 4. `hfss.post.create_fieldplot_surface(assignment=[gnd.name, line.name], quantity="Mag_E",
    setup="Setup1 : LastAdaptive", plot_name="MagE_Surface")` で、GND・信号線の表面に電界強度の

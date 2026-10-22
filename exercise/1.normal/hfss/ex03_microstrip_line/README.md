@@ -26,8 +26,16 @@ AEDT 2026.1 / PyAEDT 1.3.0 で動作検証済みの例）を着想元に、こ�
 
 1. `Hfss(solution_type="Terminal", version=AEDT_VERSION, new_desktop=True, non_graphical=False)` で起動し、
    `hfss.modeler.model_units = "mm"` を設定する。
-2. 基板（3Dソリッド）を `origin=[0, -SUB_W/2, 0]`, `sizes=[LINE_L, SUB_W, SUB_H]`,
-   `material="alumina_96pct"` で作成する。
+2. 次の寸法定数（単位: mm）を使って、基板（3Dソリッド）を `origin=[0, -SUB_W/2, 0]`,
+   `sizes=[LINE_L, SUB_W, SUB_H]`, `material="alumina_96pct"` で作成する。
+
+   | 定数 | 値 | 意味 |
+   |---|---|---|
+   | `SUB_W` | `6.0` | 基板の幅（Y方向） |
+   | `SUB_H` | `1.0` | 基板の厚さ（Z方向） |
+   | `LINE_W` | `1.5` | マイクロストリップ導体幅（Y方向、手順3で使用） |
+   | `LINE_L` | `10.0` | マイクロストリップ導体長さ（X方向、伝送方向） |
+   | `AIR_H` | `3.0` | 基板上部のエアボックス高さ（手順4で使用） |
 3. GND と信号線を2Dシート（`modeler.create_rectangle()`）として作成する。
    - GND: `orientation=Plane.XY`, `origin=[0, -SUB_W/2, 0]`, `sizes=[LINE_L, SUB_W]`
    - Line: `orientation=Plane.XY`, `origin=[0, -LINE_W/2, SUB_H]`, `sizes=[LINE_L, LINE_W]`

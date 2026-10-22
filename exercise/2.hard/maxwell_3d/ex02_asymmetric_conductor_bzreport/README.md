@@ -31,13 +31,30 @@
 `starter.py` の `# TODO` を埋めて、次の仕様を満たす解析・ポスト処理を完成させてください
 （モデル作成部分はnormalと同じ内容です）。
 
-1. normalと同じ手順でモデルを作成したうえで、セットアップ`"Setup1"`に
-   `setup.add_eddy_current_sweep(sweep_type="SinglePoints", start_frequency=50, units="Hz",
-   clear=True)` を追加し、200Hzに加えて50Hzでも解けるようにする。
+1. [1.normal/maxwell_3d/ex02_asymmetric_conductor/](../../../1.normal/maxwell_3d/ex02_asymmetric_conductor/)
+   と同じ手順で、次を順に行う。
+   - セットアップ `"Setup1"` を作成し、`setup.props["Frequency"] = "200Hz"` を設定する。
+   - `modeler.create_coordinate_system()` でコイル用ローカル座標系（`Coil_CS`）を作り、`create_polyline()` で
+     4分の1コイル形状を描画・`set_crosssection_properties(section="Rectangle", width=coil_thk,
+     height=coil_height)` で断面設定後、`duplicate_around_axis(angle=90, clones=4)` → `unite()` で
+     円環状コイルを作る。
+   - コイルに `assign_material(material="Copper")` を割り当て、`solve_inside()` で内部解を有効にする。
+   - `modeler.section(plane="YZ")` → `separate_bodies()` → `delete()` でコイル断面にターミナル面を作る。
+   - `assign_current(amplitude="Coil_Excitation", solid=False)`（`Coil_Excitation = "2742A"`）で
+     電流励振を割り当てる。
+   - `team7_aluminium` 材料（導電率 `3.526e7`）を追加し、294×294×19mmの板から108×108×19mmの穴を
+     `subtract()` でくり抜いてアルミ板を作る。
+   - `modeler.create_air_region(x_pos=100, y_pos=100, z_pos=100, x_neg=100, y_neg=100, z_neg=100)` で
+     解析領域を作成する。
+   - `eddy_effects_on()` でコイル側は渦電流を無効、板側は変位電流を無効にする。
+
+   その上で、セットアップ `"Setup1"` に `setup.add_eddy_current_sweep(sweep_type="SinglePoints",
+   start_frequency=50, units="Hz", clear=True)` を追加し、200Hzに加えて50Hzでも解けるようにする。
 2. 解析を実行する。
 3. $B_z$（磁束密度Z成分、Gauss換算）を評価するFields Calculator式を定義し、
    `post.fields_calculator.add_expression(bz, None)` で登録する（式の内容は下記参照）。
-4. 板の上に、評価用のライン`"Line_A1_B1"`・`"Line_A2_B2"`と、局所的なメッシュ細分化用の円柱を、
+4. 板の上に、評価用のライン`"Line_A1_B1"`（`[0mm, 72mm, 34mm]` → `[288mm, 72mm, 34mm]`）・
+   `"Line_A2_B2"`（`[0mm, 144mm, 34mm]` → `[288mm, 144mm, 34mm]`）と、局所的なメッシュ細分化用の円柱を、
    どちらも`create_polyline(..., non_model=True)`で作成する。円柱には
    `set_crosssection_properties(section="Circle", width="2mm")` で断面を設定する。
 5. 各ラインについて、`post.create_report(expressions="mag(Bz)", variations={"Distance": ["All"],

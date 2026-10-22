@@ -24,8 +24,14 @@
 `starter.py` の `# TODO` を埋めて、次の仕様を満たす解析を完成させてください。
 
 1. `Hfss(solution_type="Terminal", version=AEDT_VERSION, new_desktop=True, non_graphical=False)` で起動する。
-2. `1.normal/hfss/ex04_patch_antenna/solution.py` と同じ手順で、`Stackup3D`・パッチ・プローブ給電ポートまでを
-   作成する。
+2. `1.normal/hfss/ex04_patch_antenna/` と同じ手順で、次を順に行う。
+   - `Stackup3D(hfss)` を作成し、`add_ground_layer()` → `add_dielectric_layer(thickness="0.5mm",
+     material="Duroid (tm)")` → `add_signal_layer()` の順にレイヤーを積み上げる。
+   - `signal.add_patch(patch_length=9.57, patch_width=9.25, frequency=1e10)` でパッチを作成する。
+   - `stackup.resize_around_element(patch)` で誘電体・地板をパッチサイズに合わせてリサイズする。
+   - `hfss.modeler.create_region(pad_value=[3, 3, 3, 3, 3, 3], pad_type="Absolute Offset")` で
+     Airboxを作成し、`hfss.assign_radiation_boundary_to_objects(region)` で輻射境界を割り当てる。
+   - `patch.create_probe_port(ground, rel_x_offset=0.485)` でプローブ給電ポートを割り当てる。
 3. セットアップ `"MySetup"`（`setup_type="HFSSDriven"`, `Frequency="10GHz"`）を作成する。
 4. 周波数スイープを2つ追加する。
    - `"DiscreteSweep"`（`sweep_type="Discrete"`, `start_frequency=8`, `stop_frequency=12`,
