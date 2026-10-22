@@ -11,10 +11,10 @@
 
 - 同じ `exNN_<slug>` 番号は、アプリフォルダ内の3階層（normal/hard/expert）で揃える。
   ただし `<slug>` はhard/expertでポスト処理の内容を反映して変えてよい
-  （例: `1.normal/hfss/ex1_dipole_antenna/` → `2.hard/hfss/ex1_dipole_farfield/` →
-  `3.expert/hfss/ex1_dipole_s11_postprocessing/`）。
-- 新しいシリーズを追加するときは、そのアプリフォルダで未使用の次の番号（`ex1`, `ex2`, ...）を
-  3階層すべてに割り当てる。既存シリーズの番号を後から変えない（大きな手戻りになるため）。
+  （例: `1.normal/hfss/ex01_dipole_antenna/` → `2.hard/hfss/ex01_dipole_farfield/` →
+  `3.expert/hfss/ex01_dipole_s11_postprocessing/`）。
+- 新しいシリーズを追加するときは、そのアプリフォルダで未使用の次の番号（`ex01`, `ex02`, ...。
+  2桁ゼロ埋め）を3階層すべてに割り当てる。既存シリーズの番号を後から変えない（大きな手戻りになるため）。
 - 各README.mdの冒頭に、同じシリーズの他階層へのリンクを示す注記（`> この演習は...シリーズの
   ○○レベル`）を入れる。
 
@@ -49,7 +49,7 @@ normalを完成させてから段階的に広げる）。
 **タイトル直下の「題材」行**には、着想元にした公式サンプル（あれば）へのリンクを書く（後述の「題材の作り方」参照）。
 **normal/hard/expert の課題**では、これに加えて、この課題で使う個別の操作を
 先に練習できる easy 課題（`0.easy/common_3d/` 等）があれば、`題材` の段落内または直後に参照を追記する
-（例: 「`modeler.subtract()` の基本操作は `0.easy/common_3d/ex2_boolean_subtract/` で練習できる」）。
+（例: 「`modeler.subtract()` の基本操作は `0.easy/common_3d/ex02_boolean_subtract/` で練習できる」）。
 easy 側にも、対応する normal 課題への参照を発展課題などに書き、双方向にリンクさせる。
 
 ## starter.py の規約
@@ -77,5 +77,5 @@ easy 側にも、対応する normal 課題への参照を発展課題などに�
 
 ## 参考にしたフォーマット
 
-このテンプレートは、社内の PyAEDT トレーニング資料（`2026.PyAnsysTraning_inJapan/WorkShop/HFSS/ex1_dipole/`）の
+このテンプレートは、社内の PyAEDT トレーニング資料（`2026.PyAnsysTraning_inJapan/WorkShop/HFSS/ex01_dipole/`）の
 書式を参考にしている。ただし、対象読者・前提が異なるため、コードや文章はコピーせず本プロジェクト用に書き直すこと。

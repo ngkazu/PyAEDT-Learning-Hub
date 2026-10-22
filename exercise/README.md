@@ -30,34 +30,42 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
-| [0.easy/common_3d/ex1_basic_operations/](0.easy/common_3d/ex1_basic_operations/) | AEDTの基本操作（起動→変数→形状→保存→終了） | 30分 |
-| [0.easy/common_3d/ex2_boolean_subtract/](0.easy/common_3d/ex2_boolean_subtract/) | ブーリアン演算（Subtract）で中空の箱を作る | 30分 |
-| [0.easy/common_3d/ex3_setup_basics/](0.easy/common_3d/ex3_setup_basics/) | セットアップ（解析条件）を作ってみる | 30分 |
-| [0.easy/common_3d/ex4_sheets/](0.easy/common_3d/ex4_sheets/) | シート形状（矩形・円）を作る | 30分 |
-| [0.easy/common_3d/ex5_unite/](0.easy/common_3d/ex5_unite/) | ブーリアン演算（Unite）で2つの箱を結合する | 30分 |
-| [0.easy/common_3d/ex6_move_rotate/](0.easy/common_3d/ex6_move_rotate/) | 形状の移動（Move）と回転（Rotate） | 30分 |
-| [0.easy/common_3d/ex7_plane/](0.easy/common_3d/ex7_plane/) | Planeを作る | 30分 |
-| [0.easy/common_3d/ex8_cad_import/](0.easy/common_3d/ex8_cad_import/) | CADのインポート（エクスポート→インポートの往復） | 30分 |
-| [0.easy/common_3d/ex9_variables/](0.easy/common_3d/ex9_variables/) | プロジェクト変数とデザイン変数を作る・変更する | 30分 |
-| [1.normal/hfss/ex1_dipole_antenna/](1.normal/hfss/ex1_dipole_antenna/) | 半波長ダイポールアンテナ（モデル作成〜解析実行） | 60分 |
-| [1.normal/hfss/ex2_iris_filter/](1.normal/hfss/ex2_iris_filter/) | 導波管インダクティブアイリスフィルタ（モデル作成〜解析実行） | 60分 |
-| [2.hard/hfss/ex1_dipole_farfield/](2.hard/hfss/ex1_dipole_farfield/) | 半波長ダイポールアンテナ（S11・遠方界のポスト処理） | 90分 |
-| [2.hard/hfss/ex2_iris_filter/](2.hard/hfss/ex2_iris_filter/) | 導波管インダクティブアイリスフィルタ（高度なポスト処理） | 90分 |
-| [3.expert/hfss/ex1_dipole_s11_postprocessing/](3.expert/hfss/ex1_dipole_s11_postprocessing/) | ダイポールアンテナ S11・遠方界データのPython後処理（VSWR・帯域幅算出・CSV入出力） | 90分以上 |
-| [3.expert/hfss/ex2_iris_filter_postprocessing/](3.expert/hfss/ex2_iris_filter_postprocessing/) | 導波管インダクティブアイリスフィルタ S/フィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
-| [1.normal/hfss/ex3_antenna_array/](1.normal/hfss/ex3_antenna_array/) | ダイポールアレイアンテナ（モデル作成〜解析実行） | 60分 |
-| [2.hard/hfss/ex3_antenna_array_farfield/](2.hard/hfss/ex3_antenna_array_farfield/) | ダイポールアレイアンテナ（S/遠方界のポスト処理） | 90分 |
-| [3.expert/hfss/ex3_antenna_array_beamsteering/](3.expert/hfss/ex3_antenna_array_beamsteering/) | ダイポールアレイアンテナ ビームステアリングのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
-| [1.normal/hfss/ex3_microstrip_line/](1.normal/hfss/ex3_microstrip_line/) | マイクロストリップ線路（モデル作成〜解析実行） | 60分 |
-| [1.normal/hfss/ex4_patch_antenna/](1.normal/hfss/ex4_patch_antenna/) | プローブ給電パッチアンテナ（モデル作成〜解析実行） | 60分 |
-| [2.hard/hfss/ex3_microstrip_line_fieldplot/](2.hard/hfss/ex3_microstrip_line_fieldplot/) | マイクロストリップ線路（S/フィールドのポスト処理） | 90分 |
-| [2.hard/hfss/ex4_patch_antenna_farfield/](2.hard/hfss/ex4_patch_antenna_farfield/) | プローブ給電パッチアンテナ（S11・遠方界のポスト処理） | 90分 |
-| [3.expert/hfss/ex3_microstrip_line_postprocessing/](3.expert/hfss/ex3_microstrip_line_postprocessing/) | マイクロストリップ線路S/フィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
-| [3.expert/hfss/ex4_patch_antenna_design/](3.expert/hfss/ex4_patch_antenna_design/) | プローブ給電パッチアンテナの設計計算とPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+| [0.easy/common_3d/ex01_basic_operations/](0.easy/common_3d/ex01_basic_operations/) | AEDTの基本操作（起動→変数→形状→保存→終了） | 30分 |
+| [0.easy/common_3d/ex02_boolean_subtract/](0.easy/common_3d/ex02_boolean_subtract/) | ブーリアン演算（Subtract）で中空の箱を作る | 30分 |
+| [0.easy/common_3d/ex03_setup_basics/](0.easy/common_3d/ex03_setup_basics/) | セットアップ（解析条件）を作ってみる | 30分 |
+| [0.easy/common_3d/ex04_sheets/](0.easy/common_3d/ex04_sheets/) | シート形状（矩形・円）を作る | 30分 |
+| [0.easy/common_3d/ex05_unite/](0.easy/common_3d/ex05_unite/) | ブーリアン演算（Unite）で2つの箱を結合する | 30分 |
+| [0.easy/common_3d/ex06_move_rotate/](0.easy/common_3d/ex06_move_rotate/) | 形状の移動（Move）と回転（Rotate） | 30分 |
+| [0.easy/common_3d/ex07_plane/](0.easy/common_3d/ex07_plane/) | Planeを作る | 30分 |
+| [0.easy/common_3d/ex08_cad_import/](0.easy/common_3d/ex08_cad_import/) | CADのインポート（エクスポート→インポートの往復） | 30分 |
+| [0.easy/common_3d/ex09_variables/](0.easy/common_3d/ex09_variables/) | プロジェクト変数とデザイン変数を作る・変更する | 30分 |
+| [0.easy/common_3d/ex10_choke_geometry/](0.easy/common_3d/ex10_choke_geometry/) | チョークのジオメトリを作る（check_choke_values→create_choke） | 30分 |
+| [0.easy/common_3d/ex11_get_faces/](0.easy/common_3d/ex11_get_faces/) | 面（Face）を取得する（get_object_faces→get_face_center/get_face_area） | 30分 |
+| [0.easy/common_3d/ex12_export_import_config/](0.easy/common_3d/ex12_export_import_config/) | デザイン設定のJSON入出力（configurations.export_config→import_config） | 30分 |
+| [1.normal/hfss/ex01_dipole_antenna/](1.normal/hfss/ex01_dipole_antenna/) | 半波長ダイポールアンテナ（モデル作成〜解析実行） | 60分 |
+| [1.normal/hfss/ex02_iris_filter/](1.normal/hfss/ex02_iris_filter/) | 導波管インダクティブアイリスフィルタ（モデル作成〜解析実行） | 60分 |
+| [2.hard/hfss/ex01_dipole_farfield/](2.hard/hfss/ex01_dipole_farfield/) | 半波長ダイポールアンテナ（S11・遠方界のポスト処理） | 90分 |
+| [2.hard/hfss/ex02_iris_filter/](2.hard/hfss/ex02_iris_filter/) | 導波管インダクティブアイリスフィルタ（高度なポスト処理） | 90分 |
+| [3.expert/hfss/ex01_dipole_s11_postprocessing/](3.expert/hfss/ex01_dipole_s11_postprocessing/) | ダイポールアンテナ S11・遠方界データのPython後処理（VSWR・帯域幅算出・CSV入出力） | 90分以上 |
+| [3.expert/hfss/ex02_iris_filter_postprocessing/](3.expert/hfss/ex02_iris_filter_postprocessing/) | 導波管インダクティブアイリスフィルタ S/フィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+| [1.normal/hfss/ex03_microstrip_line/](1.normal/hfss/ex03_microstrip_line/) | マイクロストリップ線路（モデル作成〜解析実行） | 60分 |
+| [1.normal/hfss/ex04_patch_antenna/](1.normal/hfss/ex04_patch_antenna/) | プローブ給電パッチアンテナ（モデル作成〜解析実行） | 60分 |
+| [2.hard/hfss/ex03_microstrip_line_fieldplot/](2.hard/hfss/ex03_microstrip_line_fieldplot/) | マイクロストリップ線路（S/フィールドのポスト処理） | 90分 |
+| [2.hard/hfss/ex04_patch_antenna_farfield/](2.hard/hfss/ex04_patch_antenna_farfield/) | プローブ給電パッチアンテナ（S11・遠方界のポスト処理） | 90分 |
+| [3.expert/hfss/ex03_microstrip_line_postprocessing/](3.expert/hfss/ex03_microstrip_line_postprocessing/) | マイクロストリップ線路S/フィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+| [3.expert/hfss/ex04_patch_antenna_design/](3.expert/hfss/ex04_patch_antenna_design/) | プローブ給電パッチアンテナの設計計算とPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
 他のアプリケーション（Maxwell 3D, Icepak, Q3D Extractor など）や、HFSSの追加シリーズ（パッチアンテナ、
 チョークコイル、フレキシブルケーブルなど）の課題は、
 [docs/roadmap/coverage.md](../docs/roadmap/coverage.md) の進捗表に沿って順次追加されます。
+
+## 現在の演習一覧（Phase C: Maxwell 3D）
+
+| フォルダ | タイトル | 目安時間 |
+|---|---|---|
+| [1.normal/maxwell_3d/ex01_choke/](1.normal/maxwell_3d/ex01_choke/) | コモンモードチョーク（モデル作成〜解析実行） | 60分 |
+| [2.hard/maxwell_3d/ex01_choke_lossreport/](2.hard/maxwell_3d/ex01_choke_lossreport/) | コモンモードチョーク（巻線損失・コア損失レポート、Bフィールドプロット） | 90分 |
+| [3.expert/maxwell_3d/ex01_choke_postprocessing/](3.expert/maxwell_3d/ex01_choke_postprocessing/) | コモンモードチョーク 損失・BフィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
 ## 進め方
 

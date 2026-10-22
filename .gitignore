@@ -28,3 +28,9 @@ exercise/**/patch_farfield_3d.png
 exercise/**/results_patch_dimensions.csv
 exercise/**/MagE_Surface*.jpg
 exercise/**/MagE_Surface*.png
+exercise/**/CoreMagB*.png
+exercise/**/CoreMagB*.jpg
+exercise/**/results_losses.csv
+
+# AEDTデスクトップ起動時に紛れ込むログ（プロジェクト外のログがcwdに出力される場合がある）
+/debug.log
