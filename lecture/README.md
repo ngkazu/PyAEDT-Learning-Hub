@@ -36,6 +36,8 @@ lecture/
   02_pyaedt_self_study.md 自己学習用ノート（01と同内容を読み物として整形。講義不参加者・復習用）
   03_pyaedt_architecture.md 「PyAEDTの基本構造」深掘りノート（オブジェクト階層・接続モデル、変数システム、
                             各サブオブジェクトの内部クラス構造。任意）
+  04_post_processing.md    ポスト処理の全体像（Report/Field Plot/PyVista/CSV・matplotlibの使い分け。
+                            どの演習のhard/expertにも共通する概念整理。任意）
   demo/
     demo1_basic_operations.py         起動→箱作成→保存→終了の最小デモ
     demo2_before_native_script.py     AEDT内蔵スクリプト記録の出力イメージ（変換前）
