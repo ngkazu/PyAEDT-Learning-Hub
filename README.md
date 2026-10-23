@@ -52,3 +52,8 @@ memo/       課題作成者向けの内部メモ（学習者は見る必要な�
 - 各課題は [PyAEDT Examples](https://examples.aedt.docs.pyansys.com/) を着想元として、学習目的で独自に作成しています
   （公式サンプルの丸写しはしていません）。
 - PyAEDT公式ドキュメント: https://aedt.docs.pyansys.com/
+
+## ライセンス
+
+このプロジェクトは [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+のもとで公開しています。詳細は [LICENSE](LICENSE) を参照してください。
