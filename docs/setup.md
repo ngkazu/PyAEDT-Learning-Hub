@@ -64,3 +64,9 @@ hfss.release_desktop(close_projects=True, close_desktop=True)
 - 公式ドキュメント: https://aedt.docs.pyansys.com/
 - 公式サンプル集（着想元。コードの丸写しは避ける）: https://examples.aedt.docs.pyansys.com/
 - 実行時に `dir(obj)` / `help(obj.method)` でその場でAPIを確認する。
+
+## より詳しい手順
+
+AEDT同梱のインストーラー経由でのインストール、それに伴って使えるようになるAutomationタブの
+パネル（Console/Jupyter/Run script等）、VS Codeでの開発手順など、実際の操作手順を踏まえた詳細は
+[lecture/00_environment_setup.md](../lecture/00_environment_setup.md) を参照。

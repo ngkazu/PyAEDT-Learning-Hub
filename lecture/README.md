@@ -30,13 +30,24 @@
 
 ```
 lecture/
-  README.md              このファイル
+  README.md                このファイル
+  00_environment_setup.md 環境構築ガイド（AEDTからのインストール・自分で仕想環境作成・VS Codeでの開発手順）
   01_pyaedt_lecture.md    発表者用の講義ノート（台本風、スライドではない）
+  02_pyaedt_self_study.md 自己学習用ノート（01と同内容を読み物として整形。講義不参加者・復習用）
+  03_pyaedt_architecture.md 「PyAEDTの基本構造」深掘りノート（オブジェクト階層・接続モデル、変数システム、
+                            各サブオブジェクトの内部クラス構造。任意）
   demo/
     demo1_basic_operations.py         起動→箱作成→保存→終了の最小デモ
     demo2_before_native_script.py     AEDT内蔵スクリプト記録の出力イメージ（変換前）
     demo2_after_pyaedt_conversion.py  同内容をPyAEDTの高レベルAPIで書き直した例（変換後）
 ```
+
+環境構築がまだの人は先に [00_environment_setup.md](00_environment_setup.md) を読むこと。
+
+`01_pyaedt_lecture.md` は発表中に「見ながら話す」ための簡潔な台本。その場でそのまま読み上げられるレベルまで詳細化した版は
+[docs/lecture-script-detail.md](../docs/lecture-script-detail.md) にある（同じ節構成・同じ時間配分）。
+講義に参加できなかった人、後から自分のペースで読み返したい人向けの自己学習版は
+[02_pyaedt_self_study.md](02_pyaedt_self_study.md) にある（発表者の進行指示を除き、文章だけで完結するように書き直してある）。
 
 ## 進め方（発表者向け）
 

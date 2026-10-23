@@ -45,6 +45,7 @@ memo/       課題作成者向けの内部メモ（学習者は見る必要な�
 | [docs/exercise-template.md](docs/exercise-template.md) | 課題の書式・執筆スタイルガイド |
 | [docs/review-checklist.md](docs/review-checklist.md) | レビュー・品質チェックリスト |
 | [docs/roadmap/coverage.md](docs/roadmap/coverage.md) | アプリ×難易度のカバレッジ表（進捗管理） |
+| [docs/lecture-script-detail.md](docs/lecture-script-detail.md) | 導入講義（`lecture/`）の発表者読み上げ用詳細版スクリプト |
 
 ## 参考
 
