@@ -14,7 +14,7 @@ memo/       課題作成者向けの内部メモ（学習者は見る必要な�
 ## 進め方
 
 1. **`lecture/`** の講義資料に目を通す（すでに講義を受講済みなら読み飛ばしてよい）。
-2. **`docs/setup.md`** に沿って環境を準備する。
+2. **`lecture/00_environment_setup.md`** に沿って環境を準備する。
 3. **`docs/app-selection.md`** で、演習に使いたいAEDTアプリケーションのクラス名を確認する。
 4. **`exercise/0.easy/`** から順に、`1.normal/` → `2.hard/` → `3.expert/` と難易度を上げながら進める。
    各課題フォルダには `README.md`（課題文）・`starter.py`（穴埋め用）・`solution.py`（模範解答）がある。
@@ -39,7 +39,7 @@ memo/       課題作成者向けの内部メモ（学習者は見る必要な�
 
 | ファイル | 内容 |
 |---|---|
-| [docs/setup.md](docs/setup.md) | 環境構築ガイド |
+| [lecture/00_environment_setup.md](lecture/00_environment_setup.md) | 環境構築ガイド |
 | [docs/app-selection.md](docs/app-selection.md) | アプリケーション選択リファレンス |
 | [docs/difficulty-criteria.md](docs/difficulty-criteria.md) | 難易度基準 |
 | [docs/exercise-template.md](docs/exercise-template.md) | 課題の書式・執筆スタイルガイド |

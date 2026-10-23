@@ -58,7 +58,7 @@ easy 側にも、対応する normal 課題への参照を発展課題などに�
 - 実装が必要な箇所には `# TODO: ...` コメントで、何を実装すべきかを具体的に書く。
 - `common_3d` 等の課題では、アプリケーションクラスの import 部分を学習者が書き換える前提のコメントを入れる
   （`docs/app-selection.md` の対応表を参照するよう促す）。
-- `settings.release_on_exception = False` を設定する（`docs/setup.md` 参照）。
+- `settings.release_on_exception = False` を設定する（`lecture/00_environment_setup.md` 参照）。
 
 ## solution.py の規約
 

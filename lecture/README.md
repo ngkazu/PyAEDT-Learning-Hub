@@ -59,4 +59,4 @@ lecture/
 
 ## 前提環境
 
-`docs/setup.md` と同じ（Python 3.10+、`pip install "pyaedt[all]"`、AEDT 2024.2以降、フル商用ライセンス）。
+`00_environment_setup.md` と同じ（Python 3.10+、`pip install "pyaedt[all]"`、AEDT 2024.2以降、フル商用ライセンス）。

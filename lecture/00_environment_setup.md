@@ -2,9 +2,8 @@
 
 PyAEDTを使い始める前に必要な環境構築を、実際の操作手順に沿って説明します。
 [01_pyaedt_lecture.md](01_pyaedt_lecture.md) / [02_pyaedt_self_study.md](02_pyaedt_self_study.md) で
-扱うコード例を実際に動かすための準備にあたる内容です。要点だけを簡潔にまとめたリファレンスは
-[docs/setup.md](../docs/setup.md) を参照してください（このノートはその内容を、実際の手順を追いながら
-詳しく解説したものです）。
+扱うコード例を実際に動かすための準備にあたる内容です。このプロジェクトにおける環境構築の正式な
+一次情報はこのノートです（`docs/`配下には環境構築専用のドキュメントは置いていません）。
 
 ## 1. 2つの選択肢
 
@@ -96,10 +95,37 @@ pyaedt --help
 
 ## 3. 自分で仮想環境を作成する
 
-VS Codeなど通常のIDEで開発したい場合は、AEDT同梱の環境に頼らず、自分で仮想環境を作るのが
-確実です。このプロジェクト自体も、この方法で検証用の `.venv` を作成しています。
+VS Codeなど通常のIDEで開発したい場合は、自分で仮想環境を作るのが確実です。
+仮想環境のベースにするPythonは、**AEDT同梱のCPython**と、**別途インストールしたPython**の
+2通りから選べます。どちらでもできあがる `ansys.aedt.core` 自体は同じものです。
 
-### 3.1 仮想環境の作成とアクティベート
+### 3.1 (A) AEDT同梱のPythonを使う場合
+
+AEDTには専用のCPythonインタープリタが同梱されており、別途Pythonをインストールしなくても
+仮想環境を作成できます。インストール先のバージョンフォルダ名（`v261` など）は、AEDTの
+バージョンに対応します（例: `v261` = AEDT 2026 R1）。2026 R1の場合のパスは次の通りです。
+
+```powershell
+# AEDT 2026 R1 (v261) 同梱のPythonで仮想環境を作成する
+& "C:\Program Files\ANSYS Inc\v261\AnsysEM\commonfiles\CPython\3_10\winx64\Release\python\python.exe" -m venv .venv
+
+# アクティベートしてインストールする
+.venv\Scripts\Activate.ps1
+pip install "pyaedt[all]"
+```
+
+他のAEDTバージョンを使う場合は、パス中の `v261` の部分をそのバージョンに対応する番号
+（`v251`=2025 R1、`v252`=2025 R2 など）に置き換えます。`3_10`（Python 3.10）の部分は、
+ AEDT 2023 R2〜2026 R2では共通です（AEDT 2027 R1以降はPython 3.13に変わる予定）。
+
+この方法は、2章で最初に見た「AEDTからインストールする」方法とは別物です。2章の方法は
+`pyaedt_installer_from_aedt.py` が**自動的に**専用の仮想環境を作ってAEDTのAutomationタブにパネルを
+追加するのに対し、こちらは**手動で**VS Code用の仮想環境を作る方法です。
+
+### 3.2 (B) 別途インストールしたPythonを使う場合
+
+通常のPython 3.10以上が入っていれば、それを使って仮想環境を作成することもできます。
+このプロジェクト自体も、この方法で検証用の `.venv` を作成しています。
 
 ```powershell
 # プロジェクトフォルダ直下で仮想環境を作成する
@@ -107,6 +133,7 @@ python -m venv .venv
 
 # PowerShellでアクティベートする
 .venv\Scripts\Activate.ps1
+pip install "pyaedt[all]"
 ```
 
 実行ポリシーの制限でアクティベートできない場合は、次のように一時的に許可してから実行します。
@@ -116,19 +143,16 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 .venv\Scripts\Activate.ps1
 ```
 
-### 3.2 PyAEDTのインストール
+### 3.3 バージョンの確認
 
-```powershell
-pip install "pyaedt[all]"
-```
-
-バージョンを確認するには次のようにします。
+どちらの方法でインストールした場合も、インストール済みの `pyaedt` バージョンは次のように
+確認できます。
 
 ```powershell
 py -3 -c "import ansys.aedt.core; print(ansys.aedt.core.__version__)"
 ```
 
-### 3.3 推奨設定
+### 3.4 推奨設定
 
 スクリプトの冒頭に次の設定を入れておくと、実行時に例外が起きてもAEDTが自動終了せず、
 原因調査がしやすくなります。
@@ -139,7 +163,7 @@ from ansys.aedt.core.generic.settings import settings
 settings.release_on_exception = False
 ```
 
-### 3.4 新規起動と既存セッションへの接続の使い分け
+### 3.5 新規起動と既存セッションへの接続の使い分け
 
 ```python
 from ansys.aedt.core import Hfss

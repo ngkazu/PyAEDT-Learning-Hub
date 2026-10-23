@@ -7,7 +7,7 @@
 ## 前提
 
 - [lecture/](../lecture/) の講義資料に目を通していること（推奨。必須ではない）
-- [docs/setup.md](../docs/setup.md) の環境構築が完了していること
+- [lecture/00_environment_setup.md](../lecture/00_environment_setup.md) の環境構築が完了していること
 - [docs/app-selection.md](../docs/app-selection.md) で使いたいアプリケーションのクラス名を確認しておくこと
 
 ## 難易度別の学び方

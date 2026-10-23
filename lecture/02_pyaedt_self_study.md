@@ -5,7 +5,7 @@
 書き直したものです。発表者の語りかけや「ここで画面を見せる」といった進行上の指示は取り除き、
 文章だけで完結するように説明を補っています。
 
-手元でAEDTとPyAEDTが使える環境（[docs/setup.md](../docs/setup.md)参照）があれば、
+手元でAEDTとPyAEDTが使える環境（[00_environment_setup.md](00_environment_setup.md)参照）があれば、
 コード例は実際に実行しながら読み進めることをお勧めします。`demo/` フォルダに、
 このノートに出てくるコード例がそのまま実行できる形で置いてあります。
 
@@ -90,7 +90,7 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 
 - `version`: 使用するAEDTのバージョンを文字列で指定します。複数バージョンのAEDTが同じマシンに
   入っていることもあるので、明示しておくと安全です。手元の環境のバージョンは、AEDTを起動して
-  「ヘルプ > バージョン情報」で確認できます（詳細は [docs/setup.md](../docs/setup.md)）。
+  「ヘルプ > バージョン情報」で確認できます（詳細は [00_environment_setup.md](00_environment_setup.md)）。
 - `new_desktop`: `True` にすると、新しいAEDTプロセスを起動します。`False` にすると、
   既に起動しているAEDTセッションに接続しにいきます（`port` や `aedt_process_id` を併用して
   どのプロセスに繋ぐか指定することもできます）。何も考えずに `new_desktop=True` のスクリプトを
@@ -206,7 +206,7 @@ close_desktop=True` を付けて、プロジェクトとデスクトップの両
 ### つまずきやすいポイント
 
 - スクリプトを途中で止めてしまった（例外が発生した、Ctrl+Cで止めた）場合、AEDTプロセスが
-  残ることがあります。`settings.release_on_exception = False`（[docs/setup.md](../docs/setup.md)参照）を
+  残ることがあります。`settings.release_on_exception = False`（[00_environment_setup.md](00_environment_setup.md)参照）を
   設定しておくと、例外発生時にAEDTが自動終了してしまうのを防げるので、原因調査がしやすくなります。
 - `non_graphical=False` で動かしている間は、AEDTのウィンドウが実際に操作可能な状態になっています。
   うっかり手動でクリックしてしまうと、スクリプトの実行と手動操作が競合することがあるので注意してください。

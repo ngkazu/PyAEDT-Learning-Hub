@@ -5,7 +5,8 @@
 「見ながら話す」ためのメモだとすると、こちらは「そのまま声に出して読める」文章になっている。
 
 対象読者は発表者自身。学習者に配布する資料ではない（学習者向けの要約は `lecture/01_pyaedt_lecture.md` と
-`lecture/README.md` を参照）。内容の正式な一次情報は [docs/setup.md](setup.md)・
+`lecture/README.md` を参照）。内容の正式な一次情報は
+[lecture/00_environment_setup.md](../lecture/00_environment_setup.md)・
 [docs/app-selection.md](app-selection.md) であり、本書はそれらを講義の流れに沿って肉付けしたもの。
 
 ---
@@ -100,7 +101,8 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 
 - `version`: 使用するAEDTのバージョンを文字列で指定します。複数バージョンのAEDTが同じマシンに
   入っていることもあるので、明示しておくと安全です。手元の環境のバージョンは、AEDTを起動して
-  「ヘルプ > バージョン情報」で確認できます（詳細は [docs/setup.md](setup.md)）。
+  「ヘルプ > バージョン情報」で確認できます（詳細は
+  [lecture/00_environment_setup.md](../lecture/00_environment_setup.md)）。
 - `new_desktop`: `True` にすると、新しいAEDTプロセスを起動します。`False` にすると、
   既に起動しているAEDTセッションに接続しにいきます（`port` や `aedt_process_id` を併用して
   どのプロセスに繋ぐか指定することもできます）。この違いは地味に重要で、何も考えずに
@@ -227,7 +229,8 @@ AEDTというアプリケーション自体の起動に数秒〜数十秒かか�
 「演習を自分でやってみると、次のような場面でつまずきやすいので、先に共有しておきます。」
 
 - スクリプトを途中で止めてしまった（例外が発生した、Ctrl+Cで止めた）場合、AEDTプロセスが
-  残ることがあります。`settings.release_on_exception = False`（[docs/setup.md](setup.md)参照）を
+  残ることがあります。`settings.release_on_exception = False`
+  （[lecture/00_environment_setup.md](../lecture/00_environment_setup.md)参照）を
   設定しておくと、例外発生時にAEDTが自動終了してしまうのを防げるので、原因調査がしやすくなります。
 - `non_graphical=False` で動かしている間は、AEDTのウィンドウが実際に操作可能な状態になっています。
   うっかり手動でクリックしてしまうと、スクリプトの実行と手動操作が競合することがあるので注意してください。

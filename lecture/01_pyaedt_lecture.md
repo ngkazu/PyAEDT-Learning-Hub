@@ -48,7 +48,7 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 
 - `version`: 使用する AEDT のバージョン文字列（例: `"2026.1"`）。
 - `new_desktop`: `True` にすると新しいAEDTプロセスを起動する。既存セッションに繋ぐ場合は `False` にして
-  `port` や `aedt_process_id` を指定する方法もある（詳しくは `docs/setup.md` を参照）。
+  `port` や `aedt_process_id` を指定する方法もある（詳しくは `lecture/00_environment_setup.md` を参照）。
 - `non_graphical`: `True` にすると画面を出さずバックグラウンドで動く（CI向け）。講義では `False` で画面を見せる。
 
 以後の操作はすべて、この `hfss`（アプリオブジェクト）のプロパティ・メソッドとして提供される。
