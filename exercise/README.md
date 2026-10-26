@@ -90,6 +90,9 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
 | [1.normal/icepak/ex01_heatsink/](1.normal/icepak/ex01_heatsink/) | ヒートシンク熱解析（モデル作成〜解析実行） | 60分 |
+| [1.normal/icepak/ex02_small_cabinet_fan/](1.normal/icepak/ex02_small_cabinet_fan/) | 小型筐体のファン冷却解析（モデル作成〜解析実行） | 60分 |
+| [1.normal/icepak/ex03_smd_pcb_thermal/](1.normal/icepak/ex03_smd_pcb_thermal/) | PCB表面実装部品の熱解析（モデル作成〜解析実行） | 60分 |
+
 ## 進め方
 
 1. 各課題フォルダの `README.md` を読み、課題内容・学習目標・評価基準を確認する。

@@ -14,6 +14,11 @@
 > この演習は「ヒートシンク熱解析シリーズ」の normal レベル。同じモデルにポスト処理を追加したものが
 > `2.hard/icepak/ex01_heatsink_fieldplot/`、さらにPyVista/CSV入出力を追加したものが
 > `3.expert/icepak/ex01_heatsink_postprocessing/` にある（いずれも準備中）。
+> 別の境界条件（`assign_solid_block()`、`assign_conducting_plate_with_thickness()`）や
+> native Fanコンポーネントを扱う演習は
+> [1.normal/icepak/ex02_small_cabinet_fan/](../ex02_small_cabinet_fan/)、
+> 多層基板モデリングとHTC壁面を扱う演習は
+> [1.normal/icepak/ex03_smd_pcb_thermal/](../ex03_smd_pcb_thermal/) にある。
 
 ## 学習目標
 

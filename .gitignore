@@ -46,3 +46,4 @@ exercise/**/BusbarCurrentDensity*.jpg
 
 # AEDTデスクトップ起動時に紛れ込むログ（プロジェクト外のログがcwdに出力される場合がある）
 /debug.log
+..semaphore
