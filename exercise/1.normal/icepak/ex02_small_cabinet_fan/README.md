@@ -12,6 +12,11 @@
 > この演習は「Icepak熱解析シリーズ」の2問目。`ex01_heatsink`とは異なる境界条件
 > （`assign_solid_block()`、`assign_conducting_plate_with_thickness()`）と、
 > native Fanコンポーネント（`create_fan()`）を新たに扱う。
+> 同じモデルに温度フィールドプロット・モニタを追加したものが
+> [2.hard/icepak/ex02_small_cabinet_fan_fieldplot/](../../2.hard/icepak/ex02_small_cabinet_fan_fieldplot/)、
+> さらにPython後処理（CSV入出力・PyVista可視化）を追加したものが
+> [3.expert/icepak/ex02_small_cabinet_fan_postprocessing/](../../3.expert/icepak/ex02_small_cabinet_fan_postprocessing/)
+> にある。
 
 ## 学習目標
 
