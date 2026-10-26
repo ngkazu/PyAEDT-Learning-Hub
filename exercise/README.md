@@ -14,7 +14,7 @@
 
 | 難易度 | 目安時間 | 何を学ぶか |
 |---|---|---|
-| [0.easy/](0.easy/) | 30分 | AEDTの基本操作（起動→何かする→保存→終了）。`common_3d`/`common_2d`/`common_circuit` からアプリを選んで進める |
+| [0.easy/](0.easy/) | 30分 | AEDTの基本操作（起動→何かする→保存→終了）。`common_3d`/`common_2d`/`common_circuit` からアプリを選んで進める（`pyedb` は PyEDB で EDB の基本構造を作る導入課題） |
 | [1.normal/](1.normal/) | 60分 | アプリ別の自動化基本（モデル作成→Setup作成→解析実行まで。ポスト処理は行わない） |
 | [2.hard/](2.hard/) | 90分 | normalと同じモデルにAEDT内部ポスト処理（Report/Field Plot）を追加。複数アプリの連成解析は任意でここのみ扱う |
 | [3.expert/](3.expert/) | 90分以上 | hardの内容にPyVista可視化・CSV入出力を追加。matplotlib等を使ったPythonデータ処理も重視 |
@@ -113,6 +113,17 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [1.normal/circuit/ex01_rlc_transient/](1.normal/circuit/ex01_rlc_transient/) | RLC直列回路の過渡解析（モデル作成〜解析実行） | 60分 |
 | [2.hard/circuit/ex01_rlc_filter_sparams/](2.hard/circuit/ex01_rlc_filter_sparams/) | RLCローパスフィルタのSパラメータ解析（S21・S11レポート） | 90分 |
 | [3.expert/circuit/ex01_rlc_filter_postprocessing/](3.expert/circuit/ex01_rlc_filter_postprocessing/) | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
+
+## 現在の演習一覧（Phase C: HFSS 3D Layout / PyEDB）
+
+> レイヤー/ECAD 構造はジオメトリ作成を **PyEDB**（`from pyedb import Edb`）で行い、解析を
+> **PyAEDT の `Hfss3dLayout`** で行う。easy は PyEDB で EDB の基本構造（スタックアップ・ネット・
+> トレース・ビア）を作る導入課題（解析なし）、normal は差動ペアをモデル化して解析まで実行する。
+
+| フォルダ | タイトル | 目安時間 |
+|---|---|---|
+| [0.easy/pyedb/ex01_edb_basics/](0.easy/pyedb/ex01_edb_basics/) | EDBの基本構造（スタックアップ→ネット→トレース→ビア） | 30分 |
+| [1.normal/hfss_3d_layout/ex01_diff_pair/](1.normal/hfss_3d_layout/ex01_diff_pair/) | 差動ペア伝送線路（モデル作成〜解析実行） | 60分 |
 
 ## 進め方
 

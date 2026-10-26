@@ -12,7 +12,8 @@ HFSS 3D Layout では、ジオメトリ（スタックアップ・配線・ビ�
 解析を PyAEDT の `Hfss3dLayout` で行う。この easy 課題はその前半（EDB 構造の作成）に集中する。
 クラス名は [docs/app-selection.md](../../../docs/app-selection.md) を参照（3D Layout は `Hfss3dLayout`、EDB は `Edb`）。
 
-> この演習は HFSS 3D Layout シリーズの easy レベル。解析は行わず、EDB の基本構造を作る手順だけを学ぶ。
+> この演習は PyEDB（HFSS 3D Layout のジオメトリ作成を担う）の easy レベル。解析は行わず、
+> EDB の基本構造を作る手順だけを学ぶ。
 > ポート配置やセットアップ・解析の実行は normal（`1.normal/hfss_3d_layout/`）に進んでから扱う。
 
 ## 学習目標
