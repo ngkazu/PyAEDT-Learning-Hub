@@ -218,6 +218,34 @@ for b in hfss.boundaries:
 まったく違いますが、PyAEDT上での**扱い方の形**（戻り値が `BoundaryObject`、`.name` でアクセスできる、
 `hfss.boundaries` で一覧できる）は共通しています。
 
+#### アプリ別の代表的な境界条件
+
+「境界条件を割り当てるメソッドの名前・引数はアプリごとにまったく異なる」という点を、
+このプロジェクトの演習で実際に使っているものに絞って一覧にしておきます。いずれも戻り値は
+`BoundaryObject`（または、Q3Dの縮退行列のように専用クラス）です。
+
+| アプリ | 代表的な境界条件 | メソッド例 | 使用演習 |
+|---|---|---|---|
+| HFSS | Wave Port（導波管・伝送線路の入出力） | `hfss.wave_port(assignment=sheet.name, name="Port1")` | `1.normal/hfss/ex02_iris_filter/`、`ex03_microstrip_line/` |
+| HFSS | 輻射境界（Airbox表面） | `hfss.assign_radiation_boundary_to_faces(assignment=face_ids)` / `assign_radiation_boundary_to_objects(regiｖon)` | `1.normal/hfss/ex01_dipole_antenna/` 他 |
+| HFSS | 有限導電率（2Dシートを導体として扱う） | `hfss.assign_finite_conductivity(assignment=sheet.name, material="copper")` | `1.normal/hfss/ex03_microstrip_line/` |
+| HFSS | プローブ給電ポート | `patch.create_probe_port(ground, rel_x_offset=0.485)` | `1.normal/hfss/ex04_patch_antenna/` |
+| Maxwell 3D | 電流励振（ソリッド断面への通電） | `m3d.assign_current(assignment=face_name, amplitude="1000A")` | `1.normal/maxwell_3d/ex01_choke/`、`ex02_asymmetric_conductor/` |
+| Maxwell 3D | コイル励振（巻線） | `assign_coil()` → `assign_winding()` → `add_winding_coils()` | `1.normal/maxwell_3d/ex03_coil_core/` |
+| Maxwell 3D | 渦電流・変位電流の有無 | `m3d.eddy_effects_on(assignment=[...], enable_eddy_effects=False)` | `1.normal/maxwell_3d/ex02_asymmetric_conductor/` |
+| Maxwell 3D | インダクタンス計算用の縮退（Matrix） | `assign_matrix()`（`MatrixMagnetostatic`/`SourceMagnetostatic` と併用） | `2.hard/maxwell_3d/ex03_coil_core_fieldplot/` |
+| Icepak | 熱源（総発熱量） | `ipk.assign_source(assignment=face, thermal_condition="Total Power", assignment_value="20W")` | `1.normal/icepak/ex01_heatsink/` |
+| Icepak | 圧力開口（流体の出入口） | `ipk.assign_pressure_free_opening(assignment=face_id, no_reverse_flow=True)` | `1.normal/icepak/ex01_heatsink/` |
+| Icepak | 固定温度壁 | `ipk.assign_stationary_wall(geometry=face_ids, boundary_condition="Temperature", temperature="AmbientTemp")` | `1.normal/icepak/ex01_heatsink/` |
+| Q3D Extractor | ソース／シンク（電流の入出力端子） | `q3d.source(assignment=obj, direction=q3d.axis_directions.XPos, name="Source1")` / `q3d.sink(...)` | `1.normal/q3d/ex01_busbar/` |
+| Q3D Extractor | 縮退行列（複数導体の直列・並列結合） | `q3d.insert_reduced_matrix(operation_name="JoinSeries", assignment=[...])` | `2.hard/q3d/ex01_busbar_matrixreport/` |
+
+この表からも分かる通り、**境界条件は物理分野ごとに全く別の概念**（電磁界の「ポート」、熱流体の
+「開口」、Q3Dの「ソース/シンク」）ですが、PyAEDT上では「`assign_*()` または似た名前のメソッドを呼ぶ→
+`BoundaryObject`（または類する専用オブジェクト）が返る→`hfss.boundaries` 的なプロパティで一覧できる」
+という共通の「形」に収まっています。新しいアプリで知らない境界条件に出会ったときも、
+「`assign_` や `insert_` で始まるメソッド名を `dir()` で探す」という調べ方（§2.4）がそのまま使えます。
+
 ### 3.4 `create_setup()`: Setupクラスの系統
 
 `create_setup()` の戻り値は、ベースとなる `Setup`（`CommonSetup` を継承）クラスそのものではなく、
@@ -231,7 +259,125 @@ Q3D Extractorなら `SetupQ3D` が返ります。
 （メソッド名が微妙に異なる点に注意）。「共通構造＋アプリ固有の拡張」という考え方は、
 Setupオブジェクトのクラス階層にもそのまま表れています。
 
-### 3.5 `post`: PostProcessorクラスの系統
+#### `props`: Setupの詳細設定を辞書として扱う
+
+`Setup`（および各サブクラス）は、`.props` という辞書的なプロパティを持っています。これは
+AEDTのネイティブなSetupプロパティ（GUIの「Edit Setup」ダイアログで設定する項目）を、
+そのままPython側の辞書のキーとして読み書きできるようにしたものです。
+
+```python
+setup = m3d.create_setup(name="MySetup")
+setup.props["MaximumPasses"] = 6
+setup.props["MinimumPasses"] = 2
+setup.props["PercentError"] = 1
+setup.update()  # 辞書への代入をAEDT側に反映する
+```
+
+`.props[キー] = 値` で代入した内容は、必ず `.update()` を呼ぶまでAEDT側に反映されません
+（代入自体はPythonオブジェクト内部の辞書を書き換えるだけで、AEDTとの通信は `update()` が担当する）。
+
+アプリによって、Setup作成時にこの `props` 辞書をどう扱うかに違いがあります。
+
+| アプリ | 代表的なパターン | 例 | 使用演習 |
+|---|---|---|---|
+| Maxwell 3D | `create_setup()` で素のSetupを作り、`.props[...]` に事後代入してから `.update()` | `setup = m3d.create_setup(name="MySetup")`<br>`setup.props["Frequency"] = "150kHz"` | `1.normal/maxwell_3d/ex01_choke/` |
+| Icepak | 同上。GUIのプロパティ名（`"Flow Regime"` など）をそのままキーにする | `setup.props["Flow Regime"] = "Laminar"`<br>`setup.props["Include Temperature"] = True` | `1.normal/icepak/ex01_heatsink/` |
+| Q3D Extractor | `create_setup()` の `props` **引数**に辞書をまとめて渡す（事後代入ではなく作成時に一括指定） | `q3d.create_setup(name="MySetup", props={"AdaptiveFreq": "1000MHz"})` | `1.normal/q3d/ex01_busbar/` |
+| HFSS | `create_setup()` の `**kwargs` にプロパティ名をそのままキーワード引数として渡す（`props`辞書は経由しない） | `hfss.create_setup(name="Setup1", Frequency="10GHz", MaxDeltaS=0.02, MaximumPasses=6)` | `1.normal/hfss/ex03_microstrip_line/` |
+
+HFSSだけ毛色が違って見えますが、これは設計方針の違いというより、**このプロジェクトでの実際の
+動作検証の結果**です。当初はHFSSでも「`create_setup()` で空のSetupを作ってから `.props[...]` に
+事後代入する」パターンを使っていましたが、AEDTでの実行検証で挙動が不安定になることが分かったため、
+「`create_setup()` の引数としてプロパティ名をキーワード引数でまとめて渡す」方式に修正した経緯があります
+（`memo/work-log.md` のPhase B検証記録を参照）。Maxwell 3D・Icepak・Q3Dの演習では事後代入パターンで
+問題が起きていないため、そのまま使っています。「APIの挙動は推測せず、実際にAEDTで動かして確認する」
+という、このプロジェクト全体の方針（§2.4）がSetup周りでも実例として表れている形です。
+
+#### Sweep: 周波数スイープの追加方法もアプリ別にばらばら
+
+Setupを作成したあと、「どの周波数点を解くか」を追加指定するのが周波数スイープです。
+`props` 以上にアプリ間の差が大きく、**同じHFSSの中でさえ3通りのやり方**があります。
+
+| アプリ | 呼び出し方 | 代表例 | 使用演習 |
+|---|---|---|---|
+| HFSS (1) | `setup`オブジェクトのメソッド | `setup.add_sweep(name="Sweep1", sweep_type="Interpolating", RangeStart="1GHz", RangeEnd="2GHz")` | `1.normal/hfss/ex01_dipole_antenna/` |
+| HFSS (2) | `setup`オブジェクトの別メソッド（引数名が(1)と異なる） | `setup.create_frequency_sweep(unit="GHz", name="Sweep1", start_frequency=8, stop_frequency=12, sweep_type="Interpolating")` | `2.hard/hfss/ex04_patch_antenna_farfield/` |
+| HFSS (3) | `hfss`（アプリオブジェクト）側のメソッド（`setup`引数で対象を名前指定） | `hfss.create_linear_count_sweep(setup="Setup1", unit="GHz", start_frequency=0.1, stop_frequency=10, num_of_freq_points=201, sweep_type="Interpolating")` | `1.normal/hfss/ex03_microstrip_line/` |
+| Maxwell 3D | `setup`オブジェクトの専用メソッド。通常の周波数掃引ではなく、EddyCurrentソルバーに**追加の単一周波数の解析点**を加える用途 | `setup.add_eddy_current_sweep(sweep_type="SinglePoints", start_frequency=50, units="Hz", clear=True)` | `2.hard/maxwell_3d/ex02_asymmetric_conductor_bzreport/` |
+| Q3D Extractor | `setup`オブジェクトの専用メソッド。開始・終了・ステップ幅を直接指定する | `setup.create_linear_step_sweep(name="my_sweep", unit="GHz", start_frequency=0, stop_frequency=10, step_size=1, sweep_type="Discrete", save_fields=True)` | `1.normal/q3d/ex01_busbar/` |
+
+HFSSに3通りもあるのは、PyAEDTの歴史的な経緯でAPIが複数追加されてきたためで、どれも最終的には
+同じAEDTのスイープ機能を呼び出しています。実務上は「`setup.add_sweep()` を基本形として覚えておき、
+演習や公式サンプルで別の書き方（`create_frequency_sweep()`・`create_linear_count_sweep()`）に
+出会ったら、そういうものだと割り切って読む」くらいの付き合い方で十分です。
+
+Maxwell 3DとQ3Dで名前は似ていても中身が違う点にも注意してください。Maxwell 3Dの
+`add_eddy_current_sweep()` は「Sパラメータのような連続した周波数特性を得る」ものではなく、
+「もともと1点の周波数で解いているEddyCurrentソルバーに、もう1点だけ追加で解かせる」ための
+メソッドです（[04_post_processing.md](04_post_processing.md) で触れたTEAM7演習の50Hz追加が実例）。
+一方Q3Dの `create_linear_step_sweep()` は、HFSSの周波数スイープと同じ「連続した周波数範囲を
+解く」ためのものです。ただしQ3Dでは `sweep_type="Interpolating"` を指定すると内部的に
+`SaveFields` が常に`False`に強制される、という実装上の制約があり（
+[04_post_processing.md](04_post_processing.md) §3.2 参照）、hard/expertでマトリクスデータを
+周波数ごとに取得したい場合は `sweep_type="Discrete"` を使う必要があります。
+
+#### Sweepオブジェクトも `.props` 辞書を持つ
+
+ここまで見た `add_sweep()` / `create_frequency_sweep()` / `create_linear_step_sweep()` などの
+戻り値（`SweepHFSS`、`SweepMatrix`（Q3D用）など）は、実は内部で**Setupと同じ `.props` 辞書**を
+持っています。つまり、Sweep作成時の引数で指定した `RangeStart`・`RangeEnd`・`SaveFields` などの
+設定項目は、作成後も `.props[キー]` で直接読み書きできます。
+
+```python
+sweep = setup.add_sweep(name="Sweep1", sweep_type="Interpolating", RangeStart="1GHz", RangeEnd="2GHz")
+
+sweep.props["RangeEnd"]       # "2GHz"（今設定されている値を読む）
+sweep.props["RangeEnd"] = "3GHz"  # 値を書き換える
+sweep.update()                 # Setupの.propsと同様、update()を呼ぶまでAEDT側には反映されない
+```
+
+挙動はSetupの `.props` とまったく同じ考え方です。コンストラクタ（`add_sweep()` 等）の引数は
+「作成時にまとめて指定するための入り口」にすぎず、実体は中の `.props` 辞書であり、
+作成後に読み直したり書き換えたりできる、という点を知っておくと、「作成時に渡し忘れた設定を
+あとから追加したい」という場面で `add_sweep()` をもう一度呼び直す必要がないことが分かります
+（`sweep.props[...]` に追記して `sweep.update()` すればよい）。
+
+### 3.5 解析実行: `analyze()` の呼び出し方
+
+モデルとSetupを作ったあとは、解析を実行します。こちらはこのプロジェクトの全演習で一貫して
+使っている `setup.analyze()`（Setupオブジェクト経由の呼び出し）を指しますが、実はアプリオブジェクト自身にも
+同じ役割のメソッドがあり、呼び出し方が2通りあります。
+
+```python
+# (a) Setupオブジェクト経由（このプロジェクトの全演習で使っている書き方）
+setup = m3d.create_setup(name="MySetup")
+setup.analyze()
+
+# (b) アプリオブジェクト経由（setup引数で名前を指定。省略すると全Setupを解く）
+m3d.analyze(setup="MySetup")
+```
+
+ソースを確認すると、`setup.analyze()` は内部で `self._app.analyze(setup=self.name, ...)` を呼んでいるだけ
+（= 最終的には全て(b)に合流する）ことが分かります。さらに、歴史的な経緯で `analyze_setup(name=...)` という
+ほぼ同じ引数構成の別メソッドもアプリオブジェクトに存在します（`app.analyze_setup(name="MySetup")`）。
+どれを使っても結果は同じですが、このプロジェクトの演習では一貫して (a) の `setup.analyze()` を使っています
+（「このSetupを解く」という意図がコード上に正確に表れるため）。
+
+主な引数はどちらの呼び出し方でも共通です。
+
+| 引数 | 役割 |
+|---|---|
+| `cores` / `tasks` / `gpus` | 解析に使う計算リソースの指定（HPC環境向け。指定しなければAEDTの既定設定を使う） |
+| `blocking` | `True`（既定）なら、解析が完了するまでスクリプトの実行が止まる（このプロジェクトの演習はすべてこの方式）。
+`False` にすると解析をバックグラウンドで走らせたまま次の行に進む（AEDT 2023 R2以降で有効） |
+| `revert_to_initial_mesh` | 解析前に初期メッシュに戻すかどうか |
+
+`setup.analyze()` の実際の実装（`modules/solve_setup.py`）を確認すると、`setup=None` を渡した
+場合のアプリ側 `analyze()` は「全てのSetupを解く」動作になります。複数のSetupを作った後で、
+特定のSetupだけを解きたい場合は、必ず `setup.analyze()`（または `app.analyze(setup="名前")`）のように
+対象Setupを明示する必要があります。
+
+### 3.6 `post`: PostProcessorクラスの系統
 
 `hfss.post` は、HFSSなら `PostProcessorHFSS`、Maxwell 3Dなら `PostProcessorMaxwell`、
 Icepakなら `PostProcessorIcepak` というクラスのインスタンスです。これらはすべて
@@ -254,7 +400,7 @@ PostProcessorCommon（最も基礎的な共通機能）
 このプロジェクトの `3.expert/` の演習で繰り返し使っている `get_expression_data(expression=...,
 formula=...)` は、この `SolutionData` クラスのメソッドです。
 
-### 3.6 この節のまとめ
+### 3.7 この節のまとめ
 
 サブオブジェクトの呼び出し一つひとつが、実は「共通の基底クラス」と「アプリ固有のサブクラス」の
 組み合わせでできている、ということを確認しました。新しいアプリ（例えばこれから触るIcepakや

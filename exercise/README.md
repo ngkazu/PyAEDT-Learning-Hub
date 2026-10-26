@@ -84,6 +84,12 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [1.normal/q3d/ex01_busbar/](1.normal/q3d/ex01_busbar/) | ブスバー解析（モデル作成〜解析実行） | 60分 |
 | [2.hard/q3d/ex01_busbar_matrixreport/](2.hard/q3d/ex01_busbar_matrixreport/) | ブスバー解析（縮退行列・キャパシタンス/インダクタンスレポート） | 90分 |
 | [3.expert/q3d/ex01_busbar_postprocessing/](3.expert/q3d/ex01_busbar_postprocessing/) | ブスバー解析 容量・インダクタンスデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+
+## 現在の演習一覧（Phase C: Icepak）
+
+| フォルダ | タイトル | 目安時間 |
+|---|---|---|
+| [1.normal/icepak/ex01_heatsink/](1.normal/icepak/ex01_heatsink/) | ヒートシンク熱解析（モデル作成〜解析実行） | 60分 |
 ## 進め方
 
 1. 各課題フォルダの `README.md` を読み、課題内容・学習目標・評価基準を確認する。
