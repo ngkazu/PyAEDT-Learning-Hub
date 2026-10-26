@@ -47,6 +47,11 @@ exercise/**/results_thermal.csv
 exercise/**/HeatsinkTemperature.png
 exercise/**/PcbTemperature.png
 
+# Circuit RLC フィルタ演習の生成物
+exercise/**/s21.csv
+exercise/**/s21.png
+exercise/**/rlc_lowpass.s2p
+
 # AEDTデスクトップ起動時に紛れ込むログ（プロジェクト外のログがcwdに出力される場合がある）
 /debug.log
 ..semaphore

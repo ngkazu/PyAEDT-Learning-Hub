@@ -101,6 +101,19 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [3.expert/icepak/ex02_small_cabinet_fan_postprocessing/](3.expert/icepak/ex02_small_cabinet_fan_postprocessing/) | 小型筐体のファン冷却解析 温度データのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 | [3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/](3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/) | PCB表面実装部品の熱解析 温度データのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
+## 現在の演習一覧（Phase C: Circuit）
+
+> `common_circuit`（Circuit / EMIT / Twin Builder）の easy 課題と、Circuit の RLC シリーズ
+> （normal→hard→expert）。RLC シリーズは同じ R/L/C を、normal で過渡解析、hard で2ポート化して
+> S パラメータ解析、expert で S パラメータの Python 後処理、と段階的に発展させる。
+
+| フォルダ | タイトル | 目安時間 |
+|---|---|---|
+| [0.easy/common_circuit/ex01_circuit_basics/](0.easy/common_circuit/ex01_circuit_basics/) | 回路要素の配置と配線（起動→配置→配線→保存→終了） | 30分 |
+| [1.normal/circuit/ex01_rlc_transient/](1.normal/circuit/ex01_rlc_transient/) | RLC直列回路の過渡解析（モデル作成〜解析実行） | 60分 |
+| [2.hard/circuit/ex01_rlc_filter_sparams/](2.hard/circuit/ex01_rlc_filter_sparams/) | RLCローパスフィルタのSパラメータ解析（S21・S11レポート） | 90分 |
+| [3.expert/circuit/ex01_rlc_filter_postprocessing/](3.expert/circuit/ex01_rlc_filter_postprocessing/) | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
+
 ## 進め方
 
 1. 各課題フォルダの `README.md` を読み、課題内容・学習目標・評価基準を確認する。
