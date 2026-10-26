@@ -5,8 +5,12 @@
 題材: [PyAEDT Examples](https://examples.aedt.docs.pyansys.com/) の 3D Layout / EDB 系サンプルを
 着想元に、差動ペア（ストリップライン）を PyEDB で作って HFSS 3D Layout で解析する構成を独自に作成。
 
-> この演習は「差動ペア伝送線路シリーズ」の normal レベル。HFSS 3D Layout は easy 対象外のため
-> normal から始める。hard 以降では差動 S パラメータ（SDD21 など）のレポート・後処理を追加していく予定。
+> この演習は「差動ペア伝送線路シリーズ」の normal レベル。
+> HFSS 3D Layout 自体の easy 課題（解析あり）はないが、前段として PyEDB で EDB の基本構造
+> （スタックアップ・ネット・トレース・ビア）を作る easy 課題
+> [`0.easy/pyedb/ex01_edb_basics`](../../../0.easy/pyedb/ex01_edb_basics/README.md) を用意している。
+> EDB の組み立てに不安があれば、先にそちらを済ませてからこの課題に進むとよい。
+> hard 以降では差動 S パラメータ（SDD21 など）のレポート・後処理を追加していく予定。
 
 ## 使用するパッケージ
 
