@@ -137,6 +137,9 @@ Q3Dの`insert_reduced_matrix`のような）は、この共通構造の上に追
 この「共通構造＋アプリ固有の拡張」という見方ができると、新しいアプリを触るときの心理的ハードルが
 かなり下がります。
 
+> オブジェクト階層・接続モデル、変数システム、各サブオブジェクトの内部クラス構造をもう一段深く
+> 知りたい場合は [lecture/03_pyaedt_architecture.md](../lecture/03_pyaedt_architecture.md) を参照（任意）。
+
 ### 2.4 APIの調べ方（推測しない、という姿勢の共有）
 
 「このあと演習を進めていく中で、必ず『このメソッドの引数は何を渡せばいいんだろう』と迷う場面が
@@ -392,5 +395,7 @@ GUIで既に作り込んだ複雑な形状を『取り急ぎ移植したい』�
 2. [docs/app-selection.md](app-selection.md)（アプリケーションの選び方・クラス名対応表）。
 3. 公式ドキュメント（https://aedt.docs.pyansys.com/）。
 4. `dir(obj)` / `help(obj.method)` によるその場での確認（2.4節で説明した方法）。
+5. `exercise/` のhard/expertで出てくるポスト処理（Report/Field Plot/PyVista/CSV・matplotlib）を先に概観して
+   おきたい場合は [lecture/04_post_processing.md](../lecture/04_post_processing.md) も参考になります（任意）。
 
 「以上で講義パートは終わりです。ここから演習に移りましょう。」

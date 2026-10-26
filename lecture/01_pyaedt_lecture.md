@@ -68,6 +68,9 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 どのアプリクラス（Hfss / Icepak / Maxwell3d など）でも、この構造はほぼ共通している
 （アプリ固有の機能は個別のメソッドとして追加されている）。
 
+> オブジェクト階層・接続モデル、変数システム、各サブオブジェクトの内部クラス構造をもう一段深く
+> 知りたい場合は [03_pyaedt_architecture.md](03_pyaedt_architecture.md) を参照（任意、時間があるときに）。
+
 ### 2.4 APIの調べ方（推測しない）
 
 - Python標準の `dir(obj)` や `help(obj.method)` でその場で確認できる。
@@ -183,3 +186,5 @@ oEditor.CreateBox(
   選び方は `docs/app-selection.md` を参照）。
 - 詰まったときの調べ方: `docs/app-selection.md`、公式ドキュメント（aedt.docs.pyansys.com）、
   `dir()`/`help()` によるその場での確認。
+- `exercise/` のhard/expertで出てくるポスト処理（Report/Field Plot/PyVista/CSV・matplotlib）を先に
+  概観しておきたい場合は [04_post_processing.md](04_post_processing.md) も参考になる（任意）。
