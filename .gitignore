@@ -43,6 +43,9 @@ exercise/**/results_q3d_busbar.png
 exercise/**/busbar_model.png
 exercise/**/BusbarCurrentDensity*.png
 exercise/**/BusbarCurrentDensity*.jpg
+exercise/**/results_thermal.csv
+exercise/**/HeatsinkTemperature.png
+exercise/**/PcbTemperature.png
 
 # AEDTデスクトップ起動時に紛れ込むログ（プロジェクト外のログがcwdに出力される場合がある）
 /debug.log

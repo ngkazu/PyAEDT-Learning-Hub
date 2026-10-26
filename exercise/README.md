@@ -92,8 +92,12 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [1.normal/icepak/ex01_heatsink/](1.normal/icepak/ex01_heatsink/) | ヒートシンク熱解析（モデル作成〜解析実行） | 60分 |
 | [1.normal/icepak/ex02_small_cabinet_fan/](1.normal/icepak/ex02_small_cabinet_fan/) | 小型筐体のファン冷却解析（モデル作成〜解析実行） | 60分 |
 | [1.normal/icepak/ex03_smd_pcb_thermal/](1.normal/icepak/ex03_smd_pcb_thermal/) | PCB表面実装部品の熱解析（モデル作成〜解析実行） | 60分 |
+| [2.hard/icepak/ex01_heatsink_fieldplot/](2.hard/icepak/ex01_heatsink_fieldplot/) | ヒートシンク熱解析（温度フィールドプロット・モニタ） | 90分 |
 | [2.hard/icepak/ex02_small_cabinet_fan_fieldplot/](2.hard/icepak/ex02_small_cabinet_fan_fieldplot/) | 小型筐体のファン冷却解析（温度フィールドプロット・モニタ） | 90分 |
+| [2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/) | PCB表面実装部品の熱解析（温度フィールドプロット・モニタ） | 90分 |
+| [3.expert/icepak/ex01_heatsink_postprocessing/](3.expert/icepak/ex01_heatsink_postprocessing/) | ヒートシンク熱解析 温度データのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 | [3.expert/icepak/ex02_small_cabinet_fan_postprocessing/](3.expert/icepak/ex02_small_cabinet_fan_postprocessing/) | 小型筐体のファン冷却解析 温度データのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
+| [3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/](3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/) | PCB表面実装部品の熱解析 温度データのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
 ## 進め方
 

@@ -1,0 +1,92 @@
+"""演習3: PCB表面実装部品の熱解析 温度データのPython後処理（CSV入出力・PyVista可視化）。"""
+
+import csv
+from pathlib import Path
+
+from ansys.aedt.core import Icepak
+from ansys.aedt.core.generic.settings import settings
+from ansys.aedt.core.modules.mesh_icepak import MeshRegion
+
+AEDT_VERSION = "2026.1"
+
+settings.release_on_exception = False
+
+script_dir = Path(__file__).parent
+
+# TODO: 1. conditions.csv を読み込み、"power_w" の値を float として取得する
+
+# TODO: 2. Icepak を SteadyState ソリューションで起動し、modeler.model_units = "mm" を設定する
+ipk = None
+
+# TODO: 3. edit_design_settings(ambient_temperature="20cel", gravity_dir=2) で
+#          周囲温度20℃・重力方向-Zを設定する
+
+# TODO: 4. PCB基板とその上の層を下から順にBoxで積み重ねて作成する（README.mdの表を参照）
+#          "Box1" PCB基板: origin=[0, 0, 0], sizes=[50, 50, 1.6], material="fr4_epoxy"
+#          "Box2" ベタ銅箔: origin=[0, 0, 0], sizes=[50, 50, 0.035], material="copper"
+#          "Box3" 表面パッドA: origin=[24.5, 0, 1.565], sizes=[1, 24.5, 0.035], material="copper"
+#          "Box4" 表面パッドB: origin=[24.5, 25.5, 1.565], sizes=[1, 24.5, 0.035], material="copper"
+#          "Box5" はんだA: origin=[24.5, 24, 1.6], sizes=[1, 0.5, 0.05], material="solder"
+#          "Box6" はんだB: origin=[24.5, 25.5, 1.6], sizes=[1, 0.5, 0.05], material="solder"
+#          "Box7" 部品本体: origin=[24.5, 24, 1.65], sizes=[1, 2, 0.5], material="ceramic_material"
+#          "Box8" Siダイ: origin=[24.7, 24.5, 1.9], sizes=[0.6, 1, 0.02], material="si-typical_ref"
+
+# TODO: 5. assign_point_monitor_in_object(name="Box8", monitor_type="Temperature",
+#          monitor_name="Monitor_Box8") でSiダイに温度ポイントモニタを割り当てる
+
+# TODO: 6. メッシュリージョンを3つ作成する（Regionより先に作る）。
+#          "MeshRegion1": parts=["Box1"], padding=["0"]*6, 1mm/Lv1、
+#            2Dマルチレベル（EnforeMLMType="2D", 2DMLMType="2DMLM_XY"）を有効化
+#          "MeshRegion2": parts=["Box5","Box6","Box7","Box8"],
+#            padding=["0.4","0.4","0.4","0.4","0.4","0"], 0.2mm/Lv3
+#          "MeshRegion3": parts=["Box1"..."Box8"],
+#            padding=["4","4","4","4","4.4","4"], 1mm/Lv1
+
+# TODO: 7. 解析領域("Region")を作り直す。ipk.modeler["Region"].delete() で既定の
+#          "Region"を削除してから、create_region(pad_type=["Absolute Offset"] * 6,
+#          pad_value=["25mm", "25mm", "25mm", "25mm", "50mm", "10mm"]) で作成する
+
+# TODO: 8. assign_solid_block(object_name="Box8", power_assignment=f"{power_w}W",
+#          boundary_name="Block1") で、CSVから読み込んだ発熱量をSiダイに割り当てる
+
+# TODO: 9. modeler["Region"].bounding_box から6面の中心座標を計算し、
+#          get_faceid_from_position() で各面の面IDを特定する
+
+# TODO: 10. Regionの+Z面に assign_pressure_free_opening(assignment=[+Z面],
+#           boundary_name="Opening1", no_reverse_flow=True) で圧力開口を割り当てる
+
+# TODO: 11. Regionの±X, ±Y面（4面）に assign_pressure_free_opening(assignment=[4面],
+#           boundary_name="Opening2", no_reverse_flow=False) で圧力開口を割り当てる
+
+# TODO: 12. Regionの-Z面に assign_stationary_wall_with_htc(geometry=-Z面,
+#           name="StationaryWall1", thickness="30mm", material="Epoxy Resin-JSME",
+#           htc="10w_per_m2kel", ref_temperature="AmbientTemp", shell_conduction=True) で
+#           HTC壁面境界条件を割り当てる
+
+# TODO: 13. セットアップ "Setup1" を作成し、Flow Regime="Laminar"、
+#           Include Gravity=True、Radiation Model="Discrete Ordinates Model"、
+#           最大反復500、収束条件（Flow=0.001、Energy=1e-07）、
+#           Linear Solver Type - Pressure="V" を設定する
+
+# TODO: 14. 解析を実行する。setup_sweep = f"{setup.name} : {ipk.solution_type}" を
+#           作っておく（以降の手順で使う）
+
+# TODO: 15. ipk.post.evaluate_monitor_quantity(monitor="Monitor_Box8",
+#           quantity="Temperature", setup_name=setup_sweep) で、Siダイの
+#           温度モニタ値（Min/Max/Mean/Stdev/Unit）を取得する
+
+# TODO: 16. power_w・モニタ最大温度・温度単位を results_thermal.csv に書き出す
+
+# TODO: 17. post.create_fieldplot_surface(assignment=["Box1", "Box7", "Box8"],
+#           quantity="Temperature", setup=setup_sweep, plot_name="PcbTemperature") で、
+#           PCB・部品本体・Siダイ表面の温度フィールドプロットを作成する
+
+# TODO: 18. post.plot_field_from_fieldplot(plot_name="PcbTemperature",
+#           project_path=str(script_dir), image_format="png", view="isometric",
+#           log_scale=False, show=False) で、フィールドプロットをPNG画像として出力する
+
+# TODO: 19. post.plot_field_from_fieldplot(plot_name="PcbTemperature",
+#           view="isometric", log_scale=False, show=True) で、同じフィールドプロットを
+#           インタラクティブなPyVistaウィンドウで表示する
+
+# TODO: 20. 保存して終了する

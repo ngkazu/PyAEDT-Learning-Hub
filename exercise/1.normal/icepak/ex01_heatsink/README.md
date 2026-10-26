@@ -12,8 +12,9 @@
 > （本演習では座標から面IDを求める `get_faceid_from_position()` を使う点が異なる）。
 
 > この演習は「ヒートシンク熱解析シリーズ」の normal レベル。同じモデルにポスト処理を追加したものが
-> `2.hard/icepak/ex01_heatsink_fieldplot/`、さらにPyVista/CSV入出力を追加したものが
-> `3.expert/icepak/ex01_heatsink_postprocessing/` にある（いずれも準備中）。
+> [2.hard/icepak/ex01_heatsink_fieldplot/](../../2.hard/icepak/ex01_heatsink_fieldplot/)、
+> さらにPyVista/CSV入出力を追加したものが
+> [3.expert/icepak/ex01_heatsink_postprocessing/](../../3.expert/icepak/ex01_heatsink_postprocessing/) にある。
 > 別の境界条件（`assign_solid_block()`、`assign_conducting_plate_with_thickness()`）や
 > native Fanコンポーネントを扱う演習は
 > [1.normal/icepak/ex02_small_cabinet_fan/](../ex02_small_cabinet_fan/)、
