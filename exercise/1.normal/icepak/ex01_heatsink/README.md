@@ -10,6 +10,10 @@
 > 面の取得（`get_object_faces()`）の考え方は
 > [0.easy/common_3d/ex11_get_faces/](../../../0.easy/common_3d/ex11_get_faces/) も参考になる
 > （本演習では座標から面IDを求める `get_faceid_from_position()` を使う点が異なる）。
+> フィンの作成に使う `duplicate_along_line()` の基本操作は
+> [0.easy/common_3d/ex18_duplicate_along_line/](../../../0.easy/common_3d/ex18_duplicate_along_line/)、
+> 解析領域の作成に使う `create_region()` の基本操作は
+> [0.easy/common_3d/ex19_create_region/](../../../0.easy/common_3d/ex19_create_region/) で練習できる。
 
 > この演習は「ヒートシンク熱解析シリーズ」の normal レベル。同じモデルにポスト処理を追加したものが
 > [2.hard/icepak/ex01_heatsink_fieldplot/](../../2.hard/icepak/ex01_heatsink_fieldplot/)、

@@ -47,6 +47,8 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [0.easy/common_3d/ex15_polyline_duplicate/](0.easy/common_3d/ex15_polyline_duplicate/) | ポリラインの回転複製で環状形状を作る（create_polyline→duplicate_around_axis→unite） | 30分 |
 | [0.easy/common_3d/ex16_local_coordinate_system/](0.easy/common_3d/ex16_local_coordinate_system/) | ローカル座標系を作る（create_coordinate_system→set_working_coordinate_system） | 30分 |
 | [0.easy/common_3d/ex17_non_model/](0.easy/common_3d/ex17_non_model/) | 非モデル（non_model）形状を作る | 30分 |
+| [0.easy/common_3d/ex18_duplicate_along_line/](0.easy/common_3d/ex18_duplicate_along_line/) | 直線方向への複製（duplicate_along_line）でフィン列を作る | 30分 |
+| [0.easy/common_3d/ex19_create_region/](0.easy/common_3d/ex19_create_region/) | 解析領域（Region）を作る（create_region） | 30分 |
 | [1.normal/hfss/ex01_dipole_antenna/](1.normal/hfss/ex01_dipole_antenna/) | 半波長ダイポールアンテナ（モデル作成〜解析実行） | 60分 |
 | [1.normal/hfss/ex02_iris_filter/](1.normal/hfss/ex02_iris_filter/) | 導波管インダクティブアイリスフィルタ（モデル作成〜解析実行） | 60分 |
 | [2.hard/hfss/ex01_dipole_farfield/](2.hard/hfss/ex01_dipole_farfield/) | 半波長ダイポールアンテナ（S11・遠方界のポスト処理） | 90分 |

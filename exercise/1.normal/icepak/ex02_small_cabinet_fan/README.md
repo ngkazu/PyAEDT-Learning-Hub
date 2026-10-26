@@ -8,6 +8,8 @@
 
 > ヒートシンクのフィン作成（`duplicate_along_line()`）や面IDの特定方法は
 > [1.normal/icepak/ex01_heatsink/](../ex01_heatsink/) で練習済みの前提で進める。
+> 解析領域の作成（`create_region()`）の基本操作は
+> [0.easy/common_3d/ex19_create_region/](../../../0.easy/common_3d/ex19_create_region/) で練習できる。
 
 > この演習は「Icepak熱解析シリーズ」の2問目。`ex01_heatsink`とは異なる境界条件
 > （`assign_solid_block()`、`assign_conducting_plate_with_thickness()`）と、
