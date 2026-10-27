@@ -19,6 +19,8 @@ memo/       課題作成者向けの内部メモ（学習者は見る必要な�
 4. **`exercise/0.easy/`** から順に、`1.normal/` → `2.hard/` → `3.expert/` と難易度を上げながら進める。
    各課題フォルダには `README.md`（課題文）・`starter.py`（穴埋め用）・`solution.py`（模範解答）がある。
    まず `README.md` を読み、`starter.py` をコピーして自分で実装し、詰まったら `solution.py` を確認する。
+   それでも分からない場合は、[PyAEDT公式ドキュメント](https://aedt.docs.pyansys.com/)や
+   [PyAEDT GitHubリポジトリ](https://github.com/ansys/pyaedt)（ソースコード・Issue・サンプル）も参照する。
 
 ## 難易度の考え方
 
