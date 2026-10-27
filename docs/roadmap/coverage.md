@@ -15,9 +15,9 @@
 | 2D Extractor（`2d_extractor`） | （common_2dで代替可） | CPWG・ストリップライン<br>**状態: 未着手** | 同上＋高度後処理<br>**状態: 未着手** | 周波数特性をPythonでプロット<br>**状態: 未着手** |
 | HFSS 3D Layout（`hfss_3d_layout`） | （easy対象外。前段として `pyedb` easy課題を使用） | 差動ペア伝送線路（PyEDBでモデル作成→Setup作成→解析実行）<br>**状態: 完了**（`ex01_diff_pair`。AEDTでの実行検証済み） | 差動ペア伝送線路＋差動ペア設定・Sdd21/Sdd11レポート<br>**状態: 完了**（`ex01_diff_pair_sparams`。AEDTでの実行検証済み） | 差動ペア伝送線路 SddパラメータのPython後処理（CSV入出力・matplotlib・Touchstone出力）<br>**状態: 完了**（`ex01_diff_pair_postprocessing`。AEDTでの実行検証済み） |
 | Maxwell 2D（`maxwell_2d`） | （common_2dで代替可） | 抵抗計算/静電解析 setup+解析<br>**状態: 未着手** | 2D軸対称アクチュエータ/PM同期モータ過渡＋高度後処理<br>**状態: 未着手** | RMxprt→Maxwell2Dエクスポート結果等のPython後処理<br>**状態: 未着手** |
-| Circuit（`circuit`） | （common_schematicで代替可） | RLC直列回路の過渡解析<br>**状態: 完了**（`ex01_rlc_transient`。AEDTでの実行検証済み） | RLCローパスフィルタのSパラメータ解析（S21・S11レポート）<br>**状態: 完了**（`ex01_rlc_filter_sparams`。AEDTでの実行検証済み） | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力）<br>**状態: 完了**（`ex01_rlc_filter_postprocessing`。AEDTでの実行検証済み） |
+| Circuit（`circuit`） | パルス電圧源・インターフェースポートの配置<br>**状態: 完了**（`ex01_pulse_port`。AEDTでの実行検証済み） | RLC直列回路の過渡解析<br>**状態: 完了**（`ex01_rlc_transient`。AEDTでの実行検証済み） | RLCローパスフィルタのSパラメータ解析（S21・S11レポート）<br>**状態: 完了**（`ex01_rlc_filter_sparams`。AEDTでの実行検証済み） | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力）<br>**状態: 完了**（`ex01_rlc_filter_postprocessing`。AEDTでの実行検証済み） |
 | EMIT（`emit`） | （common_schematicで代替可） | アンテナ共存干渉基礎<br>**状態: 未着手**（公式サンプルが少ないため1〜2問可） | HFSS-EMIT連成（任意）＋高度後処理<br>**状態: 未着手** | 干渉解析結果のPythonカスタムプロット<br>**状態: 未着手** |
-| Twin Builder（`twin_builder`） | （common_schematicで代替可） | ブリッジ整流回路+コンデンサフィルタの過渡解析<br>**状態: 完了**（`ex01_rectifier`。AEDTでの実行検証済み） | 整流回路の波形ポスト処理（入出力電圧レポート）<br>**状態: 完了**（`ex01_rectifier_waveforms`。AEDTでの実行検証済み） | 整流回路波形のPython後処理（CSV入出力・matplotlib・リプル率算出）<br>**状態: 完了**（`ex01_rectifier_postprocessing`。AEDTでの実行検証済み） |
+| Twin Builder（`twin_builder`） | 半波整流回路（単一ダイオード）の配置<br>**状態: 完了**（`ex01_halfwave_diode`。AEDTでの実行検証済み） | ブリッジ整流回路+コンデンサフィルタの過渡解析<br>**状態: 完了**（`ex01_rectifier`。AEDTでの実行検証済み） | 整流回路の波形ポスト処理（入出力電圧レポート）<br>**状態: 完了**（`ex01_rectifier_waveforms`。AEDTでの実行検証済み） | 整流回路波形のPython後処理（CSV入出力・matplotlib・リプル率算出）<br>**状態: 完了**（`ex01_rectifier_postprocessing`。AEDTでの実行検証済み） |
 | EDB（`edb`） | （easy対象外） | 設定ファイル(Configuration)基礎/IPC2581エクスポート<br>**状態: 未着手** | GDSインポートワークフロー＋高度後処理<br>**状態: 未着手** | 設定ファイルワークフロー結果のPython集計・レポート<br>**状態: 未着手** |
 | misc（`misc`） | （easyはcommon分類になじまず、未定義） | Touchstoneファイル操作/Lumped Element Filter設計<br>**状態: 未着手** | COM解析＋高度後処理<br>**状態: 未着手** | Touchstone(skrf)/COM結果のPythonカスタム解析・プロット<br>**状態: 未着手** |
 | IcepakFEA（`mechanical`） | （common_3dで代替可） | Phase Bで検討<br>**状態: 未着手** | Phase Bで検討<br>**状態: 未着手** | Phase Bで検討<br>**状態: 未着手** |
@@ -56,4 +56,11 @@
   (2) `create_report`/`get_solution_data` は `report_category="Standard"` を明示しないとデータが
   取得できない、(3) 過渡解析の時間軸の単位は ns（ミリ秒ではない）。これらも
   `skills/pyaedt-learning-hub-exercise-authoring/SKILL.md` に追記済み。
+- `common_schematic`（R/L/C配置・配線の共通操作）とは別に、Circuit固有easy（`0.easy/circuit/
+  ex01_pulse_port`: パルス電圧源・インターフェースポート）とTwin Builder固有easy（
+  `0.easy/twin_builder/ex01_halfwave_diode`: 波形タイプ・ダイオード）を追加。
+  `TwinBuilderComponents`は`CircuitComponents`を継承しており、R/L/C/配線/GND等の基底実装は
+  共有されるが、波形タイプの切り替えやダイオードはTwin Builder固有のオーバーライド。
+  実装上の注意点: `create_interface_port()`の戻り値は`CircuitComponent`ではなく`Excitations`型で、
+  `.parameters["InstanceName"]`にはポート名が入らない（`.name`属性で直接取得する）。
 

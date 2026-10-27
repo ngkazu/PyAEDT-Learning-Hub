@@ -66,5 +66,10 @@
 ## 発展課題（任意）
 
 - 配置した部品の値を変えてみて、GUI のプロパティに反映されることを確認してください。
+- アプリ固有の操作も練習したい場合は、Circuit なら
+  [0.easy/circuit/ex01_pulse_port/](../../circuit/ex01_pulse_port/)（パルス電圧源・
+  インターフェースポート）、Twin Builder なら
+  [0.easy/twin_builder/ex01_halfwave_diode/](../../twin_builder/ex01_halfwave_diode/)
+  （波形タイプ・ダイオード）に進んでください。
 - このシリーズの次のステップとして、`1.normal/circuit/ex01_rlc_transient/` に進み、
   電源・GND を加えて閉ループにし、過渡解析を実行してみてください。

@@ -112,11 +112,13 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 ## 現在の演習一覧（Circuit）
 
 > Circuit の RLC シリーズ（normal→hard→expert）。同じ R/L/C を、normal で過渡解析、hard で2ポート化して
-> S パラメータ解析、expert で S パラメータの Python 後処理、と段階的に発展させる（easy の
-> `common_schematic` 課題は上記「easy共通課題」を参照）。
+> S パラメータ解析、expert で S パラメータの Python 後処理、と段階的に発展させる。R/L/C配置・配線の
+> 共通easyは「easy共通課題」の `common_schematic` を参照。Circuit固有のeasy（パルス電圧源・
+> インターフェースポート）は下記の `0.easy/circuit/` を参照。
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
+| [0.easy/circuit/ex01_pulse_port/](0.easy/circuit/ex01_pulse_port/) | パルス電圧源とインターフェースポートの配置 | 30分 |
 | [1.normal/circuit/ex01_rlc_transient/](1.normal/circuit/ex01_rlc_transient/) | RLC直列回路の過渡解析（モデル作成〜解析実行） | 60分 |
 | [2.hard/circuit/ex01_rlc_filter_sparams/](2.hard/circuit/ex01_rlc_filter_sparams/) | RLCローパスフィルタのSパラメータ解析（S21・S11レポート） | 90分 |
 | [3.expert/circuit/ex01_rlc_filter_postprocessing/](3.expert/circuit/ex01_rlc_filter_postprocessing/) | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
@@ -125,11 +127,13 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 
 > 整流回路シリーズ（normal→hard→expert）。ブリッジ整流回路+コンデンサフィルタを、normal で
 > 過渡解析、hard で入出力波形のAEDT内ポスト処理、expert で波形データのPython後処理
-> （CSV・matplotlib・リプル率算出）、と段階的に発展させる（easy の `common_schematic` 課題は
-> 上記「easy共通課題」を参照）。
+> （CSV・matplotlib・リプル率算出）、と段階的に発展させる。R/L/C配置・配線の共通easyは
+> 「easy共通課題」の `common_schematic` を参照。Twin Builder固有のeasy（波形タイプ・ダイオード）は
+> 下記の `0.easy/twin_builder/` を参照。
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
+| [0.easy/twin_builder/ex01_halfwave_diode/](0.easy/twin_builder/ex01_halfwave_diode/) | 半波整流回路（単一ダイオード）の配置 | 30分 |
 | [1.normal/twin_builder/ex01_rectifier/](1.normal/twin_builder/ex01_rectifier/) | ブリッジ整流回路+コンデンサフィルタの過渡解析（モデル作成〜解析実行） | 60分 |
 | [2.hard/twin_builder/ex01_rectifier_waveforms/](2.hard/twin_builder/ex01_rectifier_waveforms/) | ブリッジ整流回路+コンデンサフィルタの波形ポスト処理（AEDT内ポスト処理） | 90分 |
 | [3.expert/twin_builder/ex01_rectifier_postprocessing/](3.expert/twin_builder/ex01_rectifier_postprocessing/) | ブリッジ整流回路+コンデンサフィルタのPython後処理（CSV入出力・matplotlib・リプル率算出） | 90分以上 |
