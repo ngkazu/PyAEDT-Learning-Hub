@@ -21,12 +21,11 @@
 
 難易度の詳しい判断基準は [docs/difficulty-criteria.md](../docs/difficulty-criteria.md) を参照。
 
-## 現在の演習一覧（HFSS）
+## 現在の演習一覧（easy共通課題）
 
-`1.normal/` → `2.hard/` → `3.expert/` は「シリーズ」構成になっている。同じ `exNN_*` 番号のフォルダは、
-normalで作ったモデルにhardでポスト処理を追加し、expertでさらにPyVista可視化・CSV入出力を追加した
-ステップアップ形式（詳細は [docs/difficulty-criteria.md](../docs/difficulty-criteria.md) の
-「難易度のシリーズ設計」を参照）。
+easy はアプリ非依存のため、`common_3d`（HFSS/Maxwell 3D/Icepak/Q3D Extractorなど3Dモデラー系で共通）・
+`common_circuit`（Circuit/EMIT/Twin Builderで共通）・`pyedb`（HFSS 3D LayoutのジオメトリをPyEDBで
+作る導入課題）としてまとめている。どのアプリに進む場合も、ここから1つ選んで始めればよい。
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
@@ -49,6 +48,18 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [0.easy/common_3d/ex17_non_model/](0.easy/common_3d/ex17_non_model/) | 非モデル（non_model）形状を作る | 30分 |
 | [0.easy/common_3d/ex18_duplicate_along_line/](0.easy/common_3d/ex18_duplicate_along_line/) | 直線方向への複製（duplicate_along_line）でフィン列を作る | 30分 |
 | [0.easy/common_3d/ex19_create_region/](0.easy/common_3d/ex19_create_region/) | 解析領域（Region）を作る（create_region） | 30分 |
+| [0.easy/common_circuit/ex01_circuit_basics/](0.easy/common_circuit/ex01_circuit_basics/) | 回路要素の配置と配線（起動→配置→配線→保存→終了） | 30分 |
+| [0.easy/pyedb/ex01_edb_basics/](0.easy/pyedb/ex01_edb_basics/) | EDBの基本構造（スタックアップ→ネット→トレース→ビア） | 30分 |
+
+## 現在の演習一覧（HFSS）
+
+`1.normal/` → `2.hard/` → `3.expert/` は「シリーズ」構成になっている。同じ `exNN_*` 番号のフォルダは、
+normalで作ったモデルにhardでポスト処理を追加し、expertでさらにPyVista可視化・CSV入出力を追加した
+ステップアップ形式（詳細は [docs/difficulty-criteria.md](../docs/difficulty-criteria.md) の
+「難易度のシリーズ設計」を参照）。
+
+| フォルダ | タイトル | 目安時間 |
+|---|---|---|
 | [1.normal/hfss/ex01_dipole_antenna/](1.normal/hfss/ex01_dipole_antenna/) | 半波長ダイポールアンテナ（モデル作成〜解析実行） | 60分 |
 | [1.normal/hfss/ex02_iris_filter/](1.normal/hfss/ex02_iris_filter/) | 導波管インダクティブアイリスフィルタ（モデル作成〜解析実行） | 60分 |
 | [2.hard/hfss/ex01_dipole_farfield/](2.hard/hfss/ex01_dipole_farfield/) | 半波長ダイポールアンテナ（S11・遠方界のポスト処理） | 90分 |
@@ -100,13 +111,12 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 
 ## 現在の演習一覧（Circuit）
 
-> `common_circuit`（Circuit / EMIT / Twin Builder）の easy 課題と、Circuit の RLC シリーズ
-> （normal→hard→expert）。RLC シリーズは同じ R/L/C を、normal で過渡解析、hard で2ポート化して
-> S パラメータ解析、expert で S パラメータの Python 後処理、と段階的に発展させる。
+> Circuit の RLC シリーズ（normal→hard→expert）。同じ R/L/C を、normal で過渡解析、hard で2ポート化して
+> S パラメータ解析、expert で S パラメータの Python 後処理、と段階的に発展させる（easy の
+> `common_circuit` 課題は上記「easy共通課題」を参照）。
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
-| [0.easy/common_circuit/ex01_circuit_basics/](0.easy/common_circuit/ex01_circuit_basics/) | 回路要素の配置と配線（起動→配置→配線→保存→終了） | 30分 |
 | [1.normal/circuit/ex01_rlc_transient/](1.normal/circuit/ex01_rlc_transient/) | RLC直列回路の過渡解析（モデル作成〜解析実行） | 60分 |
 | [2.hard/circuit/ex01_rlc_filter_sparams/](2.hard/circuit/ex01_rlc_filter_sparams/) | RLCローパスフィルタのSパラメータ解析（S21・S11レポート） | 90分 |
 | [3.expert/circuit/ex01_rlc_filter_postprocessing/](3.expert/circuit/ex01_rlc_filter_postprocessing/) | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
@@ -114,14 +124,13 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 ## 現在の演習一覧（HFSS 3D Layout / PyEDB）
 
 > レイヤー/ECAD 構造はジオメトリ作成を **PyEDB**（`from pyedb import Edb`）で行い、解析を
-> **PyAEDT の `Hfss3dLayout`** で行う。easy は PyEDB で EDB の基本構造（スタックアップ・ネット・
-> トレース・ビア）を作る導入課題（解析なし）、normal は差動ペアをモデル化して解析まで実行する。
+> **PyAEDT の `Hfss3dLayout`** で行う。normal は差動ペアをモデル化して解析まで実行する
+> （easy の `pyedb` 課題は上記「easy共通課題」を参照）。
 > hard では入出力ポートを差動ペアとして設定し差動Sパラメータ（Sdd21/Sdd11）をAEDT内レポート化、
 > expert ではそのデータをPython側で取り出しCSV・matplotlib・Touchstone(.s4p)出力まで行う。
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
-| [0.easy/pyedb/ex01_edb_basics/](0.easy/pyedb/ex01_edb_basics/) | EDBの基本構造（スタックアップ→ネット→トレース→ビア） | 30分 |
 | [1.normal/hfss_3d_layout/ex01_diff_pair/](1.normal/hfss_3d_layout/ex01_diff_pair/) | 差動ペア伝送線路（モデル作成〜解析実行） | 60分 |
 | [2.hard/hfss_3d_layout/ex01_diff_pair_sparams/](2.hard/hfss_3d_layout/ex01_diff_pair_sparams/) | 差動ペア伝送線路（差動ペア設定・Sdd21/Sdd11のポスト処理） | 90分 |
 | [3.expert/hfss_3d_layout/ex01_diff_pair_postprocessing/](3.expert/hfss_3d_layout/ex01_diff_pair_postprocessing/) | 差動ペア伝送線路 SddパラメータのPython後処理（CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
