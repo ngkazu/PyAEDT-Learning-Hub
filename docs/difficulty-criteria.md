@@ -23,10 +23,39 @@
 - **含む**: 変数定義、単純な形状/回路要素の作成・変更、物性の割り当て、保存・終了。
 - **含まない**: Setup作成、解析実行、複雑な境界条件の使い分け、複数アプリの連成。
 
+## easy の区分け: 共通easy とアプリ固有easy
+
+easy は原則 `common_3d`/`common_2d`/`common_schematic` の3グループ（アプリ非依存）に収める。
+ただし、**グループ内の共通APIだけでは練習できないアプリ固有の操作**がある場合は、
+`exercise/0.easy/<app_slug>/` に専用のeasy課題を追加してよい（例:
+`0.easy/circuit/ex01_pulse_port`、`0.easy/twin_builder/ex01_halfwave_diode`）。
+
+判断基準:
+
+- **共通easyに入れる**: 同じグループ内のどのアプリでも同じ呼び出し方（シグネチャ）で動く操作。
+  例えば `common_schematic` の `create_resistor`/`create_wire`/`create_gnd` は、PyAEDTの実装上
+  `TwinBuilderComponents` が `CircuitComponents` を継承しているため、Circuit でも Twin Builder でも
+  **文字通り同じコード**が動く（README内の「アプリケーションの選び方」で学習者が好きな方を選べる）。
+- **アプリ固有easyに分ける**: 片方のアプリにしか存在しない、または呼び出した際の挙動が大きく異なる操作。
+  例えば Twin Builder の `create_voltage_source` は `source_type` で波形タイプ（ESINE/EPULSE/
+  ETRIANG等）を切り替えられ、`create_diode` のような非線形素子も扱えるが、これらは Circuit の
+  基底クラスには存在しない。逆に Circuit の `create_voltage_pulse` や `create_interface_port`
+  （2ポート回路の入出力）も、Twin Builder側の通常のワークフローでは使わない。
+  こうした「継承元に無い・一方のアプリ固有の」操作は、専用フォルダ（`0.easy/circuit/`,
+  `0.easy/twin_builder/` 等）に分けて練習する。
+- 固有easyは、対応する `1.normal/<app_slug>/` シリーズの**前段**として位置づける（その固有APIが
+  normal以降のどの課題で実際に使われるかをREADME冒頭に明記し、共通easy・固有easy・normal間を
+  双方向リンクで結ぶ）。
+- common_3d・common_2dも同様の考え方が当てはまる（例えば特定ソルバーにしかない境界条件・
+  特殊な形状作成APIがあれば、同様にアプリ固有easyを追加する余地がある）。判断に迷ったら、
+  「そのAPIが基底クラス/共通インターフェースの一部か、個別アプリのサブクラスだけの独自メソッドか」
+  をPyAEDTのソースで確認してから決める。
+
 ## 難易度のシリーズ設計（normal/hard/expertの進め方）
 
 normal/hard/expert はできるだけ **同じモデル（題材）が難易度ごとに段階的に育つ「シリーズ」** として設計する（easyは
-`common_3d`/`common_2d`/`common_schematic` でアプリ非依存のまま）。例: HFSSの「ダイポールアンテナ」シリーズなら
+`common_3d`/`common_2d`/`common_schematic` でアプリ非依存が基本だが、上記の判断基準に従いアプリ固有easyを
+追加してもよい）。例: HFSSの「ダイポールアンテナ」シリーズなら
 
 - normal: モデル作成→Setup作成→解析実行まで（ポスト処理なし）
 - hard: normalと同じモデルに、AEDT内部ポスト処理（Report/Field Plot等）を追加
