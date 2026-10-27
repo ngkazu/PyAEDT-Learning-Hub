@@ -21,7 +21,7 @@
 
 難易度の詳しい判断基準は [docs/difficulty-criteria.md](../docs/difficulty-criteria.md) を参照。
 
-## 現在の演習一覧（Phase B パイロット: HFSS）
+## 現在の演習一覧（HFSS）
 
 `1.normal/` → `2.hard/` → `3.expert/` は「シリーズ」構成になっている。同じ `exNN_*` 番号のフォルダは、
 normalで作ったモデルにhardでポスト処理を追加し、expertでさらにPyVista可視化・CSV入出力を追加した
@@ -62,11 +62,7 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [3.expert/hfss/ex03_microstrip_line_postprocessing/](3.expert/hfss/ex03_microstrip_line_postprocessing/) | マイクロストリップ線路S/フィールドデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 | [3.expert/hfss/ex04_patch_antenna_design/](3.expert/hfss/ex04_patch_antenna_design/) | プローブ給電パッチアンテナの設計計算とPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
-他のアプリケーション（Maxwell 3D, Icepak, Q3D Extractor など）や、HFSSの追加シリーズ（パッチアンテナ、
-チョークコイル、フレキシブルケーブルなど）の課題は、
-[docs/roadmap/coverage.md](../docs/roadmap/coverage.md) の進捗表に沿って順次追加されます。
-
-## 現在の演習一覧（Phase C: Maxwell 3D）
+## 現在の演習一覧（Maxwell 3D）
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
@@ -79,7 +75,8 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [2.hard/maxwell_3d/ex03_coil_core_fieldplot/](2.hard/maxwell_3d/ex03_coil_core_fieldplot/) | コイル・コア電磁石（インダクタンスレポート、Bフィールドプロット） | 90分 |
 | [3.expert/maxwell_3d/ex02_asymmetric_conductor_benchmark/](3.expert/maxwell_3d/ex02_asymmetric_conductor_benchmark/) | TEAM7非対称導体 実測データとの比較（CSV入出力・PyVista可視化） | 90分以上 |
 | [3.expert/maxwell_3d/ex03_coil_core_postprocessing/](3.expert/maxwell_3d/ex03_coil_core_postprocessing/) | コイル・コア電磁石 インダクタンスデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
-## 現在の演習一覧（Phase C: Q3D Extractor）
+
+## 現在の演習一覧（Q3D Extractor）
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
@@ -87,7 +84,7 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [2.hard/q3d/ex01_busbar_matrixreport/](2.hard/q3d/ex01_busbar_matrixreport/) | ブスバー解析（縮退行列・キャパシタンス/インダクタンスレポート） | 90分 |
 | [3.expert/q3d/ex01_busbar_postprocessing/](3.expert/q3d/ex01_busbar_postprocessing/) | ブスバー解析 容量・インダクタンスデータのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
-## 現在の演習一覧（Phase C: Icepak）
+## 現在の演習一覧（Icepak）
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
@@ -101,7 +98,7 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [3.expert/icepak/ex02_small_cabinet_fan_postprocessing/](3.expert/icepak/ex02_small_cabinet_fan_postprocessing/) | 小型筐体のファン冷却解析 温度データのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 | [3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/](3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/) | PCB表面実装部品の熱解析 温度データのPython後処理（CSV入出力・PyVista可視化） | 90分以上 |
 
-## 現在の演習一覧（Phase C: Circuit）
+## 現在の演習一覧（Circuit）
 
 > `common_circuit`（Circuit / EMIT / Twin Builder）の easy 課題と、Circuit の RLC シリーズ
 > （normal→hard→expert）。RLC シリーズは同じ R/L/C を、normal で過渡解析、hard で2ポート化して
@@ -114,7 +111,7 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [2.hard/circuit/ex01_rlc_filter_sparams/](2.hard/circuit/ex01_rlc_filter_sparams/) | RLCローパスフィルタのSパラメータ解析（S21・S11レポート） | 90分 |
 | [3.expert/circuit/ex01_rlc_filter_postprocessing/](3.expert/circuit/ex01_rlc_filter_postprocessing/) | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
 
-## 現在の演習一覧（Phase C: HFSS 3D Layout / PyEDB）
+## 現在の演習一覧（HFSS 3D Layout / PyEDB）
 
 > レイヤー/ECAD 構造はジオメトリ作成を **PyEDB**（`from pyedb import Edb`）で行い、解析を
 > **PyAEDT の `Hfss3dLayout`** で行う。easy は PyEDB で EDB の基本構造（スタックアップ・ネット・
