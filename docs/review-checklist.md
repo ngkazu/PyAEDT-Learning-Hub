@@ -26,7 +26,7 @@
       がすべて含まれている
 - [ ] `README.md` / `starter.py` / `solution.py` の日本語ドキュメント・コメントが日本語で書かれている
       （コード・API名・引数名・識別子・ファイルパスは英語のまま）
-- [ ] `common_3d` / `common_2d` / `common_circuit` の課題は、`docs/app-selection.md` を参照する形になっており、
+- [ ] `common_3d` / `common_2d` / `common_schematic` の課題は、`docs/app-selection.md` を参照する形になっており、
       対応表を課題内に重複記載していない
 - [ ] 製品名の表記が `docs/app-selection.md` の表示名と統一されている（例: 「Q3D」ではなく「Q3D Extractor」）
 

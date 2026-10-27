@@ -59,7 +59,7 @@ lecture/
 
 1. `01_pyaedt_lecture.md` を上から読み進めながら、該当箇所で `demo/` のスクリプトを実際に実行して見せる。
 2. デモはAEDTが起動している画面を投影しながら進めると効果的（`non_graphical=False` で実行する）。
-3. 講義終了後、学習者は `exercise/0.easy/` の課題（`common_3d` / `common_2d` / `common_circuit`）に進む。
+3. 講義終了後、学習者は `exercise/0.easy/` の課題（`common_3d` / `common_2d` / `common_schematic`）に進む。
 
 ## 前提環境
 

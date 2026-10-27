@@ -5,19 +5,19 @@
 題材: 特定の公式サンプルはなし。回路図（schematic）の最も基本的な操作
 （部品配置・ピン配線）を自分の手で体験する。
 
-> この演習は `common_circuit` グループの基礎課題。ここで練習する部品配置・配線は、
+> この演習は `common_schematic` グループの基礎課題。ここで練習する部品配置・配線は、
 > `1.normal/circuit/ex01_rlc_transient/`（RLC直列回路の過渡解析）でそのまま使う。
 
 ## アプリケーションの選び方
 
 この演習は回路図（schematic）を扱うアプリケーションで進める。
-[docs/app-selection.md](../../../docs/app-selection.md) の `common_circuit` 分類のうち、
+[docs/app-selection.md](../../../docs/app-selection.md) の `common_schematic` 分類のうち、
 **Circuit** または **Twin Builder** を選ぶこと（どちらも `modeler.schematic` の
 部品作成API（`create_resistor` など）が共通で、同じコードで進められる）。
 `starter.py` 冒頭の import とアプリ生成部分を書き換えてから進めること。以降の説明では例として
 `Circuit` を使う。
 
-> 注: EMIT は同じ `common_circuit` グループだが、アンテナ/無線機器の共存干渉解析用で、
+> 注: EMIT は同じ `common_schematic` グループだが、アンテナ/無線機器の共存干渉解析用で、
 > R・L・C を配置する回路図とは性質が異なる。この課題では Circuit か Twin Builder を選ぶこと。
 
 ## 学習目標

@@ -14,7 +14,7 @@
 
 | 難易度 | 目安時間 | 何を学ぶか |
 |---|---|---|
-| [0.easy/](0.easy/) | 30分 | AEDTの基本操作（起動→何かする→保存→終了）。`common_3d`/`common_2d`/`common_circuit` からアプリを選んで進める（`pyedb` は PyEDB で EDB の基本構造を作る導入課題） |
+| [0.easy/](0.easy/) | 30分 | AEDTの基本操作（起動→何かする→保存→終了）。`common_3d`/`common_2d`/`common_schematic` からアプリを選んで進める（`pyedb` は PyEDB で EDB の基本構造を作る導入課題） |
 | [1.normal/](1.normal/) | 60分 | アプリ別の自動化基本（モデル作成→Setup作成→解析実行まで。ポスト処理は行わない） |
 | [2.hard/](2.hard/) | 90分 | normalと同じモデルにAEDT内部ポスト処理（Report/Field Plot）を追加。複数アプリの連成解析は任意でここのみ扱う |
 | [3.expert/](3.expert/) | 90分以上 | hardの内容にPyVista可視化・CSV入出力を追加。matplotlib等を使ったPythonデータ処理も重視 |
@@ -24,7 +24,7 @@
 ## 現在の演習一覧（easy共通課題）
 
 easy はアプリ非依存のため、`common_3d`（HFSS/Maxwell 3D/Icepak/Q3D Extractorなど3Dモデラー系で共通）・
-`common_circuit`（Circuit/EMIT/Twin Builderで共通）・`pyedb`（HFSS 3D LayoutのジオメトリをPyEDBで
+`common_schematic`（Circuit/EMIT/Twin Builderで共通）・`pyedb`（HFSS 3D LayoutのジオメトリをPyEDBで
 作る導入課題）としてまとめている。どのアプリに進む場合も、ここから1つ選んで始めればよい。
 
 | フォルダ | タイトル | 目安時間 |
@@ -48,7 +48,7 @@ easy はアプリ非依存のため、`common_3d`（HFSS/Maxwell 3D/Icepak/Q3D E
 | [0.easy/common_3d/ex17_non_model/](0.easy/common_3d/ex17_non_model/) | 非モデル（non_model）形状を作る | 30分 |
 | [0.easy/common_3d/ex18_duplicate_along_line/](0.easy/common_3d/ex18_duplicate_along_line/) | 直線方向への複製（duplicate_along_line）でフィン列を作る | 30分 |
 | [0.easy/common_3d/ex19_create_region/](0.easy/common_3d/ex19_create_region/) | 解析領域（Region）を作る（create_region） | 30分 |
-| [0.easy/common_circuit/ex01_circuit_basics/](0.easy/common_circuit/ex01_circuit_basics/) | 回路要素の配置と配線（起動→配置→配線→保存→終了） | 30分 |
+| [0.easy/common_schematic/ex01_circuit_basics/](0.easy/common_schematic/ex01_circuit_basics/) | 回路要素の配置と配線（起動→配置→配線→保存→終了） | 30分 |
 | [0.easy/pyedb/ex01_edb_basics/](0.easy/pyedb/ex01_edb_basics/) | EDBの基本構造（スタックアップ→ネット→トレース→ビア） | 30分 |
 
 ## 現在の演習一覧（HFSS）
@@ -113,7 +113,7 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 
 > Circuit の RLC シリーズ（normal→hard→expert）。同じ R/L/C を、normal で過渡解析、hard で2ポート化して
 > S パラメータ解析、expert で S パラメータの Python 後処理、と段階的に発展させる（easy の
-> `common_circuit` 課題は上記「easy共通課題」を参照）。
+> `common_schematic` 課題は上記「easy共通課題」を参照）。
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
@@ -125,7 +125,7 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 
 > 整流回路シリーズ（normal→hard→expert）。ブリッジ整流回路+コンデンサフィルタを、normal で
 > 過渡解析、hard で入出力波形のAEDT内ポスト処理、expert で波形データのPython後処理
-> （CSV・matplotlib・リプル率算出）、と段階的に発展させる（easy の `common_circuit` 課題は
+> （CSV・matplotlib・リプル率算出）、と段階的に発展させる（easy の `common_schematic` 課題は
 > 上記「easy共通課題」を参照）。
 
 | フォルダ | タイトル | 目安時間 |

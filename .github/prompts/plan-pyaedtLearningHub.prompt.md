@@ -10,7 +10,7 @@
   easyはアプリ非依存でよく、モデリングのパラダイムごとに以下3つのグループで共通化する:
   - `exercise/0.easy/common_3d/`: 3Dモデラー系（hfss, maxwell_3d, icepak, q3d, mechanical）
   - `exercise/0.easy/common_2d/`: 2Dモデラー系（maxwell_2d, 2D Extractor）
-  - `exercise/0.easy/common_circuit/`: 回路・スキーマ系（circuit, emit, twin_builder）
+  - `exercise/0.easy/common_schematic/`: 回路・スキーマ系（circuit, emit, twin_builder）
   **hfss_3d_layout と edb は easy の対象から除外し、normalから開始する**（レイヤー/ECAD操作は3D/2D/回路の
   いずれにもなじまず、common化するメリットが小さいため）。
   既存の空フォルダ `exercise/HFSS/`, `exercise/HFSS_3DLayout/` は削除する（難易度先方式に統一のため不要）。
@@ -67,7 +67,7 @@
      「起動→何かする→保存→終了」という一連の流れを体験することが目的で、アプリケーション固有の
      知識は問わない。
      **モデリングパラダイムが近いアプリ同士で共通化し、`0.easy/common_3d`（hfss, maxwell_3d, icepak, q3d, mechanical）/
-     `0.easy/common_2d`（maxwell_2d, 2D Extractor）/ `0.easy/common_circuit`（circuit, emit, twin_builder）
+     `0.easy/common_2d`（maxwell_2d, 2D Extractor）/ `0.easy/common_schematic`（circuit, emit, twin_builder）
      の3つに分ける**（各アプリに2問以上揃える必要はない）。
      hfss_3d_layout と edb はレイヤー/ECAD操作でこの3区分になじまず、easyの対象から外しnormalから開始する。
    - normal（目安60分）: ここからアプリケーション別の課題を中心にする。連成解析（複数アプリにまたがる
@@ -90,7 +90,7 @@
    |---|---|---|---|---|
    | common_3d（HFSS/Maxwell 3D/Icepak/Q3D Extractor/IcepakFEA共通） | 変数化/形状作成・変更/物性作成・変更（起動→保存→終了） | — | — | — |
    | common_2d（Maxwell 2D/2D Extractor共通） | 同上（2D断面形状） | — | — | — |
-   | common_circuit（Circuit/EMIT/Twin Builder共通） | 回路要素の配置・接続（起動→保存→終了） | — | — | — |
+   | common_schematic（Circuit/EMIT/Twin Builder共通） | 回路要素の配置・接続（起動→保存→終了） | — | — | — |
    | HFSS（`hfss`） | （common_3dで代替可） | ダイポールアンテナ（Setup作成→解析→S11） | 導波管アイリスフィルタ＋高度後処理／MRI・電子レンジ電熱連成（任意の連成） | スパイラルインダクタ結果のPython後処理（matplotlib） |
    | Maxwell 3D（`maxwell_3d`） | （common_3dで代替可） | DC解析(質量中心)/チョーク setup+解析 | TEAM3浴槽板/TEAM7非対称導体＋高度後処理／Maxwell-Icepak連成（任意） | 磁石セグメンテーション結果のPython後処理 |
    | Icepak（`icepak`） | （common_3dで代替可） | グラフィックカード熱解析／CSVブロック定義（外部CSV→境界条件割当て） | 3DコンポーネントIDF/EDBインポート＋高度後処理／HFSS-Icepak連成（任意） | IDF/EDBインポート結果の温度データをPythonで可視化 |
@@ -98,9 +98,9 @@
    | 2D Extractor（`2d_extractor`） | （common_2dで代替可） | CPWG・ストリップライン | 同上＋高度後処理 | 周波数特性をPythonでプロット |
    | HFSS 3D Layout（`hfss_3d_layout`） | （easy対象外） | パラメトリックPCB作成 | プリレイアウトSI(SMAコネクタ)＋高度後処理／パワーインテグリティ・DCIR連成（任意） | レイアウト解析結果のPythonカスタム可視化 |
    | Maxwell 2D（`maxwell_2d`） | （common_2dで代替可） | 抵抗計算/静電解析 setup+解析 | 2D軸対称アクチュエータ/PM同期モータ過渡＋高度後処理 | RMxprt→Maxwell2Dエクスポート結果等のPython後処理 |
-   | Circuit（`circuit`） | （common_circuitで代替可） | 回路スキーマ作成+過渡解析 | サブサーキット管理/アイダイアグラム＋高度後処理 | PCIeバーチャルコンプライアンス/AMI結果のPythonカスタム解析 |
-   | EMIT（`emit`） | （common_circuitで代替可） | アンテナ共存干渉基礎 | HFSS-EMIT連成（任意）＋高度後処理 | 干渉解析結果のPythonカスタムプロット |
-   | Twin Builder（`twin_builder`） | （common_circuitで代替可） | RC回路解析/整流回路(コンデンサフィルタ) | Static ROM＋高度後処理 | Dynamic ROM/LTI ROM結果のPython比較プロット |
+   | Circuit（`circuit`） | （common_schematicで代替可） | 回路スキーマ作成+過渡解析 | サブサーキット管理/アイダイアグラム＋高度後処理 | PCIeバーチャルコンプライアンス/AMI結果のPythonカスタム解析 |
+   | EMIT（`emit`） | （common_schematicで代替可） | アンテナ共存干渉基礎 | HFSS-EMIT連成（任意）＋高度後処理 | 干渉解析結果のPythonカスタムプロット |
+   | Twin Builder（`twin_builder`） | （common_schematicで代替可） | RC回路解析/整流回路(コンデンサフィルタ) | Static ROM＋高度後処理 | Dynamic ROM/LTI ROM結果のPython比較プロット |
    | EDB（`edb`） | （easy対象外） | 設定ファイル(Configuration)基礎/IPC2581エクスポート | GDSインポートワークフロー＋高度後処理 | 設定ファイルワークフロー結果のPython集計・レポート |
    | misc（`misc`） | （easyはcommon分類になじまず、未定義） | Touchstoneファイル操作/Lumped Element Filter設計 | COM解析＋高度後処理 | Touchstone(skrf)/COM結果のPythonカスタム解析・プロット |
    | IcepakFEA（`mechanical`） | （common_3dで代替可） | Phase Bで検討 | Phase Bで検討 | Phase Bで検討 |
@@ -113,7 +113,7 @@
    関連アプリ側に重複配置しない。
    ※ IcepakFEA（PyAEDTクラス名は `Mechanical`）は公式サイトに単体カテゴリがなく、公開例の多くはHFSS-IcepakFEA連成
    （MRI解析等）。normal/hard/expertの具体的な題材はPhase Bでの検証結果を踏まえて決定する。
-7. `docs/app-selection.md` を作成。`common_3d`/`common_2d`/`common_circuit` の easy 課題では学習者が使用するAEDTアプリケーションを
+7. `docs/app-selection.md` を作成。`common_3d`/`common_2d`/`common_schematic` の easy 課題では学習者が使用するAEDTアプリケーションを
    自分で選べるようにするため、`ansys.aedt.core` のクラス名対応表（例: HFSS→`Hfss`, Icepak→`Icepak`,
    Maxwell 3D→`Maxwell3d`, Maxwell 2D→`Maxwell2d`, Q3D Extractor→`Q3d`, 2D Extractor→`Q2d`, HFSS 3D Layout→`Hfss3dLayout`,
    Circuit→`Circuit`, EMIT→`Emit`, Twin Builder→`TwinBuilder`, IcepakFEA→`Mechanical`（表示名とクラス名が異なる点に注意）、
@@ -137,7 +137,7 @@
      **使用するアプリケーションは学習者が自分で選べるようにし**、README または starter.py 冒頭に
      「アプリケーションの選び方」節を設けて `docs/app-selection.md` の対応表を参照させる
      （`from ansys.aedt.core import Icepak` → `app = Icepak()` のように、選んだクラスを1箇所の変数/importに
-     差し込むだけで動く形にする）。common_2d・common_circuitはパイロット完了後にPhase Cで同様に作成する。
+     差し込むだけで動く形にする）。common_2d・common_schematicはパイロット完了後にPhase Cで同様に作成する。
    - normal以降はHFSSを軸に、連成解析なし（normal）→ hardでは任意の連成 or 高度後処理 →
      expertではPython後処理（matplotlib等）を中心に据える。
    - 既存の `2026.PyAnsysTraning_inJapan/WorkShop/HFSS/ex1_dipole` 等は「参考にする既存資産」として
@@ -237,6 +237,6 @@
 上記の「Decisions」「追加ヒアリング結果」「再ヒアリング結果」は、その時点のヒアリング内容をそのまま記録した
 議事録であり、後から方針が変わっても自動更新されない。**最新の結論は冒頭の「背景・決定事項」および各Phaseの
 本文を正とする**。特に以下は履歴セクションの記述が古いので注意:
-- easyのフォルダは `common/` 単体ではなく `common_3d`/`common_2d`/`common_circuit` の3分割が最新
+- easyのフォルダは `common/` 単体ではなく `common_3d`/`common_2d`/`common_schematic` の3分割が最新
 - hfss_3d_layout と edb は easy 対象外（normalから開始）
 - 製品名表記は「Q3D」「Q2D」ではなく「Q3D Extractor」「2D Extractor」（フォルダ名は `q3d`/`2d_extractor`）

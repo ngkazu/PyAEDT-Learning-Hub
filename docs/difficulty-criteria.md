@@ -18,7 +18,7 @@
 - アプリケーション固有の知識は問わない。モデリングパラダイムが近いアプリ同士で共通化し、
   `exercise/0.easy/common_3d/`（HFSS, Maxwell 3D, Icepak, Q3D Extractor, IcepakFEA）、
   `exercise/0.easy/common_2d/`（Maxwell 2D, 2D Extractor）、
-  `exercise/0.easy/common_circuit/`（Circuit, EMIT, Twin Builder）の3グループに分ける。
+  `exercise/0.easy/common_schematic/`（Circuit, EMIT, Twin Builder）の3グループに分ける。
 - HFSS 3D Layout・EDB はレイヤー/ECAD操作でこの3区分になじまないため、easy の対象外（normal から開始）。
 - **含む**: 変数定義、単純な形状/回路要素の作成・変更、物性の割り当て、保存・終了。
 - **含まない**: Setup作成、解析実行、複雑な境界条件の使い分け、複数アプリの連成。
@@ -26,7 +26,7 @@
 ## 難易度のシリーズ設計（normal/hard/expertの進め方）
 
 normal/hard/expert はできるだけ **同じモデル（題材）が難易度ごとに段階的に育つ「シリーズ」** として設計する（easyは
-`common_3d`/`common_2d`/`common_circuit` でアプリ非依存のまま）。例: HFSSの「ダイポールアンテナ」シリーズなら
+`common_3d`/`common_2d`/`common_schematic` でアプリ非依存のまま）。例: HFSSの「ダイポールアンテナ」シリーズなら
 
 - normal: モデル作成→Setup作成→解析実行まで（ポスト処理なし）
 - hard: normalと同じモデルに、AEDT内部ポスト処理（Report/Field Plot等）を追加

@@ -7,7 +7,7 @@
 ハードコードしないよう独自に構成。
 
 > 回路図への部品配置・配線がまだ不安な場合は、先に
-> [0.easy/common_circuit/ex01_circuit_basics/](../../../0.easy/common_circuit/ex01_circuit_basics/)
+> [0.easy/common_schematic/ex01_circuit_basics/](../../../0.easy/common_schematic/ex01_circuit_basics/)
 > で起動〜配置〜配線〜保存の基本操作を練習するとよい（Circuit/Twin Builder共通の操作）。
 
 > この演習は「整流回路シリーズ」の normal レベル。交流電源 → ダイオードブリッジ → コンデンサ
@@ -19,7 +19,7 @@
 
 ## アプリケーションの選び方
 
-この課題は Twin Builder（Simplorer由来のシステムシミュレータ）を使う。`common_circuit` グループ
+この課題は Twin Builder（Simplorer由来のシステムシミュレータ）を使う。`common_schematic` グループ
 （Circuit / EMIT / Twin Builder）のうち、回路図の基本操作自体は Circuit と共通だが、
 Twin Builder はシステムレベルの電気回路・制御系の時間領域シミュレーションに向く。クラス名は
 [docs/app-selection.md](../../../../docs/app-selection.md) を参照（`from ansys.aedt.core import TwinBuilder`）。

@@ -6,7 +6,7 @@
 回路図API（コンポーネント配置・配線・過渡解析）の基本を学べるよう独自に構成。
 
 > 回路図への部品配置・配線がまだ不安な場合は、先に
-> [0.easy/common_circuit/ex01_circuit_basics/](../../../0.easy/common_circuit/ex01_circuit_basics/)
+> [0.easy/common_schematic/ex01_circuit_basics/](../../../0.easy/common_schematic/ex01_circuit_basics/)
 > で起動〜配置〜配線〜保存の基本操作を練習するとよい。
 
 > この演習は「RLC回路シリーズ」の normal レベル。回路図（Nexxim）の自動化に初めて触れる人向け。
@@ -14,7 +14,7 @@
 
 ## アプリケーションの選び方
 
-この課題は Circuit（Nexxim 回路シミュレータ）を使う。`common_circuit` グループ
+この課題は Circuit（Nexxim 回路シミュレータ）を使う。`common_schematic` グループ
 （Circuit / EMIT / Twin Builder）のうち、回路図作成の基本は Circuit で学ぶ。クラス名は
 [docs/app-selection.md](../../../../docs/app-selection.md) を参照（`from ansys.aedt.core import Circuit`）。
 

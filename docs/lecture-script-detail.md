@@ -383,7 +383,7 @@ GUIで既に作り込んだ複雑な形状を『取り急ぎ移植したい』�
 ### 5.2 次に取り組むこと
 
 「次は `exercise/0.easy/` の課題で、今日見た内容を実際に自分の手で書いて復習してもらいます。
-`common_3d` / `common_2d` / `common_circuit` の3つのフォルダから、自分が使いたいアプリケーションを
+`common_3d` / `common_2d` / `common_schematic` の3つのフォルダから、自分が使いたいアプリケーションを
 選んで進めてください。どのアプリを選べばいいか迷ったら、[docs/app-selection.md](app-selection.md)の
 対応表を見てください。」
 

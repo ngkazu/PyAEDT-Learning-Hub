@@ -182,7 +182,7 @@ oEditor.CreateBox(
 
 - 今日はPyAEDTの「型」（アプリオブジェクト起点の構造、基本操作の流れ、ネイティブAPIとの橋渡し）を見た。
 - 次は `exercise/0.easy/` の課題で、実際に手を動かして復習する
-  （`common_3d` / `common_2d` / `common_circuit` から、使いたいアプリケーションを選んで進める。
+  （`common_3d` / `common_2d` / `common_schematic` から、使いたいアプリケーションを選んで進める。
   選び方は `docs/app-selection.md` を参照）。
 - 詰まったときの調べ方: `docs/app-selection.md`、公式ドキュメント（aedt.docs.pyansys.com）、
   `dir()`/`help()` によるその場での確認。

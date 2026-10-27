@@ -25,7 +25,7 @@ exercise/{0.easy|1.normal|2.hard|3.expert}/<app_slug>/exNN_<slug>/
 - easy はアプリ非依存でよく、モデリングのパラダイム別に以下3フォルダへ共通化する:
   - `exercise/0.easy/common_3d/`（HFSS, Maxwell 3D, Icepak, Q3D Extractor, IcepakFEA）
   - `exercise/0.easy/common_2d/`（Maxwell 2D, 2D Extractor）
-  - `exercise/0.easy/common_circuit/`（Circuit, EMIT, Twin Builder）
+  - `exercise/0.easy/common_schematic/`（Circuit, EMIT, Twin Builder）
 - `hfss_3d_layout` と `edb` は easy 対象外（normal から開始）。
 - 対象アプリフォルダ（13個）: `hfss`, `hfss_3d_layout`, `maxwell_3d`, `maxwell_2d`, `icepak`, `q3d`,
   `2d_extractor`, `circuit`, `emit`, `twin_builder`, `edb`, `misc`, `mechanical`

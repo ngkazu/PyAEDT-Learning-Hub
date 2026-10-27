@@ -1,6 +1,6 @@
 # アプリケーション選択リファレンス
 
-`exercise/0.easy/common_3d/` `common_2d/` `common_circuit/` の課題では、使用する AEDT アプリケーションを
+`exercise/0.easy/common_3d/` `common_2d/` `common_schematic/` の課題では、使用する AEDT アプリケーションを
 学習者が自分で選ぶ。ここに載せているクラス名対応表を参照し、`starter.py` 冒頭の import とアプリ生成部分を
 書き換えるだけで、同じ課題を好きなアプリケーションで進められる。
 
@@ -15,9 +15,9 @@
 | IcepakFEA | `mechanical` | `Mechanical`（※表示名と異なる） | common_3d |
 | Maxwell 2D | `maxwell_2d` | `Maxwell2d` | common_2d |
 | 2D Extractor | `2d_extractor` | `Q2d` | common_2d |
-| Circuit | `circuit` | `Circuit` | common_circuit |
-| EMIT | `emit` | `Emit` | common_circuit |
-| Twin Builder | `twin_builder` | `TwinBuilder` | common_circuit |
+| Circuit | `circuit` | `Circuit` | common_schematic |
+| EMIT | `emit` | `Emit` | common_schematic |
+| Twin Builder | `twin_builder` | `TwinBuilder` | common_schematic |
 | HFSS 3D Layout | `hfss_3d_layout` | `Hfss3dLayout` | （easy対象外） |
 | RMxprt | `rmxprt` | `Rmxprt` | （参考。今回のフォルダ対象外） |
 

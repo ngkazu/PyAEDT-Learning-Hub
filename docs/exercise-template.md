@@ -2,7 +2,7 @@
 
 各課題は `README.md` + `starter.py` + `solution.py` の3点セットで構成する。
 フォルダは `exercise/<難易度>/<app_slug>/exNN_<slug>/` に配置する（`<app_slug>` は
-`common_3d`/`common_2d`/`common_circuit` のいずれか、またはアプリ固有のslug）。
+`common_3d`/`common_2d`/`common_schematic` のいずれか、またはアプリ固有のslug）。
 
 ## シリーズ番号（exNN）の付け方
 
@@ -41,7 +41,7 @@ normalを完成させてから段階的に広げる）。
 7. **評価基準**（`docs/review-checklist.md` をベースに、この課題固有のチェック項目）
 8. **発展課題**（任意。時間があれば取り組む追加課題）
 
-`common_3d` / `common_2d` / `common_circuit` の課題では、上記に加えて「アプリケーションの選び方」の
+`common_3d` / `common_2d` / `common_schematic` の課題では、上記に加えて「アプリケーションの選び方」の
 節を設け、`docs/app-selection.md` を参照させる（対応表を重複記載しない）。
 
 ## 「題材」セクションの参照ルール
