@@ -121,6 +121,19 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 | [2.hard/circuit/ex01_rlc_filter_sparams/](2.hard/circuit/ex01_rlc_filter_sparams/) | RLCローパスフィルタのSパラメータ解析（S21・S11レポート） | 90分 |
 | [3.expert/circuit/ex01_rlc_filter_postprocessing/](3.expert/circuit/ex01_rlc_filter_postprocessing/) | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
 
+## 現在の演習一覧（Twin Builder）
+
+> 整流回路シリーズ（normal→hard→expert）。ブリッジ整流回路+コンデンサフィルタを、normal で
+> 過渡解析、hard で入出力波形のAEDT内ポスト処理、expert で波形データのPython後処理
+> （CSV・matplotlib・リプル率算出）、と段階的に発展させる（easy の `common_circuit` 課題は
+> 上記「easy共通課題」を参照）。
+
+| フォルダ | タイトル | 目安時間 |
+|---|---|---|
+| [1.normal/twin_builder/ex01_rectifier/](1.normal/twin_builder/ex01_rectifier/) | ブリッジ整流回路+コンデンサフィルタの過渡解析（モデル作成〜解析実行） | 60分 |
+| [2.hard/twin_builder/ex01_rectifier_waveforms/](2.hard/twin_builder/ex01_rectifier_waveforms/) | ブリッジ整流回路+コンデンサフィルタの波形ポスト処理（AEDT内ポスト処理） | 90分 |
+| [3.expert/twin_builder/ex01_rectifier_postprocessing/](3.expert/twin_builder/ex01_rectifier_postprocessing/) | ブリッジ整流回路+コンデンサフィルタのPython後処理（CSV入出力・matplotlib・リプル率算出） | 90分以上 |
+
 ## 現在の演習一覧（HFSS 3D Layout / PyEDB）
 
 > レイヤー/ECAD 構造はジオメトリ作成を **PyEDB**（`from pyedb import Edb`）で行い、解析を

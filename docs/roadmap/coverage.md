@@ -17,7 +17,7 @@
 | Maxwell 2D（`maxwell_2d`） | （common_2dで代替可） | 抵抗計算/静電解析 setup+解析<br>**状態: 未着手** | 2D軸対称アクチュエータ/PM同期モータ過渡＋高度後処理<br>**状態: 未着手** | RMxprt→Maxwell2Dエクスポート結果等のPython後処理<br>**状態: 未着手** |
 | Circuit（`circuit`） | （common_circuitで代替可） | RLC直列回路の過渡解析<br>**状態: 完了**（`ex01_rlc_transient`。AEDTでの実行検証済み） | RLCローパスフィルタのSパラメータ解析（S21・S11レポート）<br>**状態: 完了**（`ex01_rlc_filter_sparams`。AEDTでの実行検証済み） | RLCローパスフィルタ SパラメータのPython後処理（カットオフ算出・CSV入出力・matplotlib・Touchstone出力）<br>**状態: 完了**（`ex01_rlc_filter_postprocessing`。AEDTでの実行検証済み） |
 | EMIT（`emit`） | （common_circuitで代替可） | アンテナ共存干渉基礎<br>**状態: 未着手**（公式サンプルが少ないため1〜2問可） | HFSS-EMIT連成（任意）＋高度後処理<br>**状態: 未着手** | 干渉解析結果のPythonカスタムプロット<br>**状態: 未着手** |
-| Twin Builder（`twin_builder`） | （common_circuitで代替可） | RC回路解析/整流回路(コンデンサフィルタ)<br>**状態: 未着手** | Static ROM＋高度後処理<br>**状態: 未着手** | Dynamic ROM/LTI ROM結果のPython比較プロット<br>**状態: 未着手** |
+| Twin Builder（`twin_builder`） | （common_circuitで代替可） | ブリッジ整流回路+コンデンサフィルタの過渡解析<br>**状態: 完了**（`ex01_rectifier`。AEDTでの実行検証済み） | 整流回路の波形ポスト処理（入出力電圧レポート）<br>**状態: 完了**（`ex01_rectifier_waveforms`。AEDTでの実行検証済み） | 整流回路波形のPython後処理（CSV入出力・matplotlib・リプル率算出）<br>**状態: 完了**（`ex01_rectifier_postprocessing`。AEDTでの実行検証済み） |
 | EDB（`edb`） | （easy対象外） | 設定ファイル(Configuration)基礎/IPC2581エクスポート<br>**状態: 未着手** | GDSインポートワークフロー＋高度後処理<br>**状態: 未着手** | 設定ファイルワークフロー結果のPython集計・レポート<br>**状態: 未着手** |
 | misc（`misc`） | （easyはcommon分類になじまず、未定義） | Touchstoneファイル操作/Lumped Element Filter設計<br>**状態: 未着手** | COM解析＋高度後処理<br>**状態: 未着手** | Touchstone(skrf)/COM結果のPythonカスタム解析・プロット<br>**状態: 未着手** |
 | IcepakFEA（`mechanical`） | （common_3dで代替可） | Phase Bで検討<br>**状態: 未着手** | Phase Bで検討<br>**状態: 未着手** | Phase Bで検討<br>**状態: 未着手** |
@@ -50,4 +50,10 @@
   （wave portはcoax扱いになりvia必須でメッシュ生成が失敗するため不採用）。この経験から得た実践知見は
   `skills/pyaedt-learning-hub-exercise-authoring/SKILL.md` にまとめてある（課題作成時は参照すること）。
   独立のEDBワークフロー課題（`edb`行、Configuration/GDSインポート等）は別途未着手のまま。
+- Twin Builder の整流回路シリーズ（`ex01_rectifier`系）が完了。公式サンプル（ブリッジ整流回路+
+  コンデンサフィルタ）を着想元に、電圧振幅・周波数・フィルタ容量・負荷抵抗を設計変数化。
+  実装上の注意点: (1) 変数名 `"FREQ"` は内部予約語と衝突し登録されない（`"AC_FREQ"`等の別名を使う）、
+  (2) `create_report`/`get_solution_data` は `report_category="Standard"` を明示しないとデータが
+  取得できない、(3) 過渡解析の時間軸の単位は ns（ミリ秒ではない）。これらも
+  `skills/pyaedt-learning-hub-exercise-authoring/SKILL.md` に追記済み。
 
