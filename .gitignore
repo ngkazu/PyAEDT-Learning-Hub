@@ -11,6 +11,10 @@ data/
 # 課題作成者向け内部メモ（課題実施者には非公開）
 memo/
 
+# 課題作成用のローカルSkill（個人のAutopilot作業環境。git管理対象外）
+skills/
+
+
 # AEDT が生成する成果物（課題実行時に作られる）
 *.aedt
 *.aedt.lock
