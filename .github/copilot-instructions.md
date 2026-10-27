@@ -88,17 +88,19 @@ normal/hard/expert は「シリーズ」構成（同じ `exNN_<slug>` が同一�
 構成: `lecture/README.md`（構成・時間配分）、`lecture/01_pyaedt_lecture.md`（発表者用台本風の講義ノート）、
 `lecture/demo/`（実行可能なデモ.pyスクリプト）。
 
-## `skills/` フォルダについて（AIエージェント向け作業手順）
+## `skills/` フォルダについて（AIエージェント向け作業手順、任意）
 
 `skills/pyaedt-learning-hub-exercise-authoring/SKILL.md` に、このプロジェクトで課題
 （`exercise/` の README.md/starter.py/solution.py 3点セット）を新規作成・修正する際の
 実行手順・コードパターン・既知の落とし穴（PyEDB/HFSS 3D Layoutのポート選定ミス、API名の誤り、
 差動Sパラメータの`context`必須、AEDTライブ検証からの教材化ワークフロー等）をまとめている。
 
-**AIエージェント（Copilot/Autopilot等）は、`exercise/` 配下の課題を新規作成・修正する作業を
-行う前に、必ず `skills/pyaedt-learning-hub-exercise-authoring/SKILL.md` を読み込むこと。**
-このファイルとSKILL.mdの内容が矛盾する場合は、このファイル（`.github/copilot-instructions.md`）
-と `docs/` 配下の方針ドキュメントを正とする。
+**このフォルダは個人のローカル作業環境専用で、`.gitignore` 対象（git管理外）のため、
+クローンした環境には存在しないことがある。** AIエージェント（Copilot/Autopilot等）は、
+`exercise/` 配下の課題を新規作成・修正する前に、このファイルが**存在すれば**読み込むこと
+（存在しなければ無視してよい。`.github/copilot-instructions.md` と `docs/` 配下の方針
+ドキュメントだけで作業を進められる）。このファイルとSKILL.mdの内容が矛盾する場合は、
+このファイルと `docs/` 配下の方針ドキュメントを正とする。
 
 ## 進め方（フェーズ）
 
