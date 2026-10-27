@@ -119,11 +119,15 @@ normalで作ったモデルにhardでポスト処理を追加し、expertでさ�
 > レイヤー/ECAD 構造はジオメトリ作成を **PyEDB**（`from pyedb import Edb`）で行い、解析を
 > **PyAEDT の `Hfss3dLayout`** で行う。easy は PyEDB で EDB の基本構造（スタックアップ・ネット・
 > トレース・ビア）を作る導入課題（解析なし）、normal は差動ペアをモデル化して解析まで実行する。
+> hard では入出力ポートを差動ペアとして設定し差動Sパラメータ（Sdd21/Sdd11）をAEDT内レポート化、
+> expert ではそのデータをPython側で取り出しCSV・matplotlib・Touchstone(.s4p)出力まで行う。
 
 | フォルダ | タイトル | 目安時間 |
 |---|---|---|
 | [0.easy/pyedb/ex01_edb_basics/](0.easy/pyedb/ex01_edb_basics/) | EDBの基本構造（スタックアップ→ネット→トレース→ビア） | 30分 |
 | [1.normal/hfss_3d_layout/ex01_diff_pair/](1.normal/hfss_3d_layout/ex01_diff_pair/) | 差動ペア伝送線路（モデル作成〜解析実行） | 60分 |
+| [2.hard/hfss_3d_layout/ex01_diff_pair_sparams/](2.hard/hfss_3d_layout/ex01_diff_pair_sparams/) | 差動ペア伝送線路（差動ペア設定・Sdd21/Sdd11のポスト処理） | 90分 |
+| [3.expert/hfss_3d_layout/ex01_diff_pair_postprocessing/](3.expert/hfss_3d_layout/ex01_diff_pair_postprocessing/) | 差動ペア伝送線路 SddパラメータのPython後処理（CSV入出力・matplotlib・Touchstone出力） | 90分以上 |
 
 ## 進め方
 

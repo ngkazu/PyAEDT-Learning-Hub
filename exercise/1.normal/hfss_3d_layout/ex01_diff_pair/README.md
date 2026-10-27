@@ -10,7 +10,10 @@
 > （スタックアップ・ネット・トレース・ビア）を作る easy 課題
 > [`0.easy/pyedb/ex01_edb_basics`](../../../0.easy/pyedb/ex01_edb_basics/README.md) を用意している。
 > EDB の組み立てに不安があれば、先にそちらを済ませてからこの課題に進むとよい。
-> hard 以降では差動 S パラメータ（SDD21 など）のレポート・後処理を追加していく予定。
+> hard（[`2.hard/hfss_3d_layout/ex01_diff_pair_sparams`](../../../2.hard/hfss_3d_layout/ex01_diff_pair_sparams/README.md)）
+> では差動 S パラメータ（Sdd21 など）のレポートを追加し、expert
+> （[`3.expert/hfss_3d_layout/ex01_diff_pair_postprocessing`](../../../3.expert/hfss_3d_layout/ex01_diff_pair_postprocessing/README.md)）
+> ではさらに Python 後処理を追加する。
 
 ## 使用するパッケージ
 
@@ -77,4 +80,5 @@ HFSS 3D Layout（レイヤー/ECAD 構造）は、ジオメトリ作成を **PyE
 ## 発展課題（任意）
 
 - 差動線間隔 `GAP` や線幅 `WIDTH` を変えて、差動インピーダンスがどう変わるか考えてください。
-- 差動 S パラメータ（SDD21 など）を見たい場合は、このシリーズの hard に進んでください。
+- 差動 S パラメータ（Sdd21 など）を見たい場合は、このシリーズの
+  [hard](../../../2.hard/hfss_3d_layout/ex01_diff_pair_sparams/README.md) に進んでください。
