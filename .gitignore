@@ -11,7 +11,7 @@ data/
 # 課題作成者向け内部メモ（課題実施者には非公開）
 memo/
 
-# AIエージェント向けのローカル作業環境設定（個人のCopilot/Autopilot作業環境。git管理対象外）
+# AIエージェント向けのローカル作業環境設定（個人のCopilot作業環境。git管理対象外）
 .github/
 skills/
 
