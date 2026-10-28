@@ -148,7 +148,40 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 .venv\Scripts\Activate.ps1
 ```
 
-### 3.3 バージョンの確認
+### 3.3 `pip install` のオプション依存（extras）
+
+`pip install "pyaedt[all]"` の `[all]` の部分は **extras**（オプション依存のグループ名）で、
+必要なものだけを選んで切り替えられます。利用可能なextrasは
+[pyproject.toml](https://github.com/ansys/pyaedt/blob/main/pyproject.toml) の
+`[project.optional-dependencies]` に定義されています。主なものは次の通りです。
+
+| extras | 追加される主なパッケージ | 用途 |
+|---|---|---|
+| `dotnet` | `ansys-pythonnet`, `pywin32`（Windows）, `cffi`（Linux） | .NET経由のレガシーAPI（EDBのDotNetバックエンドなど）を使う場合 |
+| `graphics` | `pyvista`, `matplotlib`, `vtk`, `fpdf2`, `pillow` 等 | フィールドプロット・3D可視化・PDFレポート出力など、グラフィックス機能全般 |
+| `jupyter` | `jupyterlab`, `ipython` | Jupyter Notebook環境で使う場合 |
+| `examples` | `imageio`, `plotly`, `joblib`, `osmnx` 等 | 公式サンプル集（Examples）を動かす場合に必要な追加パッケージ |
+| `all` | `graphics`一式 + `jupyter`一式 + `pandas`, `openpyxl`, `scikit-rf`, `typer`, `rpyc` 等 | グラフィックス・Jupyter込みの標準セット（**dotnetは含まない**） |
+| `all-dotnet` | `all` の全部 + `dotnet` の全部 | `all` に加えて `.NET` 経由のAPIも使いたい場合 |
+
+このプロジェクトでは `"pyaedt[all]"` を使っています（§3.1・§3.2のコマンド参照）。これは
+グラフィックス機能（PyVista・matplotlib、hard/expertの課題で使う）とJupyter関連を含みますが、
+`dotnet` extrasは含んでいません。複数のextrasを同時に指定したい場合はカンマ区切りで並べます。
+
+```powershell
+# 例: グラフィックスとJupyterだけ個別に指定する場合（[all]とほぼ同じ内容になる）
+pip install "pyaedt[graphics,jupyter]"
+
+# 例: .NET経由のAPIも使いたい場合
+pip install "pyaedt[all-dotnet]"
+```
+
+> `dotnet` extrasは、PyEDBが内部で使う「DotNetバックエンド」（`31_pyedb_basic.md` 参照）や、
+> 一部のレガシーAPIで必要になります。通常のPyAEDT学習・このプロジェクトの演習では必須では
+> ありません（PyEDBはデフォルトでもgRPCバックエンドが使えます）。迷ったら `[all]` のままで
+> 問題ありません。
+
+### 3.4 バージョンの確認
 
 どちらの方法でインストールした場合も、インストール済みの `pyaedt` バージョンは次のように
 確認できます。
@@ -157,7 +190,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 py -3 -c "import ansys.aedt.core; print(ansys.aedt.core.__version__)"
 ```
 
-### 3.4 推奨設定
+### 3.5 推奨設定
 
 スクリプトの冒頭に次の設定を入れておくと、実行時に例外が起きてもAEDTが自動終了せず、
 原因調査がしやすくなります。
@@ -168,7 +201,7 @@ from ansys.aedt.core.generic.settings import settings
 settings.release_on_exception = False
 ```
 
-### 3.5 新規起動と既存セッションへの接続の使い分け
+### 3.6 新規起動と既存セッションへの接続の使い分け
 
 ```python
 from ansys.aedt.core import Hfss
