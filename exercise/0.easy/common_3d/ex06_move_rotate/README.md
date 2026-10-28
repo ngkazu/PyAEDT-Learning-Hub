@@ -7,7 +7,7 @@
 ## アプリケーションの選び方
 
 この演習はアプリケーションに依存しない（3Dモデラー系であれば同じ手順で進められる）。
-[docs/app-selection.md](../../../docs/app-selection.md) の `common_3d` 分類（HFSS / Maxwell 3D / Icepak /
+[docs/app-selection.md](../../../../docs/app-selection.md) の `common_3d` 分類（HFSS / Maxwell 3D / Icepak /
 Q3D Extractor / IcepakFEA）から好きなアプリケーションを1つ選び、`starter.py` 冒頭の import とアプリ生成部分を
 書き換えてから進めること。以降の説明では例として `Icepak` を使う。
 
@@ -21,7 +21,7 @@ Q3D Extractor / IcepakFEA）から好きなアプリケーションを1つ選び
 
 `starter.py` の `# TODO` を埋めて、次の仕様を満たすスクリプトを完成させてください。
 
-1. [docs/app-selection.md](../../../docs/app-selection.md) から使いたいアプリケーションを選び、
+1. [docs/app-selection.md](../../../../docs/app-selection.md) から使いたいアプリケーションを選び、
    `starter.py` の import 文とアプリ生成部分を書き換える。
 2. `new_desktop=True`, `non_graphical=False` でアプリケーションを起動する。
 3. 設計変数 `box_size = "10mm"` を定義する。

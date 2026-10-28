@@ -2,7 +2,7 @@
 
 **目安時間: 90分以上**
 
-題材: [2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)
+題材: [2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)
 で作成した温度ポイントモニタ・温度フィールドプロットに、Python側の数値集計・CSV入出力・
 PyVista可視化を追加する。
 
@@ -24,7 +24,7 @@ PyVista可視化を追加する。
 
 `starter.py` の `# TODO` を埋めて、次の仕様を満たす解析を完成させてください。
 寸法・値はすべてmm単位（特記のあるものを除く）。手順2〜14は
-[2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)
+[2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)
 と同じモデル・境界条件・Setupなので、そちらのREADMEも参照しながら進める
 （発熱量のみCSVから読み込んだ値を使う点が異なる）。
 
@@ -34,7 +34,7 @@ PyVista可視化を追加する。
 3. `edit_design_settings(ambient_temperature="20cel", gravity_dir=2)` で、周囲温度20℃・
    重力方向-Zを設定する。
 4. PCB基板とその上の層を、下から順にBoxで積み重ねて作成する（具体的な`origin`/`sizes`/
-   `material`は[2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)
+   `material`は[2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)
    のREADMEの表を参照）。
 5. `assign_point_monitor_in_object(name="Box8", monitor_type="Temperature",
    monitor_name="Monitor_Box8")` で、Siダイに温度ポイントモニタを割り当てる。

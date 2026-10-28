@@ -2,14 +2,14 @@
 
 **目安時間: 90分**
 
-題材: [1.normal/icepak/ex03_smd_pcb_thermal/](../../1.normal/icepak/ex03_smd_pcb_thermal/) で
+題材: [1.normal/icepak/ex03_smd_pcb_thermal/](../../../1.normal/icepak/ex03_smd_pcb_thermal/) で
 作成したPCB表面実装部品モデルに、AEDT内部のポスト処理（温度ポイントモニタ・温度フィールド
 プロット）を追加する。
 
 > この演習は「Icepak熱解析シリーズ」の3問目・hardレベル。normalで作ったモデルに
 > `assign_point_monitor_in_object()`と`post.create_fieldplot_surface()`を追加する。
 > さらにPython側の集計・CSV入出力・PyVista可視化を追加したものが
-> [3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/](../../3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/)
+> [3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/](../../../3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/)
 > にある。
 
 ## 学習目標
@@ -23,7 +23,7 @@
 
 `starter.py` の `# TODO` を埋めて、次の仕様を満たす解析を完成させてください。
 寸法・値はすべてmm単位（特記のあるものを除く）。手順1〜13は
-[1.normal/icepak/ex03_smd_pcb_thermal/](../../1.normal/icepak/ex03_smd_pcb_thermal/)
+[1.normal/icepak/ex03_smd_pcb_thermal/](../../../1.normal/icepak/ex03_smd_pcb_thermal/)
 と同じモデル・境界条件・Setupなので、そちらのREADMEも参照しながら進める。
 
 1. `Icepak(design="IcepakDesign1", solution_type="SteadyState", version=AEDT_VERSION,

@@ -12,9 +12,9 @@
 > モデリング手法と、`MeshRegion`による部位別メッシュ制御、方向ごとに異なるパディング種別を
 > 指定するRegion作成、対流熱伝達係数（HTC）で壁面を定義する`assign_stationary_wall_with_htc()`を
 > 新たに扱う。同じモデルに温度フィールドプロット・モニタを追加したものが
-> [2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)、
+> [2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/](../../../2.hard/icepak/ex03_smd_pcb_thermal_fieldplot/)、
 > さらにPython後処理（CSV入出力・PyVista可視化）を追加したものが
-> [3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/](../../3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/)
+> [3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/](../../../3.expert/icepak/ex03_smd_pcb_thermal_postprocessing/)
 > にある。
 
 ## 学習目標

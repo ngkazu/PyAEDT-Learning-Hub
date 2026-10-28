@@ -9,8 +9,8 @@
 > [0.easy/common_3d/ex01_basic_operations/](../../../0.easy/common_3d/ex01_basic_operations/) を確認するとよい。
 
 > この演習は「ブスバー解析シリーズ」の normal レベル。同じモデルに縮退行列・レポート作成を追加したものが
-> `2.hard/q3d/ex01_busbar_matrixreport/`、さらにPyVista/CSV入出力を追加したものが
-> `3.expert/q3d/ex01_busbar_postprocessing/` にある（いずれも準備中）。
+> [2.hard/q3d/ex01_busbar_matrixreport/](../../../2.hard/q3d/ex01_busbar_matrixreport/)、さらにPyVista/CSV入出力を追加したものが
+> [3.expert/q3d/ex01_busbar_postprocessing/](../../../3.expert/q3d/ex01_busbar_postprocessing/) にある。
 
 ## 学習目標
 
@@ -82,4 +82,4 @@
 
 - バーの間隔・断面寸法を変えて、キャパシタンス・インダクタンスの値がどう変化するか予想してみてください。
 - 複数バーを束ねた等価回路（縮退行列）やレポート作成をしたい場合は、このシリーズのhard
-  （`2.hard/q3d/ex01_busbar_matrixreport/`、準備中）に進んでみてください。
+  （[2.hard/q3d/ex01_busbar_matrixreport/](../../../2.hard/q3d/ex01_busbar_matrixreport/)）に進んでみてください。

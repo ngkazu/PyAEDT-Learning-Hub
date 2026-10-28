@@ -10,7 +10,10 @@
 > で起動〜配置〜配線〜保存の基本操作を練習するとよい。
 
 > この演習は「RLC回路シリーズ」の normal レベル。回路図（Nexxim）の自動化に初めて触れる人向け。
-> hard 以降では、同じ回路に波形レポートや Touchstone サブサーキットの読み込みを追加していく予定。
+> hard（[`2.hard/circuit/ex01_rlc_filter_sparams`](../../../2.hard/circuit/ex01_rlc_filter_sparams/README.md)）
+> では同じ R/L/C を2ポートのローパスフィルタとして構成し直し、**S パラメータ解析（S21/S11レポート）**
+> を追加する。expert（[`3.expert/circuit/ex01_rlc_filter_postprocessing`](../../../3.expert/circuit/ex01_rlc_filter_postprocessing/README.md)）
+> ではさらに Python 後処理（カットオフ算出・CSV・matplotlib・Touchstone出力）を追加する。
 
 ## アプリケーションの選び方
 
@@ -67,7 +70,8 @@
 
 ## 発展課題（任意）
 
-- `value_lists` のパルス幅・立上り時間を変えて、回路の過渡応答がどう変わるか考えてください
-  （波形の確認はこのシリーズの hard で扱います）。
+- `value_lists` のパルス幅・立上り時間を変えて、回路の過渡応答がどう変わるか考えてください。
 - R の値を変えて、直列RLCの減衰（オーバーダンプ/アンダーダンプ）がどう変わるか予想してください
   （共振周波数 `f = 1/(2*pi*sqrt(L*C))`、減衰の目安 `R` と `2*sqrt(L/C)` の大小）。
+- 周波数ドメインでの特性（S パラメータ）を見たい場合は、このシリーズの
+  [hard](../../../2.hard/circuit/ex01_rlc_filter_sparams/README.md) に進んでください。

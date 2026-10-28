@@ -2,8 +2,8 @@
 
 [00_environment_setup.md](00_environment_setup.md)〜[14_post_processing.md](14_post_processing.md) は
 **PyAEDT**（`ansys.aedt.core`）を中心に扱うノートでした。このノートは、レイアウト・基板（ECAD）領域を
-扱う別パッケージ **PyEDB**（`pyedb`）に絞った基礎ノートです。番号を `11` として独立させているのは、
-PyAEDTの基本講義（`00`〜`04`）とは別トラックで、HFSS 3D Layout を使う人だけが読めばよい内容だからです
+扱う別パッケージ **PyEDB**（`pyedb`）に絞った基礎ノートです。番号を `31` として独立させているのは、
+PyAEDTの基本講義（`00`・`01`・`11`〜`14`）とは別トラックで、HFSS 3D Layout を使う人だけが読めばよい内容だからです
 （`exercise/0.easy/common_3d` などPyAEDT側だけの課題を進める人は読む必要がありません）。
 
 対応する演習は [exercise/0.easy/pyedb/ex01_edb_basics/](../exercise/0.easy/pyedb/ex01_edb_basics/)

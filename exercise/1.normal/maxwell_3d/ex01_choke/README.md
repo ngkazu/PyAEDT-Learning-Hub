@@ -16,7 +16,7 @@
 
 > この演習は「チョークシリーズ」の normal レベル。同じモデルにポスト処理を追加したものが
 > [2.hard/maxwell_3d/ex01_choke_lossreport/](../../../2.hard/maxwell_3d/ex01_choke_lossreport/)、さらにPyVista/CSV入出力を追加したものが
-> `3.expert/maxwell_3d/ex01_choke_postprocessing/` にある（準備中）。
+> [3.expert/maxwell_3d/ex01_choke_postprocessing/](../../../3.expert/maxwell_3d/ex01_choke_postprocessing/) にある。
 
 ## 学習目標
 
@@ -94,4 +94,4 @@
 
 - `"Number of Windings"` を `"3"` や `"4"` に変更し、巻線数を増やすとモデル・励振がどう変わるか確認してください。
 - 巻線に生じる損失やコア内の磁束密度分布を確認したい場合は、このシリーズのhard
-  （`2.hard/maxwell_3d/ex01_choke_lossreport/`、準備中）に進んでみてください。
+  （[2.hard/maxwell_3d/ex01_choke_lossreport/](../../../2.hard/maxwell_3d/ex01_choke_lossreport/)）に進んでみてください。

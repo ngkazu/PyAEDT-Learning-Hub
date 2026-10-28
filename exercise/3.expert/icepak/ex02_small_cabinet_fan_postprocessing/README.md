@@ -2,7 +2,7 @@
 
 **目安時間: 90分以上**
 
-題材: [2.hard/icepak/ex02_small_cabinet_fan_fieldplot/](../../2.hard/icepak/ex02_small_cabinet_fan_fieldplot/)
+題材: [2.hard/icepak/ex02_small_cabinet_fan_fieldplot/](../../../2.hard/icepak/ex02_small_cabinet_fan_fieldplot/)
 で作成した温度ポイントモニタ・温度フィールドプロットに、Python側の数値集計・CSV入出力・
 PyVista可視化を追加する。
 
@@ -26,7 +26,7 @@ PyVista可視化を追加する。
 
 `starter.py` の `# TODO` を埋めて、次の仕様を満たす解析を完成させてください。
 寸法・値はすべてmm単位（特記のあるものを除く）。手順2〜15は
-[2.hard/icepak/ex02_small_cabinet_fan_fieldplot/](../../2.hard/icepak/ex02_small_cabinet_fan_fieldplot/)
+[2.hard/icepak/ex02_small_cabinet_fan_fieldplot/](../../../2.hard/icepak/ex02_small_cabinet_fan_fieldplot/)
 と同じモデル・境界条件・Setupなので、そちらのREADMEも参照しながら進める
 （発熱量のみCSVから読み込んだ値を使う点が異なる）。
 

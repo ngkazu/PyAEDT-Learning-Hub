@@ -26,7 +26,7 @@
 
 `starter.py` の `# TODO` を埋めて、次の仕様を満たすスクリプトを完成させてください。
 
-1. [docs/app-selection.md](../../../docs/app-selection.md) から使いたいアプリケーションを選び、
+1. [docs/app-selection.md](../../../../docs/app-selection.md) から使いたいアプリケーションを選び、
    `starter.py` の import 文とアプリ生成部分を書き換える。
 2. `new_desktop=True`, `non_graphical=False` でアプリケーションを起動し、
    `modeler.model_units = "mm"` を設定する。

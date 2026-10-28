@@ -16,9 +16,9 @@
 > [0.easy/common_3d/ex19_create_region/](../../../0.easy/common_3d/ex19_create_region/) で練習できる。
 
 > この演習は「ヒートシンク熱解析シリーズ」の normal レベル。同じモデルにポスト処理を追加したものが
-> [2.hard/icepak/ex01_heatsink_fieldplot/](../../2.hard/icepak/ex01_heatsink_fieldplot/)、
+> [2.hard/icepak/ex01_heatsink_fieldplot/](../../../2.hard/icepak/ex01_heatsink_fieldplot/)、
 > さらにPyVista/CSV入出力を追加したものが
-> [3.expert/icepak/ex01_heatsink_postprocessing/](../../3.expert/icepak/ex01_heatsink_postprocessing/) にある。
+> [3.expert/icepak/ex01_heatsink_postprocessing/](../../../3.expert/icepak/ex01_heatsink_postprocessing/) にある。
 > 別の境界条件（`assign_solid_block()`、`assign_conducting_plate_with_thickness()`）や
 > native Fanコンポーネントを扱う演習は
 > [1.normal/icepak/ex02_small_cabinet_fan/](../ex02_small_cabinet_fan/)、
@@ -99,4 +99,4 @@
 - フィンの枚数（`FIN_COUNT`）やピッチ（`FIN_PITCH`）を変えて、ベース温度や排熱量がどう変化するか
   予想してみてください。
 - フィン表面・ベースの温度分布を確認したい場合は、このシリーズのhard
-  （`2.hard/icepak/ex01_heatsink_fieldplot/`、準備中）に進んでみてください。
+  （[2.hard/icepak/ex01_heatsink_fieldplot/](../../../2.hard/icepak/ex01_heatsink_fieldplot/)）に進んでみてください。

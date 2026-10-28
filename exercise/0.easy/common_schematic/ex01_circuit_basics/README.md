@@ -11,7 +11,7 @@
 ## アプリケーションの選び方
 
 この演習は回路図（schematic）を扱うアプリケーションで進める。
-[docs/app-selection.md](../../../docs/app-selection.md) の `common_schematic` 分類のうち、
+[docs/app-selection.md](../../../../docs/app-selection.md) の `common_schematic` 分類のうち、
 **Circuit** または **Twin Builder** を選ぶこと（どちらも `modeler.schematic` の
 部品作成API（`create_resistor` など）が共通で、同じコードで進められる）。
 `starter.py` 冒頭の import とアプリ生成部分を書き換えてから進めること。以降の説明では例として
@@ -30,7 +30,7 @@
 
 `starter.py` の `# TODO` を埋めて、次の仕様を満たすスクリプトを完成させてください。
 
-1. [docs/app-selection.md](../../../docs/app-selection.md) から Circuit または Twin Builder を選び、
+1. [docs/app-selection.md](../../../../docs/app-selection.md) から Circuit または Twin Builder を選び、
    `starter.py` の import 文とアプリ生成部分を書き換える。
 2. `new_desktop=True`, `non_graphical=False` でアプリケーションを起動する。
 3. 抵抗 `R1`（`100`）を `location=[0.02, 0.0]` に配置する（`sch.create_resistor`）。
