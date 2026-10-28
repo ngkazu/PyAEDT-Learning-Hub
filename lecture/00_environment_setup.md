@@ -1,7 +1,7 @@
 # PyAEDT 環境構築ガイド（自己学習版）
 
 PyAEDTを使い始める前に必要な環境構築を、実際の操作手順に沿って説明します。
-[11_pyaedt_lecture.md](11_pyaedt_lecture.md) / [12_pyaedt_self_study.md](12_pyaedt_self_study.md) で
+[11_pyaedt_lecture.md](11_pyaedt_lecture.md) / [12_pyaedt_basic.md](12_pyaedt_basic.md) で
 扱うコード例を実際に動かすための準備にあたる内容です。このプロジェクトにおける環境構築の正式な
 一次情報はこのノートです（`docs/`配下には環境構築専用のドキュメントは置いていません）。
 

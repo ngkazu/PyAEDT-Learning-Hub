@@ -1,6 +1,6 @@
 # PyAEDTの基本構造 深掘りノート（自己学習）
 
-[12_pyaedt_self_study.md](12_pyaedt_self_study.md) の「2. PyAEDTの基本構造」で触れた内容を、
+[12_pyaedt_basic.md](12_pyaedt_basic.md) の「2. PyAEDTの基本構造」で触れた内容を、
 さらに掘り下げて説明するノートです。`hfss.modeler` や `hfss.post` のようなサブオブジェクトが
 実際には何のクラスなのか、`hfss["x"] = "10mm"` が内部でどう扱われるのか、複数デザイン・
 複数プロジェクトをどう扱うのか、といった「中身」の部分を扱います。
@@ -40,7 +40,7 @@ PyAEDTのアプリオブジェクトは、この階層の各レベルに対応�
 | `hfss.oeditor` | 現在のDesignのEditor（3D Modelerなど） |
 
 この対応関係があるからこそ、[11_pyaedt_lecture.md](11_pyaedt_lecture.md)/
-[12_pyaedt_self_study.md](12_pyaedt_self_study.md) の第4節で説明した「橋渡し方式」
+[12_pyaedt_basic.md](12_pyaedt_basic.md) の第4節で説明した「橋渡し方式」
 （`hfss.oeditor.CreateBox(...)`）が成立します。
 
 ### 1.2 複数デザインの扱い
@@ -94,7 +94,7 @@ PyAEDTは内部的に、AEDTとの通信方式として**gRPC**という仕組�
 
 ### 2.1 設計変数とプロジェクト変数の違い
 
-[12_pyaedt_self_study.md](12_pyaedt_self_study.md) で見た `hfss["box_size"] = "10mm"` という書き方には、
+[12_pyaedt_basic.md](12_pyaedt_basic.md) で見た `hfss["box_size"] = "10mm"` という書き方には、
 実は2種類の変数スコープがあります。
 
 | 書き方 | スコープ | GUI上の呼び方 |
@@ -150,7 +150,7 @@ hfss.variable_manager.set_variable(
 
 ## 3. 各サブオブジェクトの内部構造
 
-[12_pyaedt_self_study.md](12_pyaedt_self_study.md) の2.3節で、「`modeler` / `materials` /
+[12_pyaedt_basic.md](12_pyaedt_basic.md) の2.3節で、「`modeler` / `materials` /
 `boundaries` / `create_setup` / `post` という共通構造はどのアプリでもほぼ共通している」と
 説明しました。ここでは、それぞれの裏側にある実際のクラスを見て、この「共通構造＋アプリ固有の拡張」が
 具体的にどうクラス設計として実現されているかを確認します。
