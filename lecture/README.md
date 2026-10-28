@@ -32,6 +32,9 @@
 lecture/
   README.md                このファイル
   00_environment_setup.md 環境構築ガイド（AEDTからのインストール・自分で仮想環境作成・VS Codeでの開発手順）
+  01_help_site_guide.md    Help サイト（aedt.docs.pyansys.com / edb.docs.pyansys.com）とGitHub
+                            リポジトリ（pyaedt / pyedb）の歩き方。API referenceの「アプリ別」
+                            「機能別」の2軸構成を§2.1と対応させて理解する。任意だが推奨）
   11_pyaedt_lecture.md    発表者用の講義ノート（台本風、スライドではない）
   12_pyaedt_self_study.md 自己学習用ノート（11と同内容を読み物として整形。講義不参加者・復習用）
   13_pyaedt_architecture.md 「PyAEDTの基本構造」深掘りノート（オブジェクト階層・接続モデル、変数システム、
@@ -49,6 +52,8 @@ lecture/
 ```
 
 環境構築がまだの人は先に [00_environment_setup.md](00_environment_setup.md) を読むこと。
+公式ドキュメントサイト・GitHubリポジトリの構成を先に把握しておきたい人は
+[01_help_site_guide.md](01_help_site_guide.md) も参考になる（任意）。
 
 `11_pyaedt_lecture.md` は発表中に「見ながら話す」ための簡潔な台本。その場でそのまま読み上げられるレベルまで詳細化した版は
 [docs/lecture-script-detail.md](../docs/lecture-script-detail.md) にある（同じ節構成・同じ時間配分）。

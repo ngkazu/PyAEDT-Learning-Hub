@@ -77,6 +77,8 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 - 公式ドキュメント: https://aedt.docs.pyansys.com/
 - 引数名・戻り値まで正確に知りたい場合は、ローカルのソース（`ansys.aedt.core` パッケージ本体）を
   直接読むのが最も確実（このプロジェクトの課題作成でも同じ方針を採っている）。
+- 公式ドキュメントサイトのAPI referenceが「アプリ別」「機能別」の2軸でどう分かれているか、
+  GitHubリポジトリのどこを見ればよいかは [01_help_site_guide.md](01_help_site_guide.md) にまとめてある。
 
 ---
 

@@ -299,4 +299,5 @@ print(edb.padstacks.create.__doc__)
 - ポート配置と解析実行まで進める: [exercise/1.normal/hfss_3d_layout/ex01_diff_pair/](../exercise/1.normal/hfss_3d_layout/ex01_diff_pair/)
   （差動ペア伝送線路、vertical gap port、セットアップ・解析実行）
 - PyAEDT本体（3D Modeler系）の基本構造に戻る場合は [13_pyaedt_architecture.md](13_pyaedt_architecture.md) を参照。
+- PyEDBのHelp サイト・GitHubリポジトリの歩き方は [01_help_site_guide.md](01_help_site_guide.md) §3・§4.2を参照。
 - 演習を再開する場合は [exercise/README.md](../exercise/README.md) に戻ってください。

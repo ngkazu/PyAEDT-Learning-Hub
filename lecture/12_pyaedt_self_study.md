@@ -137,7 +137,9 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
    対話的なPython環境（Pythonの対話シェル、Jupyter、VS Codeのデバッグコンソールなど）で
    そのまま使える方法です。
 2. 次に、公式ドキュメント（https://aedt.docs.pyansys.com/）も参照できますが、情報が古かったり
-   バージョン間の差異が反映しきれていなかったりすることもあります。
+   バージョン間の差異が反映しきれていなかったりすることもあります。公式ドキュメントのAPI
+   referenceが「アプリ別」「機能別」のどちらで調べるべきかで迷う場合は
+   [01_help_site_guide.md](01_help_site_guide.md) を参照してください。
 3. 一番確実なのは、PyAEDTパッケージ本体のソースコードを直接読むことです。`pip install` された
    場所をgrepすれば、引数名・デフォルト値・内部実装まですべて正確にわかります。
 
