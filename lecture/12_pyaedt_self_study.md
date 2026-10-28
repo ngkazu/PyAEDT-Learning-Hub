@@ -1,6 +1,6 @@
 # PyAEDT 導入講義 自己学習版
 
-[01_pyaedt_lecture.md](01_pyaedt_lecture.md)（発表者用の講義台本）と同じ5節構成・同じ内容を、
+[11_pyaedt_lecture.md](11_pyaedt_lecture.md)（発表者用の講義台本）と同じ5節構成・同じ内容を、
 **講義に参加できなかった人、あるいは講義の内容を後から自分のペースで読み返したい人**向けに
 書き直したものです。発表者の語りかけや「ここで画面を見せる」といった進行上の指示は取り除き、
 文章だけで完結するように説明を補っています。
@@ -124,7 +124,7 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 
 > それぞれのサブオブジェクトが実際にはどのクラスなのか（`Object3d`, `Material`, `BoundaryObject`,
 > `Setup`系, `PostProcessor`系）、複数デザイン・プロジェクト変数の扱いなど、もう一段深く知りたい場合は
-> [03_pyaedt_architecture.md](03_pyaedt_architecture.md) を参照してください。
+> [13_pyaedt_architecture.md](13_pyaedt_architecture.md) を参照してください。
 
 ### 2.4 APIの調べ方（推測しない）
 

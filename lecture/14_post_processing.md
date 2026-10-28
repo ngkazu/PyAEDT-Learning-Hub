@@ -253,4 +253,4 @@ expert演習に共通する型です。個別の演習ごとに違うのは、�
 - 個別の演習に戻って、ここで整理した概念が実際のコードでどう現れるか確認してみてください
   （[exercise/README.md](../exercise/README.md)）。
 - PyAEDTの基本構造（`modeler`/`materials`/`boundaries`/`post` の内部クラス階層）を
-  振り返りたい場合は [03_pyaedt_architecture.md](03_pyaedt_architecture.md) を参照してください。
+  振り返りたい場合は [13_pyaedt_architecture.md](13_pyaedt_architecture.md) を参照してください。

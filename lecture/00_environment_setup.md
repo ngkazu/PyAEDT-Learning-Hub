@@ -1,7 +1,7 @@
 # PyAEDT 環境構築ガイド（自己学習版）
 
 PyAEDTを使い始める前に必要な環境構築を、実際の操作手順に沿って説明します。
-[01_pyaedt_lecture.md](01_pyaedt_lecture.md) / [02_pyaedt_self_study.md](02_pyaedt_self_study.md) で
+[11_pyaedt_lecture.md](11_pyaedt_lecture.md) / [12_pyaedt_self_study.md](12_pyaedt_self_study.md) で
 扱うコード例を実際に動かすための準備にあたる内容です。このプロジェクトにおける環境構築の正式な
 一次情報はこのノートです（`docs/`配下には環境構築専用のドキュメントは置いていません）。
 
@@ -207,7 +207,7 @@ hfss.release_desktop(close_projects=True, close_desktop=True)
 - デバッグ実行: `F5`（または「実行とデバッグ」パネルから開始）。ブレークポイントを置いておけば、
   AEDTが起動した状態のまま、変数の中身（`hfss.modeler` の戻り値など）をその場で確認できる。
   PyAEDTは普通のCPythonで動くため、通常のPythonデバッガ（`debugpy`）がそのまま使える
-  （この点は[01_pyaedt_lecture.md](01_pyaedt_lecture.md)の1章・4章で触れた
+  （この点は[11_pyaedt_lecture.md](11_pyaedt_lecture.md)の1章・4章で触れた
   「内蔵スクリプトとの違い」そのものです）。
 
 ### 4.3 開発時の注意点
@@ -232,4 +232,4 @@ hfss.release_desktop(close_projects=True, close_desktop=True)
   作られている。
 
 どちらの方法でインストールしても、できあがる `ansys.aedt.core` パッケージ自体は同じものです。
-[01_pyaedt_lecture.md](01_pyaedt_lecture.md) 以降のコード例は、どちらの環境でも同じように動きます。
+[11_pyaedt_lecture.md](11_pyaedt_lecture.md) 以降のコード例は、どちらの環境でも同じように動きます。

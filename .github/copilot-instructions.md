@@ -85,7 +85,7 @@ normal/hard/expert は「シリーズ」構成（同じ `exNN_<slug>` が同一�
 課題（`exercise/`）の前に行う45分の講義資料を置く学習者向けフォルダ。
 `docs/`（方針・テンプレート）や `exercise/`（手を動かす課題）とは別の成果物として扱う。
 流れは「講義 → 課題（easyから）」。講義内容とeasy課題の内容が一部重複してもよい（復習として有益）。
-構成: `lecture/README.md`（構成・時間配分）、`lecture/01_pyaedt_lecture.md`（発表者用台本風の講義ノート）、
+構成: `lecture/README.md`（構成・時間配分）、`lecture/11_pyaedt_lecture.md`（発表者用台本風の講義ノート）、
 `lecture/demo/`（実行可能なデモ.pyスクリプト）。
 
 ## `skills/` フォルダについて（AIエージェント向け作業手順、任意）

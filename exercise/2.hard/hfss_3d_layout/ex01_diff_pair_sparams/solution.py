@@ -105,7 +105,7 @@ edb.modeler.create_rectangle(
 # 5. 両端に vertical gap ポート（各信号線の端に1つずつ、計4ポート）
 # ストリップライン端には via 不要の vertical gap port を使う
 # （wave port は coax 扱いになり via が必要になってメッシュ生成が失敗するため。詳細は
-# normal課題の README / lecture/11_pyedb_basic.md §6 を参照）。
+# normal課題の README / lecture/31_pyedb_basic.md §6 を参照）。
 edb.source_excitation.create_edge_port_vertical(
     prim_id=trace_p.id,
     point_on_edge=[0, GAP / 2],

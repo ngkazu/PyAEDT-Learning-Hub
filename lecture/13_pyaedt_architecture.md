@@ -1,6 +1,6 @@
 # PyAEDTの基本構造 深掘りノート（自己学習）
 
-[02_pyaedt_self_study.md](02_pyaedt_self_study.md) の「2. PyAEDTの基本構造」で触れた内容を、
+[12_pyaedt_self_study.md](12_pyaedt_self_study.md) の「2. PyAEDTの基本構造」で触れた内容を、
 さらに掘り下げて説明するノートです。`hfss.modeler` や `hfss.post` のようなサブオブジェクトが
 実際には何のクラスなのか、`hfss["x"] = "10mm"` が内部でどう扱われるのか、複数デザイン・
 複数プロジェクトをどう扱うのか、といった「中身」の部分を扱います。
@@ -39,8 +39,8 @@ PyAEDTのアプリオブジェクトは、この階層の各レベルに対応�
 | `hfss.odesign` | 現在のDesign（アプリオブジェクトが指しているデザイン） |
 | `hfss.oeditor` | 現在のDesignのEditor（3D Modelerなど） |
 
-この対応関係があるからこそ、[01_pyaedt_lecture.md](01_pyaedt_lecture.md)/
-[02_pyaedt_self_study.md](02_pyaedt_self_study.md) の第4節で説明した「橋渡し方式」
+この対応関係があるからこそ、[11_pyaedt_lecture.md](11_pyaedt_lecture.md)/
+[12_pyaedt_self_study.md](12_pyaedt_self_study.md) の第4節で説明した「橋渡し方式」
 （`hfss.oeditor.CreateBox(...)`）が成立します。
 
 ### 1.2 複数デザインの扱い
@@ -94,7 +94,7 @@ PyAEDTは内部的に、AEDTとの通信方式として**gRPC**という仕組�
 
 ### 2.1 設計変数とプロジェクト変数の違い
 
-[02_pyaedt_self_study.md](02_pyaedt_self_study.md) で見た `hfss["box_size"] = "10mm"` という書き方には、
+[12_pyaedt_self_study.md](12_pyaedt_self_study.md) で見た `hfss["box_size"] = "10mm"` という書き方には、
 実は2種類の変数スコープがあります。
 
 | 書き方 | スコープ | GUI上の呼び方 |
@@ -150,7 +150,7 @@ hfss.variable_manager.set_variable(
 
 ## 3. 各サブオブジェクトの内部構造
 
-[02_pyaedt_self_study.md](02_pyaedt_self_study.md) の2.3節で、「`modeler` / `materials` /
+[12_pyaedt_self_study.md](12_pyaedt_self_study.md) の2.3節で、「`modeler` / `materials` /
 `boundaries` / `create_setup` / `post` という共通構造はどのアプリでもほぼ共通している」と
 説明しました。ここでは、それぞれの裏側にある実際のクラスを見て、この「共通構造＋アプリ固有の拡張」が
 具体的にどうクラス設計として実現されているかを確認します。
@@ -314,11 +314,11 @@ HFSSに3通りもあるのは、PyAEDTの歴史的な経緯でAPIが複数追加
 Maxwell 3DとQ3Dで名前は似ていても中身が違う点にも注意してください。Maxwell 3Dの
 `add_eddy_current_sweep()` は「Sパラメータのような連続した周波数特性を得る」ものではなく、
 「もともと1点の周波数で解いているEddyCurrentソルバーに、もう1点だけ追加で解かせる」ための
-メソッドです（[04_post_processing.md](04_post_processing.md) で触れたTEAM7演習の50Hz追加が実例）。
+メソッドです（[14_post_processing.md](14_post_processing.md) で触れたTEAM7演習の50Hz追加が実例）。
 一方Q3Dの `create_linear_step_sweep()` は、HFSSの周波数スイープと同じ「連続した周波数範囲を
 解く」ためのものです。ただしQ3Dでは `sweep_type="Interpolating"` を指定すると内部的に
 `SaveFields` が常に`False`に強制される、という実装上の制約があり（
-[04_post_processing.md](04_post_processing.md) §3.2 参照）、hard/expertでマトリクスデータを
+[14_post_processing.md](14_post_processing.md) §3.2 参照）、hard/expertでマトリクスデータを
 周波数ごとに取得したい場合は `sweep_type="Discrete"` を使う必要があります。
 
 #### Sweepオブジェクトも `.props` 辞書を持つ

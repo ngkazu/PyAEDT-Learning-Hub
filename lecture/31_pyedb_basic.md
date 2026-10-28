@@ -1,6 +1,6 @@
 # PyEDBの基礎（スタックアップ・ネット・配線・ビア）
 
-[00_environment_setup.md](00_environment_setup.md)〜[04_post_processing.md](04_post_processing.md) は
+[00_environment_setup.md](00_environment_setup.md)〜[14_post_processing.md](14_post_processing.md) は
 **PyAEDT**（`ansys.aedt.core`）を中心に扱うノートでした。このノートは、レイアウト・基板（ECAD）領域を
 扱う別パッケージ **PyEDB**（`pyedb`）に絞った基礎ノートです。番号を `11` として独立させているのは、
 PyAEDTの基本講義（`00`〜`04`）とは別トラックで、HFSS 3D Layout を使う人だけが読めばよい内容だからです
@@ -273,7 +273,7 @@ edb.source_excitation.create_edge_port_vertical(
 
 PyEDBは `pyedb.grpc.database...` 以下に多数のクラスが定義されており、メソッド名が
 似通っていたり、引数名がバージョンによって変わったりすることがあります。
-[01_pyaedt_lecture.md](01_pyaedt_lecture.md) §2.4 と同様、推測せずその場で確認する習慣が重要です。
+[11_pyaedt_lecture.md](11_pyaedt_lecture.md) §2.4 と同様、推測せずその場で確認する習慣が重要です。
 
 ```python
 # そのオブジェクトが持つメソッド名を確認する
@@ -298,5 +298,5 @@ print(edb.padstacks.create.__doc__)
   （スタックアップ・ネット・トレース・ビアの作成。解析なし）
 - ポート配置と解析実行まで進める: [exercise/1.normal/hfss_3d_layout/ex01_diff_pair/](../exercise/1.normal/hfss_3d_layout/ex01_diff_pair/)
   （差動ペア伝送線路、vertical gap port、セットアップ・解析実行）
-- PyAEDT本体（3D Modeler系）の基本構造に戻る場合は [03_pyaedt_architecture.md](03_pyaedt_architecture.md) を参照。
+- PyAEDT本体（3D Modeler系）の基本構造に戻る場合は [13_pyaedt_architecture.md](13_pyaedt_architecture.md) を参照。
 - 演習を再開する場合は [exercise/README.md](../exercise/README.md) に戻ってください。

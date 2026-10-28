@@ -69,7 +69,7 @@ hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 （アプリ固有の機能は個別のメソッドとして追加されている）。
 
 > オブジェクト階層・接続モデル、変数システム、各サブオブジェクトの内部クラス構造をもう一段深く
-> 知りたい場合は [03_pyaedt_architecture.md](03_pyaedt_architecture.md) を参照（任意、時間があるときに）。
+> 知りたい場合は [13_pyaedt_architecture.md](13_pyaedt_architecture.md) を参照（任意、時間があるときに）。
 
 ### 2.4 APIの調べ方（推測しない）
 
@@ -187,4 +187,4 @@ oEditor.CreateBox(
 - 詰まったときの調べ方: `docs/app-selection.md`、公式ドキュメント（aedt.docs.pyansys.com）、
   `dir()`/`help()` によるその場での確認。
 - `exercise/` のhard/expertで出てくるポスト処理（Report/Field Plot/PyVista/CSV・matplotlib）を先に
-  概観しておきたい場合は [04_post_processing.md](04_post_processing.md) も参考になる（任意）。
+  概観しておきたい場合は [14_post_processing.md](14_post_processing.md) も参考になる（任意）。

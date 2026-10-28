@@ -1,10 +1,10 @@
 # PyAEDT 導入講義 詳細版（発表者読み上げ用）
 
-[lecture/01_pyaedt_lecture.md](../lecture/01_pyaedt_lecture.md) と同じ5節構成・同じ45分の時間配分に沿って、
-発表者がその場で読み上げられるレベルまで説明を詳細化したもの。箇条書きの台本（`01_pyaedt_lecture.md`）を
+[lecture/11_pyaedt_lecture.md](../lecture/11_pyaedt_lecture.md) と同じ5節構成・同じ45分の時間配分に沿って、
+発表者がその場で読み上げられるレベルまで説明を詳細化したもの。箇条書きの台本（`11_pyaedt_lecture.md`）を
 「見ながら話す」ためのメモだとすると、こちらは「そのまま声に出して読める」文章になっている。
 
-対象読者は発表者自身。学習者に配布する資料ではない（学習者向けの要約は `lecture/01_pyaedt_lecture.md` と
+対象読者は発表者自身。学習者に配布する資料ではない（学習者向けの要約は `lecture/11_pyaedt_lecture.md` と
 `lecture/README.md` を参照）。内容の正式な一次情報は
 [lecture/00_environment_setup.md](../lecture/00_environment_setup.md)・
 [docs/app-selection.md](app-selection.md) であり、本書はそれらを講義の流れに沿って肉付けしたもの。
@@ -138,7 +138,7 @@ Q3Dの`insert_reduced_matrix`のような）は、この共通構造の上に追
 かなり下がります。
 
 > オブジェクト階層・接続モデル、変数システム、各サブオブジェクトの内部クラス構造をもう一段深く
-> 知りたい場合は [lecture/03_pyaedt_architecture.md](../lecture/03_pyaedt_architecture.md) を参照（任意）。
+> 知りたい場合は [lecture/13_pyaedt_architecture.md](../lecture/13_pyaedt_architecture.md) を参照（任意）。
 
 ### 2.4 APIの調べ方（推測しない、という姿勢の共有）
 
@@ -396,6 +396,6 @@ GUIで既に作り込んだ複雑な形状を『取り急ぎ移植したい』�
 3. 公式ドキュメント（https://aedt.docs.pyansys.com/）。
 4. `dir(obj)` / `help(obj.method)` によるその場での確認（2.4節で説明した方法）。
 5. `exercise/` のhard/expertで出てくるポスト処理（Report/Field Plot/PyVista/CSV・matplotlib）を先に概観して
-   おきたい場合は [lecture/04_post_processing.md](../lecture/04_post_processing.md) も参考になります（任意）。
+   おきたい場合は [lecture/14_post_processing.md](../lecture/14_post_processing.md) も参考になります（任意）。
 
 「以上で講義パートは終わりです。ここから演習に移りましょう。」
