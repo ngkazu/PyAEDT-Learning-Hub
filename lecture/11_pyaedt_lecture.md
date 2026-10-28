@@ -40,18 +40,68 @@ from ansys.aedt.core import Hfss, Icepak, Maxwell3d, Q3d, Circuit
 
 ### 2.2 「アプリオブジェクト」を起点にすべてが決まる
 
-いずれのクラスも、インスタンス化した時点で AEDT を起動し、指定したプロジェクト/デザインに接続する。
+いずれのクラスも、インスタンス化した時点で AEDT を起動（または既存セッションへ接続）し、
+指定したプロジェクト/デザインに接続する。
 
 ```python
 hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 ```
 
+主な引数:
+
+- `project`: 開く/作るプロジェクトの名前、または `.aedt`/`.aedtz` のフルパス。省略（`None`）すると、
+  アクティブなプロジェクトがあればそれに繋がり、無ければ空のプロジェクトが新規作成される。
+- `design`: 開く/作るデザインの名前。省略するとアクティブなデザイン、無ければ空のデザインが
+  新規作成される。
+- `solution_type`: デザインに適用するソリューションタイプ（例: HFSSなら `"Modal"`/`"Terminal"`/
+  `"SBR+"`等）。省略するとアプリの既定値が使われる。
+- `setup`: ノミナルとして使うSetup名。省略すると現在アクティブなSetupが使われる。
 - `version`: 使用する AEDT のバージョン文字列（例: `"2026.1"`）。
-- `new_desktop`: `True` にすると新しいAEDTプロセスを起動する。既存セッションに繋ぐ場合は `False` にして
-  `port` や `aedt_process_id` を指定する方法もある（詳しくは `lecture/00_environment_setup.md` を参照）。
+- `new_desktop`: `True` にすると新しいAEDTプロセスを起動する。`False` にすると既存セッションに
+  接続する（起動方法は§2.2.1で詳述）。
 - `non_graphical`: `True` にすると画面を出さずバックグラウンドで動く（CI向け）。講義では `False` で画面を見せる。
+- `close_on_exit`: アプリオブジェクトを終了するときにAEDTも閉じるかどうか（既定は `False`）。
+- `student_version`: Studentライセンス版のAEDTを開くかどうか。
+- `machine` / `port` / `aedt_process_id`: 既存セッションへの接続先を指定する引数（§2.2.1）。
 
 以後の操作はすべて、この `hfss`（アプリオブジェクト）のプロパティ・メソッドとして提供される。
+
+#### 2.2.1 新規起動 と 既存セッションへの接続
+
+`new_desktop` の値によって、AEDTとの繋がり方が変わる。
+
+**(a) 新規に起動する場合（`new_desktop=True`）**
+
+```python
+hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
+```
+
+マシン上に新しいAEDTプロセスを起動し、そこに接続する。他に何も指定しなくてよい。
+
+**(b) 既に起動しているAEDTに接続する場合（`new_desktop=False`）**
+
+```python
+# port を指定する場合（gRPCサーバーのポート番号。AEDTのgRPCモードで起動した際のポート）
+hfss = Hfss(version="2026.1", new_desktop=False, port=50051)
+
+# aedt_process_id を指定する場合（OS上のプロセスID）
+hfss = Hfss(version="2026.1", new_desktop=False, aedt_process_id=12345)
+```
+
+> **重要**: `new_desktop=False` で既存セッションに繋ぐ場合、`port` か `aedt_process_id` の
+> **どちらか1つを指定しないと、どのAEDTプロセスに繋ぐべきか特定できない**。何も指定しなければ
+> 「アクティブなプロジェクトがあればそれに繋がる」という挙動にフォールバックするが、AEDTプロセスが
+> 複数走っている環境では意図しないプロセスに繋がる可能性があるため、`port`/`aedt_process_id`の
+> 明示を推奨する。
+>
+> - `port`: gRPC通信のポート番号。`ansysedt.exe -grpcsrv <ポート番号>` で起動したサーバーに対して
+>   有効（AEDT 2022 R2以降）。
+> - `aedt_process_id`: OS上のAEDTプロセスID（PID）。`new_desktop=False` のときだけ使われる。
+>
+> 両者は同じAEDTプロセスを指す別の指定方法であり、どちらか一方だけで足りる。ポート番号は
+> 起動時に `-grpcsrv` オプションで指定した値、プロセスIDはタスクマネージャー等で確認できる値。
+
+既存セッションへの接続パターンの詳細は `lecture/00_environment_setup.md` §3.6も参照。
 
 ### 2.3 主なサブオブジェクト
 

@@ -209,12 +209,23 @@ from ansys.aedt.core import Hfss
 # 新規起動
 hfss = Hfss(version="2026.1", new_desktop=True, non_graphical=False)
 
-# 既存のAEDTセッションに接続する場合
-hfss = Hfss(version="2026.1", new_desktop=False, non_graphical=False)
+# 既存のAEDTセッションに接続する場合（port または aedt_process_id のどちらかを指定する）
+hfss = Hfss(version="2026.1", new_desktop=False, port=50051)
+# または
+hfss = Hfss(version="2026.1", new_desktop=False, aedt_process_id=12345)
 
 # 終了（必ず呼ぶこと）
 hfss.release_desktop(close_projects=True, close_desktop=True)
 ```
+
+既存セッションに接続する場合、`port`（AEDTがgRPC通信に使っているポート番号。
+`ansysedt.exe -grpcsrv <ポート番号>` で起動した場合に有効）か `aedt_process_id`（OS上の
+AEDTプロセスID）のどちらかを指定しないと、どのAEDTプロセスに繋ぐべきか特定できない。
+両方とも省略した場合は「現在アクティブなプロジェクトがあればそこに接続する」挙動に
+フォールバックするため、AEDTプロセスが複数起動している環境では意図しない接続になりうる
+（引数の詳しい意味は [11_pyaedt_lecture.md](11_pyaedt_lecture.md) §2.2・
+[12_pyaedt_basic.md](12_pyaedt_basic.md) §2.2.1を参照）。
+
 
 ---
 
